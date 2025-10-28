@@ -2,13 +2,13 @@
 # Group name: Git Happens
 This a repository which contains the CIS 1702 CW2 group project work
 
-# We are a team of 4 programmers:
-Isaac Ritchie 
-Calieb Cook 
-William Ellison 
-Corey Mairs
-Daniel Hassett
-Benjamin Elliot
+# We are a team of 6 programmers:
+Isaac Ritchie,
+Calieb Cook,
+William Ellison, 
+Corey Mairs,
+Daniel Hassett,
+Benjamin Elliot.
 
 # We have choses to develop Project Brief 2 (API Data Analyser & Reporter)
 # Project Brief:
