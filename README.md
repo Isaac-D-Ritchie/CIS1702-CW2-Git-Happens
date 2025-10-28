@@ -7,6 +7,8 @@ Isaac Ritchie
 Calieb Cook 
 William Ellison 
 Corey Mairs
+Daniel Hassett
+Benjamin Elliot
 
 # We have choses to develop Project Brief 2 (API Data Analyser & Reporter)
 # Project Brief:
