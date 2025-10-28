@@ -10,7 +10,7 @@ Corey Mairs,
 Daniel Hassett,
 Benjamin Elliot.
 
-# We have choses to develop Project Brief 2 (API Data Analyser & Reporter)
+# We have chosen to develop Project Brief 2 (API Data Analyser & Reporter)
 # Project Brief:
 
 ● Project Goal: Develop a command-line tool that fetches data from a public API, performs a simple analysis, and generates a report file.
