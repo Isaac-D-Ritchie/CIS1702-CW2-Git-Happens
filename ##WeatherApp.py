@@ -1,5 +1,5 @@
 #WeatherApp
-# API KEY = 247BUSAAULFLBGWM7NVZ49M4B
+#API KEY = 247BUSAAULFLBGWM7NVZ49M4B
 #VISUAL CROSSING WEATHER API
 import requests
 import csv
@@ -15,8 +15,10 @@ def main():
         user_choice = user_choice.lower()
         if user_date == "":
             user_date == None #Allows user_date to be passed into the function even with no value
+        if user_date != "":
+            user_date = user_date + "/" #Adds a slash for the API link, slash isnt needed if date isn't input
         if user_choice == "y":
-            location_data = requests.get(f'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{user_location}/{user_date}/?key={api_key}')
+            location_data = requests.get(f'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{user_location}/{user_date}?key={api_key}')
             weather_values(location_data,user_location,user_date)
                 
 def farenheit_to_celcius(farenheit): #Visual Crossing API provides farenheit values
@@ -24,35 +26,39 @@ def farenheit_to_celcius(farenheit): #Visual Crossing API provides farenheit val
     return celcius
     
 def weather_values(location_data,user_location,user_date):
-    Tempcurrent = farenheit_to_celcius(location_data.json()['days'][0]['temp']) #Parsing data from the API
-    Tempmax = farenheit_to_celcius(location_data.json()['days'][0]['tempmax'])
-    Tempmin = farenheit_to_celcius(location_data.json()['days'][0]['tempmin'])
-    if user_date is "":
+    temp_current = farenheit_to_celcius(location_data.json()['days'][0]['temp']) #Parsing data from the API
+    temp_max = farenheit_to_celcius(location_data.json()['days'][0]['tempmax'])
+    temp_min = farenheit_to_celcius(location_data.json()['days'][0]['tempmin'])
+    if user_date == "":
         weather_desc = location_data.json()['description'] #Description can only be retrieved for the current weather? API Issue
     print(f"=========={user_location}=={user_date}==========")
     try:
         print(weather_desc)#Only prints weather description when available
     except:
         print("No available description")
-    print(f"Maximum temperature is {Tempmax:.2f} C")
-    print(f"Minimum temperature is {Tempmin:.2f} C")
-    print(f"Current temperature is {Tempcurrent:.2f} C")
+    print(f"Maximum temperature is {temp_max:.2f} C")
+    print(f"Minimum temperature is {temp_min:.2f} C")
+    if user_date == "":
+        print(f"Current temperature is {temp_current:.2f} C") #API uses 'temp' as average temp on future dates, if user wants the current date they get the current temp
+    else:
+        print(f"Average temperature is {temp_current:.2f} C")
     print("===============================")
-    data_array = {f"Location":user_location,
+    data_array = {f"Location":user_location, #Parsing API data into a dictionary to be converted to a CSV
                   "Date":user_date,
-                  "Maximum Temperature":Tempmax,
-                  "Minimum Temperature":Tempmin,
-                  "Current Temperature":Tempcurrent
+                  "Maximum Temperature":temp_max,
+                  "Minimum Temperature":temp_min,
+                  "Current Temperature":temp_current
                   }
     fieldnames = ["Location","Date","Maximum Temperature","Minimum Temperature","Current Temperature"] #Keys from the dict to be plotted into csv
-    user_choice = int(input("1) Save Report\n 2) Change Date\n 3) Change Location")) #2,3 WIP
+    user_choice = int(input("1) Save Report\n 2) Exit"))
 
     if user_choice == 1:
         save_report(user_date,fieldnames,data_array)
-
+    
 
 
 def save_report(user_date,fieldnames,data_array): #Saves report to a csv
+    user_date = user_date.replace("/","")
     with open(f"WeatherReport-{user_date}.csv","w", newline='') as f:
         writer = csv.DictWriter(f,fieldnames = fieldnames)
         writer.writeheader()
