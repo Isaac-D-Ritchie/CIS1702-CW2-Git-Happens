@@ -58,7 +58,7 @@ def weather_values(location_data,user_location,user_date):
 
 
 def save_report(user_date,fieldnames,data_array): #Saves report to a csv
-    user_date = user_date.replace("/","")
+    user_date = user_date.replace("/","") # Removes the slash from user date used by the API link as it conflicts with file names
     with open(f"WeatherReport-{user_date}.csv","w", newline='') as f:
         writer = csv.DictWriter(f,fieldnames = fieldnames)
         writer.writeheader()
