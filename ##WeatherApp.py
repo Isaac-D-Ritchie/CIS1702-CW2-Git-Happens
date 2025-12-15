@@ -18,9 +18,14 @@ def main():
         if user_date != "":
             user_date = user_date + "/" #Adds a slash for the API link, slash isnt needed if date isn't input
         if user_choice == "y":
-            location_data = requests.get(f'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{user_location}/{user_date}?key={api_key}')
+            location_data = load_location_data(user_location,user_date,api_key)
             weather_values(location_data,user_location,user_date)
-                
+
+def load_location_data(user_location,user_date,api_key):
+    location_data = requests.get(f'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{user_location}/{user_date}?key={api_key}')
+    return location_data
+
+
 def farenheit_to_celcius(farenheit): #Visual Crossing API provides farenheit values
     celcius = (farenheit - 32) / 1.8
     return celcius
@@ -50,12 +55,13 @@ def weather_values(location_data,user_location,user_date):
                   "Current Temperature":temp_current
                   }
     fieldnames = ["Location","Date","Maximum Temperature","Minimum Temperature","Current Temperature"] #Keys from the dict to be plotted into csv
-    user_choice = int(input("1) Save Report\n 2) Exit"))
+    user_choice = int(input("1) Save Report\n2)In-depth report\n 3) Exit"))
 
     if user_choice == 1:
         save_report(user_date,fieldnames,data_array)
+    elif user_choice == 2:
+        weather_per_hour(location_data)
     
-
 
 def save_report(user_date,fieldnames,data_array): #Saves report to a csv
     user_date = user_date.replace("/","") # Removes the slash from user date used by the API link as it conflicts with file names
@@ -63,5 +69,14 @@ def save_report(user_date,fieldnames,data_array): #Saves report to a csv
         writer = csv.DictWriter(f,fieldnames = fieldnames)
         writer.writeheader()
         writer.writerow(data_array)
+
+
+def weather_per_hour(location_data): #Function which provides the temperature by hour for the selected date
+    for i in range(24):
+        print (location_data.json()['days'][0]['hours'][0+i]["datetime"])
+        print (location_data.json()['days'][0]['hours'][0+i]["temp"])
+
+
+
 
 main()
