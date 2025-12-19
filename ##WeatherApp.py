@@ -1,10 +1,44 @@
-#WeatherApp
-#API KEY = 247BUSAAULFLBGWM7NVZ49M4B
-#VISUAL CROSSING WEATHER API
+"""
+WeatherApp
+API KEY = 247BUSAAULFLBGWM7NVZ49M4B
+VISUAL CROSSING WEATHER API
+"""
+
+
+
+"""Imports"""
 import requests
 import csv
 api_key = '247BUSAAULFLBGWM7NVZ49M4B'
 
+
+
+
+"""UI code"""
+
+#Function for weather report output menu
+def ui_report_menu(location, date, temp, weather_description):
+    display_width = 6 + max(len(location), len(date), len(temp), len(weather_description))
+    ui_text_list = ["Weather Report:", "Location:", "Date:", "Temp:"]
+    menu_gap = ("|" + (" " * display_width) + "|")
+    while True:
+        print("+" + ("-" * display_width) + "+")
+        print(menu_gap)
+        print(f"|{ui_text_list[0].center(display_width)}|")
+        print(menu_gap)
+        print(f"|{location.center(display_width)}|")
+        print(f"|{date.center(display_width)}|")
+        print(f"|{temp.center(display_width)}|")
+        print(menu_gap)
+        print(f"|{weather_description.center(display_width)}|")
+        print(menu_gap)
+        print("+" + ("-" * display_width) + "+")
+        break
+
+
+
+
+"""Main code"""
 
 def main():
     while True:
@@ -20,6 +54,11 @@ def main():
         if user_choice == "y":
             location_data = load_location_data(user_location,user_date,api_key)
             weather_values(location_data,user_location,user_date)
+
+
+
+
+"""API code"""
 
 def load_location_data(user_location,user_date,api_key):
     location_data = requests.get(f'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{user_location}/{user_date}?key={api_key}')
@@ -78,5 +117,7 @@ def weather_per_hour(location_data): #Function which provides the temperature by
 
 
 
+#main()
 
-main()
+
+ui_report_menu("liverpool", "2025-12-12", "36.2 C", "weather is nice and clear")
