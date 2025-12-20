@@ -35,3 +35,8 @@ api_info = API information
         PRINT new line then "+" + "-" x display_width + "+"
     RETURN
 END
+
+19/12/2025
+Update Node: Implimented and pushed functinal code for menu output in a seperate UI Staging branch.
+Further Development Note: Convert current API functions to return data, not just print within the function.
+
