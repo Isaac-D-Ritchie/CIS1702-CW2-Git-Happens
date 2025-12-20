@@ -40,3 +40,7 @@ END
 Update Node: Implimented and pushed functinal code for menu output in a seperate UI Staging branch.
 Further Development Note: Convert current API functions to return data, not just print within the function.
 
+20/12/2025
+Update Note: Created new branch for changing code comments and adding more data returns to the functions.
+Further Development Note: Implement further UI for imputing data and outputting in the same format/menu area.
+
