@@ -1,11 +1,21 @@
-#WeatherApp
-#API KEY = 247BUSAAULFLBGWM7NVZ49M4B
-#VISUAL CROSSING WEATHER API
+"""
+WeatherApp
+API KEY = 247BUSAAULFLBGWM7NVZ49M4B
+VISUAL CROSSING WEATHER API
+"""
+
+
+
+"""Imports"""
 import requests
 import csv
 api_key = '247BUSAAULFLBGWM7NVZ49M4B'
 
 
+
+
+"""Main Code"""
+#Function for main code
 def main():
     while True:
         print("=== Weather Data ===\n")
@@ -19,21 +29,30 @@ def main():
             user_date = user_date + "/" #Adds a slash for the API link, slash isnt needed if date isn't input
         if user_choice == "y":
             location_data = load_location_data(user_location,user_date,api_key)
-            weather_values(location_data,user_location,user_date)
+            weather_data_array = weather_values(location_data,user_location,user_date)
 
+
+
+
+"""API Code"""
+#Function to parse data from API for entered location
 def load_location_data(user_location,user_date,api_key):
     location_data = requests.get(f'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{user_location}/{user_date}?key={api_key}')
     return location_data
 
 
-def farenheit_to_celcius(farenheit): #Visual Crossing API provides farenheit values
+#Functon for farenheight to celcius because visual Crossing API uses farenheit
+def farenheit_to_celcius(farenheit):
     celcius = (farenheit - 32) / 1.8
     return celcius
     
-def weather_values(location_data,user_location,user_date):
-    temp_current = farenheit_to_celcius(location_data.json()['days'][0]['temp']) #Parsing data from the API
+
+#Function for printing weather results and returning weather values
+def weather_values(location_data, user_location, user_date):
+    temp_current = farenheit_to_celcius(location_data.json()['days'][0]['temp'])
     temp_max = farenheit_to_celcius(location_data.json()['days'][0]['tempmax'])
     temp_min = farenheit_to_celcius(location_data.json()['days'][0]['tempmin'])
+
     if user_date == "":
         weather_desc = location_data.json()['description'] #Description can only be retrieved for the current weather? API Issue
     print(f"=========={user_location}=={user_date}==========")
@@ -57,13 +76,16 @@ def weather_values(location_data,user_location,user_date):
     fieldnames = ["Location","Date","Maximum Temperature","Minimum Temperature","Current Temperature"] #Keys from the dict to be plotted into csv
     user_choice = int(input("1) Save Report\n2)In-depth report\n 3) Exit"))
 
-    if user_choice == 1:
+    if user_choice == 1: #Choice for saving to CSV
         save_report(user_date,fieldnames,data_array)
     elif user_choice == 2:
         weather_per_hour(location_data)
+
+    return data_array
     
 
-def save_report(user_date,fieldnames,data_array): #Saves report to a csv
+#Function to save report file (.CSV)
+def save_report(user_date,fieldnames,data_array):
     user_date = user_date.replace("/","") # Removes the slash from user date used by the API link as it conflicts with file names
     with open(f"WeatherReport-{user_date}.csv","w", newline='') as f:
         writer = csv.DictWriter(f,fieldnames = fieldnames)
@@ -71,12 +93,13 @@ def save_report(user_date,fieldnames,data_array): #Saves report to a csv
         writer.writerow(data_array)
 
 
-def weather_per_hour(location_data): #Function which provides the temperature by hour for the selected date
+#Function for temp by hour
+def weather_per_hour(location_data):
     for i in range(24):
         print (location_data.json()['days'][0]['hours'][0+i]["datetime"])
         print (location_data.json()['days'][0]['hours'][0+i]["temp"])
 
 
 
-
+"""Starts Program"""
 main()
