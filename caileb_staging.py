@@ -49,7 +49,7 @@ class TimeBreak:
         self.year = str(now.year)
         self.month = str(now.month)
         self.day = str(now.day)
-        self.houw = str(now.hour)
+        self.hour = str(now.hour)
         self.minute = str(now.minute)
 
         self.reporting_date = f"{self.day}/{self.month}" # in terminal reporting
