@@ -40,13 +40,30 @@ class WeatherAPIHandler:
         except Exception as e: #Recursive step given failed connection
             print(f"Error: {e}\nAttempt {index+1} failed, Trying next option...")
             return self.connect(index+1) #AND LOG with Error!
+'''#! TB = Testing TimeBreak
+class TimeBreak:
+    def __init__(self):
+        now = dt.datetime.now()
 
+        #broken up time
+        self.year = str(now.year)
+        self.month = str(now.month)
+        self.day = str(now.day)
+        self.houw = str(now.hour)
+        self.minute = str(now.minute)
+
+        self.reporting_date = f"{self.day}/{self.month}" # in terminal reporting
+        self.filestamp = f"|{self.day}/{self.month}/{self.year} - {self.hour}:{self.minute}|" # For new entry appended to Reporting file
+        
+Saves Splitting Strings will fix soon
+'''
 # MENU FUNCTIONS
 
 def one_daydata():
     """One Day Data for One City and Offers Report Type"""
     city = input("Enter City name: ")
     handler = WeatherAPIHandler(city, "metric")
+    time = TimeBreak() Needs testing and implemented first #! TB
     data = handler.connect()
 
     if not data:
@@ -72,8 +89,8 @@ def one_daydata():
         
         avg_temp = sum(temps) / len(temps) # simple mean
         most_common_weather = statistics.mode(conditions) #most common weather type in day
-
-        print(f"\n--- Summary for {city.title()} ---")
+#! TB
+        print(f"\n--- Summary for {city.title()} on the date: {time.reporting_date} ---")
         print(f"Average Temp: {avg_temp:.1f}°C")
         print(f"High/Low:     {max(temps)}°C / {min(temps)}°C")
         print(f"Main Weather: {most_common_weather}")
@@ -83,7 +100,8 @@ def one_daydata():
         print(f"Rain Chance:  [{stars:<20}] {rain_chance:.1f}%")
 
     elif choice == "2":
-        # In-Depth reporting
+#! TB      In-Depth reporting 
+        print(f"Detailed Forecast for {city.title()} on the date: {time.reporting_date}
         print(f"\n{'Time':<12} | {'Temp':<8} | {'Weather':<12} | {'Wind':<8} | {'Humidity'}")
         print("-" * 60)
         for hour in next_24h:
