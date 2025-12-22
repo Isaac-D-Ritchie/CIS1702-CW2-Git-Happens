@@ -40,7 +40,7 @@ class WeatherAPIHandler:
         except Exception as e: #Recursive step given failed connection
             print(f"Error: {e}\nAttempt {index+1} failed, Trying next option...")
             return self.connect(index+1) #AND LOG with Error!
-'''#! TB = Testing TimeBreak
+#! TB = Testing TimeBreak
 class TimeBreak:
     def __init__(self):
         now = dt.datetime.now()
@@ -55,8 +55,7 @@ class TimeBreak:
         self.reporting_date = f"{self.day}/{self.month}" # in terminal reporting
         self.filestamp = f"|{self.day}/{self.month}/{self.year} - {self.hour}:{self.minute}|" # For new entry appended to Reporting file
         
-Saves Splitting Strings will fix soon
-'''
+
 # MENU FUNCTIONS
 
 def one_daydata():
