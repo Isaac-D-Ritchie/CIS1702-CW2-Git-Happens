@@ -3,8 +3,9 @@ WeatherApp
 API KEY = 247BUSAAULFLBGWM7NVZ49M4B
 VISUAL CROSSING WEATHER API
 """
-
-
+#TO-DO
+#1) Account for edge-cases
+#2) Allow user to input a date range to gather data between
 
 """Imports"""
 import requests
@@ -29,8 +30,9 @@ def main():
             user_date = user_date + "/" #Adds a slash for the API link, slash isnt needed if date isn't input
         if user_choice == "y":
             location_data = load_location_data(user_location,user_date,api_key)
-            weather_data_array = weather_values(location_data,user_location,user_date)
-
+            weather_data = weather_values(location_data,user_date)
+            print_values(location_data,user_location,user_date,weather_data[0],weather_data[1],weather_data[2],weather_data[3]) 
+            #Calls print_value func using the user choices and the 'weather_data' list returned from 'weather_values' func
 
 
 
@@ -48,40 +50,47 @@ def farenheit_to_celcius(farenheit):
     
 
 #Function for printing weather results and returning weather values
-def weather_values(location_data, user_location, user_date):
+"""Data Gathering"""
+def weather_values(location_data, user_date):
     temp_current = farenheit_to_celcius(location_data.json()['days'][0]['temp'])
     temp_max = farenheit_to_celcius(location_data.json()['days'][0]['tempmax'])
     temp_min = farenheit_to_celcius(location_data.json()['days'][0]['tempmin'])
 
     if user_date == "":
         weather_desc = location_data.json()['description'] #Description can only be retrieved for the current weather? API Issue
-    print(f"=========={user_location}=={user_date}==========")
-    try:
-        print(weather_desc)#Only prints weather description when available
-    except:
-        print("No available description")
-    print(f"Maximum temperature is {temp_max:.2f} C")
-    print(f"Minimum temperature is {temp_min:.2f} C")
-    if user_date == "":
-        print(f"Current temperature is {temp_current:.2f} C") #API uses 'temp' as average temp on future dates, if user wants the current date they get the current temp
     else:
-        print(f"Average temperature is {temp_current:.2f} C")
-    print("===============================")
-    data_array = {f"Location":user_location, #Parsing API data into a dictionary to be converted to a CSV
-                  "Date":user_date,
-                  "Maximum Temperature":temp_max,
-                  "Minimum Temperature":temp_min,
-                  "Current Temperature":temp_current
-                  }
-    fieldnames = ["Location","Date","Maximum Temperature","Minimum Temperature","Current Temperature"] #Keys from the dict to be plotted into csv
-    user_choice = int(input("1) Save Report\n2)In-depth report\n 3) Exit"))
+        weather_desc = None
+    return(temp_current,temp_max,temp_min,weather_desc)
 
-    if user_choice == 1: #Choice for saving to CSV
-        save_report(user_date,fieldnames,data_array)
-    elif user_choice == 2:
-        weather_per_hour(location_data)
+"""UI"""
+def print_values(location_data,user_location,user_date,temp_current,temp_max,temp_min,weather_desc):
+        print(f"=========={user_location}=={user_date}==========")
+        try:
+            print(weather_desc)#Only prints weather description when available
+        except:
+            print("No available description")
+        print(f"Maximum temperature is {temp_max:.2f} C")
+        print(f"Minimum temperature is {temp_min:.2f} C")
+        if user_date == "":
+            print(f"Current temperature is {temp_current:.2f} C") #API uses 'temp' as average temp on future dates, if user wants the current date they get the current temp
+        else:
+            print(f"Average temperature is {temp_current:.2f} C")
+        print("===============================")
+        csv_dict = {f"Location":user_location, #Parsing API data into a dictionary to be converted to a CSV
+                    "Date":user_date,
+                    "Maximum Temperature":temp_max,
+                    "Minimum Temperature":temp_min,
+                    "Current Temperature":temp_current
+                    }
+        fieldnames = ["Location","Date","Maximum Temperature","Minimum Temperature","Current Temperature"] #Keys from the dict to be plotted into csv
+        user_choice = int(input("1) Save Report\n2)In-depth report\n 3) Exit"))
 
-    return data_array
+        if user_choice == 1: #Choice for saving to CSV
+            save_report(user_date,fieldnames,csv_dict)
+        elif user_choice == 2:
+            weather_per_hour(location_data)
+
+        return csv_dict
     
 
 #Function to save report file (.CSV)
