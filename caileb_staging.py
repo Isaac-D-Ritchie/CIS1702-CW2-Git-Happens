@@ -3,7 +3,7 @@ from datetime import timedelta
 import json
 import urllib.request
 import statistics 
-
+#create log class
 #Class to handle API Connections, Retrievals and ULL Requests
 class WeatherAPIHandler:
     def __init__(self, city, units):
@@ -62,6 +62,7 @@ class TimeBreak:
                 next_date = self.now + timedelta(days=i)
                 date_list.append(next_date.strftime("%d/%m"))
             return date_list
+#maybe create class on reports, types of report and depending on which function calls report too if feasable
  
 
         
@@ -189,6 +190,15 @@ def weather_menu():
                 print("Invalid input. Try again.")#LOG
         except Exception as e:
             print(e,"Silly guy!")#LOG
+
+#SAVE REPORT DATA
+def save_data(printreport):
+    filetype = input("Please Enter Filetype you wish to save to ('txt','csv','json')")
+    try:
+        #with open f"report.{filetype} 'append' as updatereport
+        #updatereport.append("\n",printreport)
+    except:
+        #print exceptions and log them also
 #MAIN
 def main():
     weather_menu()
