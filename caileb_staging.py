@@ -52,18 +52,18 @@ class TimeBreak:
         self.day = str(now.day)
         self.hour = str(now.hour)
         self.minute = str(now.minute)
-        
-        '''def nextday(index):
-            if index > 0:
-                self.day = self.day + timedelta(days=index)
-                return self.day, nextday(index-1)
-            else:
-                None
-        !!NEEDS WORK
-        '''    
 
         self.reporting_date = f"{self.day}/{self.month}" # in terminal reporting
         self.filestamp = f"|{self.day}/{self.month}/{self.year} - {self.hour}:{self.minute}|" # For new entry appended to Reporting file
+
+        def nextday(self, index): # Recursive function to return list of dates to use for fetching data from API
+            date_list = []
+            for i in range(index + 1):
+                next_date = self.now + timedelta(days=i)
+                date_list.append(next_date.strftime("%d/%m"))
+            return date_list
+                
+
         
 def backout():
     print("Backing Out...\n",("="*25),("\n"*5))
