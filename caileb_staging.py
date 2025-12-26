@@ -62,7 +62,7 @@ class TimeBreak:
                 next_date = self.now + timedelta(days=i)
                 date_list.append(next_date.strftime("%d/%m"))
             return date_list
-                
+ 
 
         
 def backout():
@@ -70,7 +70,7 @@ def backout():
     #LOG
 # MENU FUNCTIONS
 
-def one_daydata():
+def one_day_data():
     """One Day Data for One City and Offers Report Type"""
     try:
         city = input("Enter City name: ")
@@ -153,6 +153,20 @@ def one_daydata():
 
     elif choice == "3":
         return backout()
+def week_data():
+    city = input("CITY NAME:")
+    whichweek = input("Which Week's Data\n1. Last 7 Days\n2. Next 7 Days")
+    if whichweek == "1":
+        whichweek = int(-7)
+    elif whichweek == "2":
+        whichweek = int(7)
+    #call timebreak with whichweek to find list_dates
+    #fetch json data from api using city and list_dates
+    #input for type of report (simple/indepth)
+    #write "functions" to generate both simple and indepth reporting
+    #simple includes "Hottest day", "Sunniest Day", "Coldest Day", "Wettest Day", "Windiest Day"
+    #"Highs and Lows", "Averages of each day"
+    #in-depth returns a table of Averages for each day, highs and lows of each day, (Similar to one day data)
 
 #MAIN MENU
 def weather_menu():
@@ -165,7 +179,7 @@ def weather_menu():
             userinput = input("\nPlease enter choice: ")
             
             if userinput == "1":
-                one_daydata()
+                one_day_data()
             #elif userinput ==  "2":
                 #week_data() BUILD MODULE
             elif userinput == "2":
