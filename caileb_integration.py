@@ -7,35 +7,42 @@ Data Flow:
 Weather API -> Data Analysis -> Reporting
 
 
-
 Program Structure:
 
 Imported Modules
 Classes
 Background Functions
+Reporting Functions
 Front-end Functions
 Main Function
-
-
-TO DOS:
-
-Assist with TimeBreak esque Class or not
-Look at Menu Functions
-Look at Basic and Detailed Reporting in Terminal
 """
 
 """IMPORTED MODULES"""
 import requests
 import json
-
+from datetime import datetime
 import csv
+import statistics
 
 """CLASSES"""
+class TimeBreak:
+    """Handles report timestamps and formatting"""
+    def __init__(self, user_date=None):
+        #!! Log: TimeBreak initialized
+        #if user_date is None then it is formatted to Todays date
+        if not user_date:
+            self.reporting_date = datetime.now().strftime("%d/%m/%Y")
+        else:
+            self.reporting_date = user_date
+
 class APIHandler:
+    """Handles API Communication"""
     def __init__(self, user_location, user_date):
-        #assigning variables to instance 
+        #!! Log: APIHandler initialized
+        #assigning variables to instance 'self'
         self.user_location = user_location
         self.user_date = user_date if user_date else ""
+
         #API Basic info
         self.api_data = ('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',['247BUSAAULFLBGWM7NVZ49M4B','BACKUPAPIKEY'])
         
@@ -46,7 +53,10 @@ class APIHandler:
             print("CRITICAL ERROR: All API Connections Failed.\n Exiting...") #!! LOG
             return None
         
-        full_url = f'{url}{self.user_location}/{self.user_date}?key={key[index]}'
+        #date is handled here rather than in main
+        date_path = f"/{self.user_date}" if self.user_date else ""
+
+        full_url = f'{url}{self.user_location}{date_path}?key={key[index]}'
 
         if index == 0:
             print(f"Attempt {index + 1}: Connecting to {url} (Primary Key)") #!! LOG
@@ -59,18 +69,13 @@ class APIHandler:
                     print("Connection successful!") #!! LOG 
                     return response
                 else:
-                    print(f"Error:{response.status_code}") 
+                    print(f"Error:{response.status_code}") #!! LOG
                     return self.connect(index+1)
             
         #Recursive step given failed connection
         except Exception as e:
             print(f"Error: {e}\nAttempt {index+1} failed, Trying next option...")#!! LOG
             return self.connect(index+1)
-            
-
-
-        #Function to parse data from API for entered location
-        #def load_location_data
 
 
 
@@ -81,104 +86,135 @@ handler = lambda x,y: APIHandler(x,y)
 titleprint = lambda x: '\n'*10 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
 #Farenheit conversion
 farenheit_to_celcius = lambda x: (x - 32) / 1.8
-#!!Chance to Log Function Hops
+#Backout is used to hop out of a function, logging could be utilized in this function
 def backout():#!! And Log
     print("Backing Out...\n",('='*25),('\n'*5))
 
 
+
+"""I did not touch this function as I'm not sure about csv file handling, 
+wish to leave to someone else as this refactoring has killed me off - Caileb"""
 #Function to save report file (.CSV)
 def save_report(user_date,fieldnames,data_array):
-    user_date = user_date.replace("/","") # Removes the slash from user date used by the API link as it conflicts with file names
+    user_date = user_date.replace("/","") # Removes slash from user date used by the API link as it conflicts with file names
     with open(f"WeatherReport-{user_date}.csv","w", newline='') as f:
         writer = csv.DictWriter(f,fieldnames = fieldnames)
         writer.writeheader()
         writer.writerow(data_array)
+    #!! And Log
 
-#Function for printing weather results and returning weather values
-def weather_values(location_data, user_date):
-    #calls once to save resources
-    data = location_data.json()
-    day = data['days'][0]
 
-    temp_current = farenheit_to_celcius(day['temp'])
-    temp_max = farenheit_to_celcius(day['tempmax'])
-    temp_min = farenheit_to_celcius(day['tempmin'])
-
-    if not user_date:
-        #Description can only be retrieved for the current weather? API Issue
-        weather_desc = location_data.json()['description',"No description available"]
-    else:
-        weather_desc = day.get('description', day.get('conditions', "No description"))
-    return(temp_current, temp_max, temp_min, weather_desc)
-
-#Function for temp by hour
-def weather_per_hour(location_data):
-    #Calls Json once again to save resources
-    data = location_data.json()
-    hours = data['days'][0]['hours']
+"""REPORTING FUNCTIONS"""
+def show_simple_report(data, location, date_string):
+    day_info = data['days'][0]
+    all_hours = day_info['hours']
     
-    print(f"\n{'Time':<10} | {'Temp (C)':<10}")
-    print("-" * 22)
-    for h in hours:
-        time = h["datetime"]
-        temp_c = farenheit_to_celcius(h["temp"])
-        print(f"{time:<10} | {temp_c:>8.2f}°C")
+    temp_list = []
+    condition_list = []
+    
+    for hour in all_hours:
+        celsius = farenheit_to_celcius(hour['temp'])
+        temp_list.append(celsius)
+        condition_list.append(hour['conditions'])
+
+    #DATA CALCULATIONS, functions describe 
+    average_temp = sum(temp_list) / len(temp_list) #mean
+    highest_temp = max(temp_list) #max
+    lowest_temp = min(temp_list) #min
+    most_common_weather = statistics.mode(condition_list) #mode weather type
+    rain_percent = day_info.get('precipprob', 0) #chance of rain
+    #!! And Log?
+
+    #REPORTING OF CALCULATED DATA
+    print(titleprint(f"SUMMARY FOR: {location.upper()} | DATE: {date_string}"))
+
+    print(f"Main Condition:  {most_common_weather}")
+    print(f"Average Temp:    {average_temp:.1f}°C")
+    print(f"High / Low:      {highest_temp:.1f}°C / {lowest_temp:.1f}°C")
+    
+    star_count = int(rain_percent // 5)
+    stars = "*" * star_count
+    print(f"Rain Chance:     [{stars:<20}] {rain_percent}%")
+    print("="*30)
+    #!! And Log
+
+def show_detailed_report(data):
+    day_info = data['days'][0]
+    all_hours = day_info['hours']
+
+    print(f"\n{'TIME':<10} | {'TEMP (°C)':<10} | {'WEATHER'}")
+    print("-" * 40)
+
+    for hour in all_hours:
+        raw_time = hour['datetime']
+        short_time = raw_time[0:5] 
+        
+        raw_farenheit = hour['temp']
+        sorted_celcius = farenheit_to_celcius(raw_farenheit)
+        
+        weather = hour['conditions']
+        
+        print(f"{short_time:<10} | {sorted_celcius:<10.1f} | {weather}")
+    #!! And Log
+
+def run_reports(response, user_location, user_date):
+    #!! And Log: run_reports accessed
+    try:
+        data = response.json()
+    except:
+        #!!Need to do something here
+        print("Error parsing JSON") #!! And Log
+        return backout()
+
+    #formatting date string for header
+    time_info = TimeBreak(user_date)
+    formatted_date = time_info.reporting_date
+    
+
+    print(titleprint('Report Menu'))
+    print("1. Simple Summary")
+    print("2. Detailed Hourly Breakdown")
+    print("3. Cancel")
+    
+    user_choice = input("Enter 1, 2, or 3: ")
+
+    if user_choice == "1":
+        show_simple_report(data, user_location, formatted_date)
+    elif user_choice == "2":
+        show_detailed_report(data)
+    else:
+        return backout()
 
 
-
-"""FRONT-END FUNCTIONS"""
+"""MAIN FUNCTION"""
 #Function for main code
 def main():
     while True:
+        #!! And Log: Program Loop Started
         print(titleprint('Weather Data'))
+        user_location = input("Enter location (e.g. London): ")
+        if not user_location:
+            #!! And Log
+            break
 
-        user_location = input("Enter location:\n")
-        user_date = input("Enter date in a YYYY-MM-DD format (Leave blank for current weather)")
-        user_choice = input(f"Location:{user_location}\n Date:{user_date}\n Continue? (Y/N)")
-        user_choice = user_choice.lower()
-        if user_date == "":
-            user_date = None #Allows user_date to be passed into the function even with no value
-        if user_date != "":
-            user_date = user_date + "/" #Adds a slash for the API link, slash isnt needed if date isn't input
-        if user_choice == "y":
-            location_data = handler(user_location,user_date).connect()
-            weather_data = weather_values(location_data,user_date)
-            print_values(location_data,user_location,user_date,weather_data[0],weather_data[1],weather_data[2],weather_data[3]) 
-            #Calls print_value func using the user choices and the 'weather_data' list returned from 'weather_values' func
-    
-
-
-"""UI"""
-def print_values(location_data,user_location,user_date,temp_current,temp_max,temp_min,weather_desc):
-        print(f"=========={user_location}=={user_date}==========")
-        try:
-            print(weather_desc)#Only prints weather description when available
-        except:
-            print("No available description")
-        print(f"Maximum temperature is {temp_max:.2f} C")
-        print(f"Minimum temperature is {temp_min:.2f} C")
-        if user_date == "":
-            print(f"Current temperature is {temp_current:.2f} C") #API uses 'temp' as average temp on future dates, if user wants the current date they get the current temp
+        user_date = input("Enter date (YYYY-MM-DD) or leave blank: ")
+        
+        confirm = input(f"Proceed with {user_location} on {user_date if user_date else 'Today'}? (Y/N): ")
+        
+        if confirm.lower() == "y":
+            #Checks Connection
+            response = handler(user_location, user_date).connect()
+            
+            #If Connection is active then report functions are called with data
+            if response:
+                run_reports(response, user_location, user_date)
+            else:
+                print("Failed to retrieve data.") #!! LOG
+                return backout()
         else:
-            print(f"Average temperature is {temp_current:.2f} C")
-        print("===============================")
-        csv_dict = {f"Location":user_location, #Parsing API data into a dictionary to be converted to a CSV
-                    "Date":user_date,
-                    "Maximum Temperature":temp_max,
-                    "Minimum Temperature":temp_min,
-                    "Current Temperature":temp_current
-                    }
-        fieldnames = ["Location","Date","Maximum Temperature","Minimum Temperature","Current Temperature"] #Keys from the dict to be plotted into csv
-        user_choice = int(input("1) Save Report\n2)In-depth report\n 3) Exit"))
-        if user_choice == 1: #Choice for saving to CSV
-            save_report(user_date,fieldnames,csv_dict)
-        elif user_choice == 2:
-            weather_per_hour(location_data)
-
-        return csv_dict
+            return backout()
     
-
-    
-"""Starts Program"""
+ 
+"""Initialises Main"""
 if __name__ == "__main__":
     main()
