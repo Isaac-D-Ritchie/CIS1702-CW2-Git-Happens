@@ -3,9 +3,9 @@ from datetime import timedelta
 import json
 import urllib.request
 import statistics 
-#create log class
+###create log class Maybe?
 
-#Class for all API Handling
+###Class for all API Handling
 class WeatherAPIHandler:
     def __init__(self, city, units):
         self.city = city.replace(" ", "%20")
@@ -43,7 +43,7 @@ class WeatherAPIHandler:
             print(f"Error: {e}\nAttempt {index+1} failed, Trying next option...")#LOG
             return self.connect(index+1) #LOG
 
-#Class for Date and Time utility
+###Class for Date and Time utility
 class TimeBreak:
     def __init__(self):
         #CREATE CALLABLE LOG TO STATE USAGE OF ELEMENTS IN TIMEBREAK CLASS
@@ -74,23 +74,30 @@ class TimeBreak:
             return date_list
         
 
-#Data Handling Class for fetching data, Organising data to our needs and data analysis.
+###Data Handling Class for fetching data, Organising data to our needs and data analysis.
 #We may have to massage data when asked to save depending on the required filetype, this would also be stored in the Handling class.
 #Probably best leaving the reporting in local functions
  
+###Misc Functions and Variables that are useful globally
 
-        
+#lambda function useful so all titles meet the same formatting
+titleprint = lambda x: "\n"*10 + "="*25 + f"\n {x}\n" + "="*25 + "\n"*2
+
+#Returns to the previous Menu/Function
 def backout():#Log Use
     print("Backing Out...\n",("="*25),("\n"*5))
-
 
 
 
 # MENU FUNCTIONS
 def one_day_data():#log use
     """One Day Data for One City and Offers Report Type"""
+    print(titleprint('24 Hour Weather Reporting'),"If you're here by accident please type 'quit' in the next prompt\n")
     try:
         city = input("Enter City name: ")
+        if city.lower() == 'quit':
+            backout()
+            return None
         handler = WeatherAPIHandler(city, "metric")
         time = TimeBreak()
         data = handler.connect()
@@ -196,12 +203,11 @@ def compare_cities():#log use
     pass
 
 
-
 #MAIN MENU
 def weather_menu():
     """Main Navigation Menu"""
     while True:
-        print("\n" + "="*25 + "\n Weather System Menu\n" + "="*25)
+        print(menuprint('Weather System Menu'))
         print("1. Get One Day Report")
         print("2. Quit")
         try:
