@@ -66,12 +66,14 @@ class TimeBreak:
  
 
         
-def backout():
+def backout():#Log Use
     print("Backing Out...\n",("="*25),("\n"*5))
-    #LOG
-# MENU FUNCTIONS
 
-def one_day_data():
+
+
+
+# MENU FUNCTIONS
+def one_day_data():#log use
     """One Day Data for One City and Offers Report Type"""
     try:
         city = input("Enter City name: ")
@@ -154,7 +156,10 @@ def one_day_data():
 
     elif choice == "3":
         return backout()
-def week_data():
+    
+
+def week_data():#log use
+    #menu print
     city = input("CITY NAME:")
     whichweek = input("Which Week's Data\n1. Last 7 Days\n2. Next 7 Days")
     if whichweek == "1":
@@ -168,6 +173,13 @@ def week_data():
     #simple includes "Hottest day", "Sunniest Day", "Coldest Day", "Wettest Day", "Windiest Day"
     #"Highs and Lows", "Averages of each day"
     #in-depth returns a table of Averages for each day, highs and lows of each day, (Similar to one day data)
+
+
+def compare_cities():#log use
+    #menu print
+    #give asks user for number of cities to compare, max 5
+    
+
 
 #MAIN MENU
 def weather_menu():
