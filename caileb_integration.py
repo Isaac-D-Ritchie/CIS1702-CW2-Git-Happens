@@ -17,8 +17,6 @@ Assist with TimeBreak esque Class or not
 Look at Menu Functions
 Look at Basic and Detailed Reporting in Terminal
 
-Maybe Todo
-
 """
 import requests
 import json
@@ -28,16 +26,20 @@ import csv
 """Classes"""
 class APIHandler:
     def __init__(self, user_location, user_date):
+        #assigning variables to instance 
+        self.user_location = user_location
+        self.user_date = user_date if user_date else ""
         #API Basic info
         self.api_data = ('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',['247BUSAAULFLBGWM7NVZ49M4B','BACKUPAPIKEY'])
-
+        
         #Connect Function
     def connect(self, index = 0):
         url, key = self.api_data
         if index >= len(key):
-            print("CRITICAL ERROR: ALL API CONNECTION DATA FAILED, EXITING") #!! LOG
+            print("CRITICAL ERROR: All API Connections Failed.\n Exiting...") #!! LOG
             return None
-        full_url = f'{url}{user_location}/{user_date}?key={key[index]}'
+        
+        full_url = f'{url}{self.user_location}/{self.user_date}?key={key[index]}'
 
         if index == 0:
             print(f"Attempt {index + 1}: Connecting to {url} (Primary Key)") #!! LOG
@@ -46,9 +48,12 @@ class APIHandler:
         
         try:
             with requests.get(full_url, timeout=10) as response:
-                if response.status == 200:
+                if response.status_code == 200:
                     print("Connection successful!") #!! LOG 
-                    return json.load(response) 
+                    return response
+                else:
+                    print(f"Error:{response.status_code}") 
+                    return self.connect(index+1)
             
         #Recursive step given failed connection
         except Exception as e:
@@ -60,7 +65,7 @@ class APIHandler:
         #Function to parse data from API for entered location
         #def load_location_data
 
-"""Misc Functions"""
+"""BACKROUND FUNCTIONS"""
 handler = lambda x,y: APIHandler(x,y)
 titleprint = lambda x: '\n'*10 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
 
@@ -71,8 +76,7 @@ def backout():#!! And Log
 
 #Functon for farenheit to celcius because visual Crossing API uses farenheit
 def farenheit_to_celcius(farenheit):
-    celcius = (farenheit - 32) / 1.8
-    return celcius
+    return farenheit - 32 / 1.8
 
 #Function to save report file (.CSV)
 def save_report(user_date,fieldnames,data_array):
@@ -82,10 +86,21 @@ def save_report(user_date,fieldnames,data_array):
         writer.writeheader()
         writer.writerow(data_array)
 
+#Function for printing weather results and returning weather values
+def weather_values(location_data, user_date):
+    temp_current = farenheit_to_celcius(location_data.json()['days'][0]['temp'])
+    temp_max = farenheit_to_celcius(location_data.json()['days'][0]['tempmax'])
+    temp_min = farenheit_to_celcius(location_data.json()['days'][0]['tempmin'])
+
+    if user_date == "":
+        weather_desc = location_data.json()['description'] #Description can only be retrieved for the current weather? API Issue
+    else:
+        weather_desc = None
+    return(temp_current,temp_max,temp_min,weather_desc)
 
 
 
-"""Main Code"""
+"""USER INTERFACE FUNCTIONS"""
 #Function for main code
 def main():
     while True:
@@ -106,18 +121,6 @@ def main():
             #Calls print_value func using the user choices and the 'weather_data' list returned from 'weather_values' func
     
 
-#Function for printing weather results and returning weather values
-"""Data Gathering"""
-def weather_values(location_data, user_date):
-    temp_current = farenheit_to_celcius(location_data.json()['days'][0]['temp'])
-    temp_max = farenheit_to_celcius(location_data.json()['days'][0]['tempmax'])
-    temp_min = farenheit_to_celcius(location_data.json()['days'][0]['tempmin'])
-
-    if user_date == "":
-        weather_desc = location_data.json()['description'] #Description can only be retrieved for the current weather? API Issue
-    else:
-        weather_desc = None
-    return(temp_current,temp_max,temp_min,weather_desc)
 
 """UI"""
 def print_values(location_data,user_location,user_date,temp_current,temp_max,temp_min,weather_desc):
