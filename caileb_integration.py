@@ -1,18 +1,54 @@
 """
-WeatherApp
-API KEY = 247BUSAAULFLBGWM7NVZ49M4B
-VISUAL CROSSING WEATHER API
+Weather Application
+
+Structure is as follows:
+Imports
+Classes
+Misc Functions
+Main Functions
 """
-#TO-DO
-#1) Account for edge-cases
-#2) Allow user to input a date range to gather data between
 
-"""Imports"""
 import requests
+import json
+
 import csv
-api_key = '247BUSAAULFLBGWM7NVZ49M4B'
 
 
+class APIHandler:
+    def __init__(self, user_location, user_date)
+        #API Basic info
+        self.api_data = ('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',['247BUSAAULFLBGWM7NVZ49M4B','BACKUPAPIKEY'])
+        url, key = self.api_data
+
+        #Connect Function
+        def connect(self, index = 0):
+            if index >= len(key):
+                print("CRITICAL ERROR: ALL API CONNECTION DATA FAILED, EXITING") #!! LOG
+                return None
+            
+            full_url = f'{url}{user_location}/{user_date}?key={key[index]}'
+
+            if index == 0:
+                print(f"Attempt {index + 1}: Connecting to {url} (Primary Key)") #!! LOG
+            else:
+                print(f"Attempt {index + 1}: Connecting to {url} (Backup Key)") #!! LOG
+            
+            try:
+                with requests.get(full_url, timeout=10) as response:
+                    if response.status == 200:
+                        print("Connection successful!") #!! LOG 
+                        return json.load(response) 
+                
+            #Recursive step given failed connection
+            except Exception as e:
+                print(f"Error: {e}\nAttempt {index+1} failed, Trying next option...")#!! LOG
+                return self.connect(index+1)
+            
+
+
+        #Function to parse data from API for entered location
+        #def load_location_data
+handler = lambda x,y: APIHandler(x,y)
 
 
 """Main Code"""
@@ -29,18 +65,12 @@ def main():
         if user_date != "":
             user_date = user_date + "/" #Adds a slash for the API link, slash isnt needed if date isn't input
         if user_choice == "y":
-            location_data = load_location_data(user_location,user_date,api_key)
+            location_data = handler(user_location,user_date).connect()
             weather_data = weather_values(location_data,user_date)
             print_values(location_data,user_location,user_date,weather_data[0],weather_data[1],weather_data[2],weather_data[3]) 
             #Calls print_value func using the user choices and the 'weather_data' list returned from 'weather_values' func
 
 
-
-"""API Code"""
-#Function to parse data from API for entered location
-def load_location_data(user_location,user_date,api_key):
-    location_data = requests.get(f'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{user_location}/{user_date}?key={api_key}')
-    return location_data
 
 
 #Functon for farenheight to celcius because visual Crossing API uses farenheit
@@ -112,3 +142,5 @@ def weather_per_hour(location_data):
 
 """Starts Program"""
 main()
+
+
