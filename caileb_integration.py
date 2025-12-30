@@ -30,31 +30,30 @@ class APIHandler:
     def __init__(self, user_location, user_date):
         #API Basic info
         self.api_data = ('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',['247BUSAAULFLBGWM7NVZ49M4B','BACKUPAPIKEY'])
-        url, key = self.api_data
 
         #Connect Function
-        def connect(self, index = 0):
-            if index >= len(key):
-                print("CRITICAL ERROR: ALL API CONNECTION DATA FAILED, EXITING") #!! LOG
-                return None
-            
-            full_url = f'{url}{user_location}/{user_date}?key={key[index]}'
+    def connect(self, index = 0):
+        url, key = self.api_data
+        if index >= len(key):
+            print("CRITICAL ERROR: ALL API CONNECTION DATA FAILED, EXITING") #!! LOG
+            return None
+        full_url = f'{url}{user_location}/{user_date}?key={key[index]}'
 
-            if index == 0:
-                print(f"Attempt {index + 1}: Connecting to {url} (Primary Key)") #!! LOG
-            else:
-                print(f"Attempt {index + 1}: Connecting to {url} (Backup Key)") #!! LOG
+        if index == 0:
+            print(f"Attempt {index + 1}: Connecting to {url} (Primary Key)") #!! LOG
+        else:
+            print(f"Attempt {index + 1}: Connecting to {url} (Backup Key)") #!! LOG
+        
+        try:
+            with requests.get(full_url, timeout=10) as response:
+                if response.status == 200:
+                    print("Connection successful!") #!! LOG 
+                    return json.load(response) 
             
-            try:
-                with requests.get(full_url, timeout=10) as response:
-                    if response.status == 200:
-                        print("Connection successful!") #!! LOG 
-                        return json.load(response) 
-                
-            #Recursive step given failed connection
-            except Exception as e:
-                print(f"Error: {e}\nAttempt {index+1} failed, Trying next option...")#!! LOG
-                return self.connect(index+1)
+        #Recursive step given failed connection
+        except Exception as e:
+            print(f"Error: {e}\nAttempt {index+1} failed, Trying next option...")#!! LOG
+            return self.connect(index+1)
             
 
 
