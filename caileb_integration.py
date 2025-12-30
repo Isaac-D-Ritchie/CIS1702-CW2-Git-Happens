@@ -83,18 +83,6 @@ def save_report(user_date,fieldnames,data_array):
         writer.writeheader()
         writer.writerow(data_array)
 
-#After Report returned, User then prompted SAVE or MENU     
-def postrepnav():
-    for i in range(3):
-        choice = input('='*75,"\n Pick one of the following options\n",' '*5,"|SAVE|",' '*5,"|MENU|")
-        if choice == 'SAVE':
-            save_report()
-        elif choice == 'MENU':
-            return backout()
-        else:
-            print(f"Error: {choice} is not valid. Enter only 'SAVE' or 'MENU'.")
-            return backout()
-
 
 
 
@@ -154,7 +142,6 @@ def print_values(location_data,user_location,user_date,temp_current,temp_max,tem
                     }
         fieldnames = ["Location","Date","Maximum Temperature","Minimum Temperature","Current Temperature"] #Keys from the dict to be plotted into csv
         user_choice = int(input("1) Save Report\n2)In-depth report\n 3) Exit"))
-
         if user_choice == 1: #Choice for saving to CSV
             save_report(user_date,fieldnames,csv_dict)
         elif user_choice == 2:
