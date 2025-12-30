@@ -207,7 +207,7 @@ def compare_cities():#log use
 def weather_menu():
     """Main Navigation Menu"""
     while True:
-        print(menuprint('Weather System Menu'))
+        print(('Weather System Menu'))
         print("1. Get One Day Report")
         print("2. Quit")
         try:
