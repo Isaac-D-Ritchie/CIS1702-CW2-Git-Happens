@@ -95,19 +95,6 @@ def backout():#!! And Log
     print("Backing Out...\n",("="*25),("\n"*5))
     #Could be worth including some logging here
 
-#After Report returned, User then prompted SAVE or MENU     
-def postrepnav():
-    for i in range(3):
-        choice = input('='*75,"\n Pick one of the following options\n",' '*5,"|SAVE|",' '*5,"|MENU|")
-        if choice == "SAVE":
-            ####### NEEDS BUILTING
-            #savingfunction()
-            pass
-        elif choice == "MENU":
-            return backout()
-        else:
-            print(f"Error: {choice} is not valid. Enter only 'SAVE' or 'MENU'.")
-            return backout()
 
 
 # MENU FUNCTIONS

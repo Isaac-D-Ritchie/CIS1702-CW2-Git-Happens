@@ -8,14 +8,26 @@ Misc Functions
 Main Functions
 """
 
+
+"""
+TO DOS:
+
+Finish API Class
+Assist with TimeBreak esque Class or not
+Look at Menu Functions
+Look at Basic and Detailed Reporting in Terminal
+
+Maybe Todo
+
+"""
 import requests
 import json
 
 import csv
 
-
+"""Classes"""
 class APIHandler:
-    def __init__(self, user_location, user_date)
+    def __init__(self, user_location, user_date):
         #API Basic info
         self.api_data = ('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',['247BUSAAULFLBGWM7NVZ49M4B','BACKUPAPIKEY'])
         url, key = self.api_data
@@ -48,14 +60,50 @@ class APIHandler:
 
         #Function to parse data from API for entered location
         #def load_location_data
+
+"""Misc Functions"""
 handler = lambda x,y: APIHandler(x,y)
+titleprint = lambda x: '\n'*10 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
+
+#Chance to Log Function Hops
+def backout():#!! And Log
+    print("Backing Out...\n",('='*25),('\n'*5))
+
+
+#Functon for farenheit to celcius because visual Crossing API uses farenheit
+def farenheit_to_celcius(farenheit):
+    celcius = (farenheit - 32) / 1.8
+    return celcius
+
+#Function to save report file (.CSV)
+def save_report(user_date,fieldnames,data_array):
+    user_date = user_date.replace("/","") # Removes the slash from user date used by the API link as it conflicts with file names
+    with open(f"WeatherReport-{user_date}.csv","w", newline='') as f:
+        writer = csv.DictWriter(f,fieldnames = fieldnames)
+        writer.writeheader()
+        writer.writerow(data_array)
+
+#After Report returned, User then prompted SAVE or MENU     
+def postrepnav():
+    for i in range(3):
+        choice = input('='*75,"\n Pick one of the following options\n",' '*5,"|SAVE|",' '*5,"|MENU|")
+        if choice == 'SAVE':
+            save_report()
+        elif choice == 'MENU':
+            return backout()
+        else:
+            print(f"Error: {choice} is not valid. Enter only 'SAVE' or 'MENU'.")
+            return backout()
+
+
 
 
 """Main Code"""
 #Function for main code
 def main():
     while True:
-        print("=== Weather Data ===\n")
+        print(titleprint('Weather Data'))
+
         user_location = input("Enter location:\n")
         user_date = input("Enter date in a YYYY-MM-DD format (Leave blank for current weather)")
         user_choice = input(f"Location:{user_location}\n Date:{user_date}\n Continue? (Y/N)")
@@ -69,14 +117,6 @@ def main():
             weather_data = weather_values(location_data,user_date)
             print_values(location_data,user_location,user_date,weather_data[0],weather_data[1],weather_data[2],weather_data[3]) 
             #Calls print_value func using the user choices and the 'weather_data' list returned from 'weather_values' func
-
-
-
-
-#Functon for farenheight to celcius because visual Crossing API uses farenheit
-def farenheit_to_celcius(farenheit):
-    celcius = (farenheit - 32) / 1.8
-    return celcius
     
 
 #Function for printing weather results and returning weather values
@@ -122,14 +162,6 @@ def print_values(location_data,user_location,user_date,temp_current,temp_max,tem
 
         return csv_dict
     
-
-#Function to save report file (.CSV)
-def save_report(user_date,fieldnames,data_array):
-    user_date = user_date.replace("/","") # Removes the slash from user date used by the API link as it conflicts with file names
-    with open(f"WeatherReport-{user_date}.csv","w", newline='') as f:
-        writer = csv.DictWriter(f,fieldnames = fieldnames)
-        writer.writeheader()
-        writer.writerow(data_array)
 
 
 #Function for temp by hour
