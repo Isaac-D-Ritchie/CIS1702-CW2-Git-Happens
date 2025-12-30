@@ -4,7 +4,8 @@ import json
 import urllib.request
 import statistics 
 #create log class
-#Class to handle API Connections, Retrievals and ULL Requests
+
+#Class for all API Handling
 class WeatherAPIHandler:
     def __init__(self, city, units):
         self.city = city.replace(" ", "%20")
@@ -41,28 +42,41 @@ class WeatherAPIHandler:
         except Exception as e: #Recursive step given failed connection
             print(f"Error: {e}\nAttempt {index+1} failed, Trying next option...")#LOG
             return self.connect(index+1) #LOG
-#! TB = Testing TimeBreak
+
+#Class for Date and Time utility
 class TimeBreak:
     def __init__(self):
+        #CREATE CALLABLE LOG TO STATE USAGE OF ELEMENTS IN TIMEBREAK CLASS
+
+        #Declare now, default formatting is something like "DD-MM-YYY HH:MM:SS"
         now = dt.datetime.now()
 
-        #broken up time
+        #Declare time as it's components via datetime
         self.year = str(now.year)
         self.month = str(now.month)
         self.day = str(now.day)
         self.hour = str(now.hour)
         self.minute = str(now.minute)
 
-        self.reporting_date = f"{self.day}/{self.month}" # in terminal reporting
-        self.filestamp = f"|{self.day}/{self.month}/{self.year} - {self.hour}:{self.minute}|" # For new entry appended to Reporting file
+        #Date of report stored in terminal and in report file when saved.
+        self.reporting_date = f"{self.day}/{self.month}"
 
-        def nextday(self, index): # Recursive function to return list of dates to use for fetching data from API
+        #Timestamp for appendment, can be stored in logs, in the report file as some sort of metadata, non-intrusive between saved report fields.
+        self.filestamp = f"|{self.day}/{self.month}/{self.year} - {self.hour}:{self.minute}|"
+
+        #nexday function recursively saves dates into a list then returns date list when index reaches 0.
+        #Needs testing on a weekly report function, and may need changing depending on whether index(whichweek from flow) is 7 or -7
+        def nextday(self, index):
             date_list = []
             for i in range(index + 1):
                 next_date = self.now + timedelta(days=i)
                 date_list.append(next_date.strftime("%d/%m"))
             return date_list
-#maybe create class on reports, types of report and depending on which function calls report too if feasable
+        
+
+#Data Handling Class for fetching data, Organising data to our needs and data analysis.
+#We may have to massage data when asked to save depending on the required filetype, this would also be stored in the Handling class.
+#Probably best leaving the reporting in local functions
  
 
         
@@ -166,6 +180,7 @@ def week_data():#log use
         whichweek = int(-7)
     elif whichweek == "2":
         whichweek = int(7)
+    TimeBreak.nextday()
     #call timebreak with whichweek to find list_dates
     #fetch json data from api using city and list_dates
     #input for type of report (simple/indepth)
@@ -178,7 +193,8 @@ def week_data():#log use
 def compare_cities():#log use
     #menu print
     #give asks user for number of cities to compare, max 5
-    
+    pass
+
 
 
 #MAIN MENU
@@ -207,9 +223,11 @@ def weather_menu():
 def save_data(printreport):
     filetype = input("Please Enter Filetype you wish to save to ('txt','csv','json')")
     try:
+        pass
         #with open f"report.{filetype} 'append' as updatereport
         #updatereport.append("\n",printreport)
-    except:
+    except Exception as e:
+        return None
         #print exceptions and log them also
 #MAIN
 def main():
