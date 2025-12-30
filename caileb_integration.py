@@ -1,29 +1,36 @@
-"""
-Weather Application
+"""MAIN INFO
+Git Happens API Scenario Main Program.
 
-Structure is as follows:
-Imports
+
+Data Flow:
+
+Weather API -> Data Analysis -> Reporting
+
+
+
+Program Structure:
+
+Imported Modules
 Classes
-Misc Functions
-Main Functions
-"""
+Background Functions
+Front-end Functions
+Main Function
 
 
-"""
 TO DOS:
 
-Finish API Class
 Assist with TimeBreak esque Class or not
 Look at Menu Functions
 Look at Basic and Detailed Reporting in Terminal
-
 """
+
+"""IMPORTED MODULES"""
 import requests
 import json
 
 import csv
 
-"""Classes"""
+"""CLASSES"""
 class APIHandler:
     def __init__(self, user_location, user_date):
         #assigning variables to instance 
@@ -65,18 +72,19 @@ class APIHandler:
         #Function to parse data from API for entered location
         #def load_location_data
 
-"""BACKROUND FUNCTIONS"""
-handler = lambda x,y: APIHandler(x,y)
-titleprint = lambda x: '\n'*10 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
 
-#Chance to Log Function Hops
+
+"""BACKROUND FUNCTIONS"""
+#Handler function x = Location, y = Date
+handler = lambda x,y: APIHandler(x,y)
+#Title formatting for Reporting and Menu Functions
+titleprint = lambda x: '\n'*10 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
+#Farenheit conversion
+farenheit_to_celcius = lambda x: (x - 32) / 1.8
+#!!Chance to Log Function Hops
 def backout():#!! And Log
     print("Backing Out...\n",('='*25),('\n'*5))
 
-
-#Functon for farenheit to celcius because visual Crossing API uses farenheit
-def farenheit_to_celcius(farenheit):
-    return farenheit - 32 / 1.8
 
 #Function to save report file (.CSV)
 def save_report(user_date,fieldnames,data_array):
@@ -88,19 +96,37 @@ def save_report(user_date,fieldnames,data_array):
 
 #Function for printing weather results and returning weather values
 def weather_values(location_data, user_date):
-    temp_current = farenheit_to_celcius(location_data.json()['days'][0]['temp'])
-    temp_max = farenheit_to_celcius(location_data.json()['days'][0]['tempmax'])
-    temp_min = farenheit_to_celcius(location_data.json()['days'][0]['tempmin'])
+    #calls once to save resources
+    data = location_data.json()
+    day = data['days'][0]
 
-    if user_date == "":
-        weather_desc = location_data.json()['description'] #Description can only be retrieved for the current weather? API Issue
+    temp_current = farenheit_to_celcius(day['temp'])
+    temp_max = farenheit_to_celcius(day['tempmax'])
+    temp_min = farenheit_to_celcius(day['tempmin'])
+
+    if not user_date:
+        #Description can only be retrieved for the current weather? API Issue
+        weather_desc = location_data.json()['description',"No description available"]
     else:
-        weather_desc = None
-    return(temp_current,temp_max,temp_min,weather_desc)
+        weather_desc = day.get('description', day.get('conditions', "No description"))
+    return(temp_current, temp_max, temp_min, weather_desc)
+
+#Function for temp by hour
+def weather_per_hour(location_data):
+    #Calls Json once again to save resources
+    data = location_data.json()
+    hours = data['days'][0]['hours']
+    
+    print(f"\n{'Time':<10} | {'Temp (C)':<10}")
+    print("-" * 22)
+    for h in hours:
+        time = h["datetime"]
+        temp_c = farenheit_to_celcius(h["temp"])
+        print(f"{time:<10} | {temp_c:>8.2f}°C")
 
 
 
-"""USER INTERFACE FUNCTIONS"""
+"""FRONT-END FUNCTIONS"""
 #Function for main code
 def main():
     while True:
@@ -111,7 +137,7 @@ def main():
         user_choice = input(f"Location:{user_location}\n Date:{user_date}\n Continue? (Y/N)")
         user_choice = user_choice.lower()
         if user_date == "":
-            user_date == None #Allows user_date to be passed into the function even with no value
+            user_date = None #Allows user_date to be passed into the function even with no value
         if user_date != "":
             user_date = user_date + "/" #Adds a slash for the API link, slash isnt needed if date isn't input
         if user_choice == "y":
@@ -152,14 +178,7 @@ def print_values(location_data,user_location,user_date,temp_current,temp_max,tem
         return csv_dict
     
 
-
-#Function for temp by hour
-def weather_per_hour(location_data):
-    for i in range(24):
-        print (location_data.json()['days'][0]['hours'][0+i]["datetime"])
-        print (location_data.json()['days'][0]['hours'][0+i]["temp"])
-
-
-
+    
 """Starts Program"""
-main()
+if __name__ == "__main__":
+    main()
