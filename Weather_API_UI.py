@@ -18,6 +18,9 @@ hours = ("00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00",
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
 root.rowconfigure(2, weight=1)
+root.rowconfigure(3, weight=1)
+root.rowconfigure(4, weight=1)
+
 
 #function for generating basic report
 
@@ -49,11 +52,20 @@ def hour_dropdown_check():
     else:
         hour_dropdown.configure(state="enabled")
 
+#function to add widgets and appropriate button when the user wishes to make a comparison
+
+def comparison_ui_change():
+    if radio_variable.get()==2:
+        print("FUNCTION UNDER CONSTRUCTION")
+    else:
+        print("FUNCTION STILL UNDER CONRSTRUCTION")
+
 # creates labels so user knows where to inpurt data
 
 location_label = Label(root, text="Please enter a location:")
 date_label = Label(root, text="Please enter a date (YYYY-MM-DD):")
 hour_label = Label(root, text="Add an hour?")
+comparison_label = Label(root, text="Would you like to do a comparison?")
 
 #creates widgets to take data inputs from the user
 
@@ -72,19 +84,30 @@ hour_dropdown.set("Please select an hour")
 report_btn = Button(root, text="Generate Report", command=basic_report)
 detailed_report_btn = Button(root, text="Generate In-Depth Report", command=detailed_report)
 
+#creates radio buttons so the user can choose to compare
+
+radio_variable = IntVar()
+radio_variable.set(1)
+
+radio_no = Radiobutton(root, text="No", variable=radio_variable, value=1, command=comparison_ui_change)
+radio_yes = Radiobutton(root, text="Yes", variable=radio_variable, value=2, command=comparison_ui_change)
+
 #grid to arrange labels, buttons, entries and checkboxes
 
 location_label.grid(row=0, column=0, pady=2, padx=2, sticky=tk.W+tk.E)
 date_label.grid(row=1, column=0, pady=2, padx=2, sticky=tk.W+tk.E)
 hour_label.grid(row=2, column=0, pady=2, padx=2, sticky=tk.W+tk.E+tk.N)
+comparison_label.grid(row=3, column=0, pady=13, padx=2, sticky=tk.W+tk.E+tk.N )
 
 location_entry.grid(row=0, column=1, pady=2, padx=2, sticky=tk.W+tk.E)
 date_entry.grid(row=1, column=1, pady=2, padx=2, sticky=tk.W+tk.E)
 hour_checkbox.grid(row=2, column=0, pady=2, padx=2, sticky=tk.E+tk.N)
 hour_dropdown.grid(row=2, column=1, pady=2, padx=2, sticky=tk.N)
+radio_yes.grid(row=3, column=1, sticky=tk.N+tk.W)
+radio_no.grid(row=3, column=1, pady=25, sticky=tk.N+tk.W)
 
-report_btn.grid(row=2, column=0, sticky=tk.S+tk.W+tk.E)
-detailed_report_btn.grid(row=2, column=1, sticky=tk.S+tk.W+tk.E)
+report_btn.grid(row=4, column=0, sticky=tk.S+tk.W+tk.E)
+detailed_report_btn.grid(row=4, column=1, sticky=tk.S+tk.W+tk.E)
 
 # tkinter event loop
 root.mainloop()
