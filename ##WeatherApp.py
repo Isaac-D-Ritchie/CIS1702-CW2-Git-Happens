@@ -24,10 +24,13 @@ def main():
         user_date = input("Enter date in a YYYY-MM-DD format (Leave blank for current weather)")
         user_choice = input(f"Location:{user_location}\n Date:{user_date}\n Continue? (Y/N)")
         user_choice = user_choice.lower()
+
         if user_date == "":
             user_date == None #Allows user_date to be passed into the function even with no value
         if user_date != "":
             user_date = user_date + "/" #Adds a slash for the API link, slash isnt needed if date isn't input
+
+
         if user_choice == "y":
             location_data = load_location_data(user_location,user_date,api_key)
             weather_data = weather_values(location_data,user_date)
@@ -51,6 +54,8 @@ def farenheit_to_celcius(farenheit):
 
 #Function for printing weather results and returning weather values
 """Data Gathering"""
+
+
 def weather_values(location_data, user_date):
     temp_current = farenheit_to_celcius(location_data.json()['days'][0]['temp'])
     temp_max = farenheit_to_celcius(location_data.json()['days'][0]['tempmax'])
@@ -61,6 +66,7 @@ def weather_values(location_data, user_date):
     else:
         weather_desc = None
     return(temp_current,temp_max,temp_min,weather_desc)
+
 
 """UI"""
 def print_values(location_data,user_location,user_date,temp_current,temp_max,temp_min,weather_desc):
