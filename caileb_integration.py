@@ -18,12 +18,18 @@ Main Function
 """
 
 """IMPORTED MODULES"""
-import requests
-import json
+from requests import requests, HTTPError
+from json import JSON, JSONDecodeError
+import logging as LOG
 from datetime import datetime
 import csv
 import statistics
 
+LOG.basicConfig(
+    level = LOG.INFO,
+    format = '%(asctime)s [%(levelnames)s] %(message)s',
+    datemt = '%Y-%m-%d %H:%M:%S'
+)
 """CLASSES"""
 class TimeBreak:
     """Handles report timestamps and formatting"""
@@ -44,38 +50,29 @@ class APIHandler:
         self.user_date = user_date if user_date else ""
 
         #API Basic info
-        self.api_data = ('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',['247BUSAAULFLBGWM7NVZ49M4B','BACKUPAPIKEY'])
+        self.api_data = {
+            'url':'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
+            'keys':['247BUSAAULFLBGWM7NVZ49M4B','BACKUPAPIKEY']
+        }
         
         #Connect Function
-    def connect(self, index = 0):
-        url, key = self.api_data
-        if index >= len(key):
-            print("CRITICAL ERROR: All API Connections Failed.\n Exiting...") #!! LOG
-            return None
-        
-        #date is handled here rather than in main
-        date_path = f"/{self.user_date}" if self.user_date else ""
-
-        full_url = f'{url}{self.user_location}{date_path}?key={key[index]}'
-
-        if index == 0:
-            print(f"Attempt {index + 1}: Connecting to {url} (Primary Key)") #!! LOG
-        else:
-            print(f"Attempt {index + 1}: Connecting to {url} (Backup Key)") #!! LOG
-        
-        try:
-            with requests.get(full_url, timeout=10) as response:
-                if response.status_code == 200:
-                    print("Connection successful!") #!! LOG 
-                    return response
-                else:
-                    print(f"Error:{response.status_code}") #!! LOG
-                    return self.connect(index+1)
-            
-        #Recursive step given failed connection
-        except Exception as e:
-            print(f"Error: {e}\nAttempt {index+1} failed, Trying next option...")#!! LOG
-            return self.connect(index+1)
+    def connect(self) -> JSON | None:
+        url = self.api_data{'url'}
+        for i in self.api_data{'keys'}:
+            date_path = f"/{self.user_date}" if self.user_date else ""
+            full_url = f'{url}{self.user_location}{date_path}?key={i}'
+            print(f"Attempt {i.index()}: Connecting to {url}")
+            try:
+                with requests.get(full_url, timeout=10) as response:
+                    if response.status_code == 200:
+                        print("Connection successful!") #!! LOG 
+                        return response
+                    else:
+                        print(f"Error:{response.status_code}") #!! LOG
+            except HTTPError as err:
+                print(f"HTTP Error whilst Connecting to {full_url}")
+                
+            except JSONDecodeError as err
 
 
 
