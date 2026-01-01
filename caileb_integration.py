@@ -1,36 +1,35 @@
 """MAIN INFO
 Git Happens API Scenario Main Program.
 
-
 Data Flow:
 
-Weather API -> Data Analysis -> Reporting
+Weather API -> Data Analysis -> Reporting -> Saving
 
 
 Program Structure:
 
 Imported Modules
-Classes
-Background Functions
+Classes and Background Functions
 Reporting Functions
 Front-end Functions
 Main Function
 """
 
 """IMPORTED MODULES"""
-import request
-import requests
-from requests.exceptions import HTTPError, JSONDecodeError
-import logging as LOG
-from datetime import datetime
-import json
-import csv
-import statistics
+import requests # Util for API requests
+from requests.exceptions import HTTPError, JSONDecodeError # Exceptions for requests related errors
+import logging as LOG # For Logging instead of Printing
+from datetime import datetime as dt #May use timedelta to report on multiple days
+from typing import Dict, Optional, Any #Would've liked JSON import but issues with differing versions of python
+import json # Read/Writing to JSON
+import csv # Read/Writing to CSV
+import statistics #Helps with analysis
 
+#Called in Connect
 statuscodes = {
             #success
             '200':'| JSON Recieved | Data Present and Formatted Correctly |',
-            '204': '| JSON Recieved|  Data Not Present, Formatted Correctly |',
+            '204': '| JSON Recieved |  Data Not Present, Formatted Correctly |',
             #client error
             '400':'| Bad Request | Improper Query or Bad JSON Recieved |',
             '401':'| Bad API Key | Invalid or None API Key used |',
@@ -42,50 +41,84 @@ statuscodes = {
             '502':'| Service Unavailable | Try again Later, Servers may be under maintenance |'
 }
 
+#Log Config
 LOG.basicConfig(
-    level = LOG.INFO,
-    format = '%(asctime)s [%(levelnames)s] %(message)s',
-    datefmt = '%Y-%m-%d %H:%M:%S'
+    level = LOG.INFO,  #level captures minimum level to log
+    format = '%(asctime)s [%(levelname)s] %(message)s', #format for logging
+    datefmt = '%Y-%m-%d %H:%M:%S' #dateformat for asctime
 )
-"""CLASSES"""
-class TimeBreak:
-    """Handles report timestamps and formatting"""
-    def __init__(self, user_date=None):
-        LOG.info('TimeBreak Initialized.')
-        #if user_date is None then it is formatted to Todays date
-        if not user_date:
-            self.reporting_date = datetime.now().strftime("%d/%m/%Y")
-        else:
-            self.reporting_date = user_date
+
+
+#CLASSES
 
 class APIHandler:
-    """Handles API Communication"""
-    def __init__(self, user_location, user_date, statuscodes):
+    """
+    Handles API Communication
+    Contains:
+    Connect Function
+    Location & Date Variables
+    """
+
+    def __init__(self, user_location, user_date):
         LOG.info('API Handler Initialized.')
         #assigning variables to instance 'self'
         self.user_location = user_location
         self.user_date = user_date if user_date else ""
-        self.statuscodes = statuscodes
-        #API Basic info
+        
+        #API BASIC INFO
         self.api_data = {
             'url':'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
-            'keys':['247BUSAAULFLBGWM7NVZ49M4B','BACKUPAPIKEY']
+            'keys':['247BUSAAULFLBGWM7NVZ49M4B','U4QN48S3UU3XJ2C3LAK6TC8MM']
         }
         
-        #Connect Function
-    def connect(self) -> json | None:
+        #FETCH REQUEST FUNCTION
+    def connect(self) -> Optional[Any] | None: # Optional[Any] -> JSON in future
+        """
+        Connect to the Visual Crossing Weather API and return the first
+        successful ``requests.Response``.
+
+        The method iterates over the API keys stored in
+        ``self.api_data['keys']``.  For each key it constructs the request
+        URL (optionally including ``self.user_date``) and attempts a GET
+        request with a 10‑second timeout.  If the HTTP status code is
+        200 (OK) or 204 (No Content) the response is returned immediately.
+        Any other successful status code or an exception triggers a retry
+        with the next key.
+
+        Errors are caught and logged:
+
+        * ``HTTPError`` – non‑successful HTTP responses
+        * ``JSONDecodeError`` – problems parsing the JSON payload
+        * Generic ``Exception`` – any other unexpected error
+
+        If all keys fail the method logs a critical message and returns
+        ``None``.
+
+        Parameters
+        ----------
+        None – all required values are taken from the instance attributes.
+
+        Returns
+        -------
+        requests.Response | None
+            The first successful response, or ``None`` if the request fails.
+        """
+        
         url = self.api_data['url']
         for i in self.api_data['keys']:
             date_path = f"/{self.user_date}" if self.user_date else ""
             full_url = f'{url}{self.user_location}{date_path}?key={i}'
             try:
+                LOG.info(f"Connecting to {url}")
                 with requests.get(full_url, timeout=10) as response:
-                    LOG.info(f"Attempt {i.index()}: Connecting to {url}")
-                    LOG.info(f"")
-                    if response.statuscode in (200,204):
-                        LOG.info(f"Successfully fetched from {full_url}")
+                    response.raise_for_status()
+                    LOG.info(statuscodes.get(str(response.status_code)))
+                    print(response.status_code)
+                    if int(response.status_code) in (200, 204):
+                        LOG.info(f"Successfully fetched from {url},Key No.{i}")
                         return response
-                    else
+                    else:
+                        LOG.info("Retrying......")
                     
                         
             except HTTPError as err:
@@ -97,35 +130,84 @@ class APIHandler:
             except Exception as err:
                 print(f"Exception Error whilst Communicating with {full_url}")
                 LOG.info(f"{err}")
+        LOG.critical("Unable to Connect to API. Returning to Main")
+        return None
 
 
-"""BACKROUND FUNCTIONS"""
-#Handler function x = Location, y = Date
+#BACKGROUND FUNCTIONS
+
+#Handler function passes x = Location, y = Date
 handler = lambda x,y: APIHandler(x,y)
 #Title formatting for Reporting and Menu Functions
-titleprint = lambda x: '\n'*10 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
+titleprint = lambda x: '\n'*3 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
 #Farenheit conversion
 farenheit_to_celcius = lambda x: (x - 32) / 1.8
-#Backout is used to hop out of a function, logging could be utilized in this function
-def backout():#!! And Log
-    print("Backing Out...\n",('='*25),('\n'*5))
 
 
 
-"""I did not touch this function as I'm not sure about csv file handling, 
-wish to leave to someone else as this refactoring has killed me off - Caileb"""
-#Function to save report file (.CSV)
-def save_report(user_date,fieldnames,data_array):
-    user_date = user_date.replace("/","") # Removes slash from user date used by the API link as it conflicts with file names
-    with open(f"WeatherReport-{user_date}.csv","w", newline='') as f:
-        writer = csv.DictWriter(f,fieldnames = fieldnames)
-        writer.writeheader()
-        writer.writerow(data_array)
-    #!! And Log
 
+def save_report(fieldnames,data_array) -> None:
+    """
+    Append a single weather report to the CSV “reporting.csv” file and
+    persist the same record in JSON and plain‑text formats.
+
+    Parameters
+    ----------
+    fieldnames : list[str]
+        Column names for the CSV writer; must match the keys in ``data_array``.
+    data_array : dict
+        Mapping of field names to values for the record that will be
+        written.  The function expects the dictionary to contain all
+        required keys.
+
+    Notes
+    -----
+    * The CSV file is opened in append mode so each call adds a new row
+      without erasing previous reports.
+    * A timestamp (ISO‑8601 UTC) is automatically added to the record
+      under the key ``timestamp`` before any file is written.
+    * The same record is written to:
+        * ``reporting.json`` – one JSON object per line (JSON‑lines).
+        * ``reporting.txt`` – a human‑readable key/value list, one per line.
+    * Errors are logged at ``WARNING`` level but do not raise an exception
+      to avoid breaking the reporting pipeline.
+
+    Returns
+    -------
+    None
+    """
+    
+    try:
+        with open(f"reporting.csv","a", newline='') as f:
+            writer = csv.DictWriter(f,fieldnames = fieldnames)
+            writer.writeheader()
+            writer.writerow(data_array)
+        LOG.info('Report appended to reporting.csv')
+    except Exception as err:
+        LOG.warning('Error with saving to reporting.csv',err)
 
 """REPORTING FUNCTIONS"""
-def show_simple_report(data, location, date_string):
+def show_simple_report(data: dict, location: str, date_string: str) -> None:
+    """
+    Print a concise summary of the first day’s weather.
+
+    Parameters
+    ----------
+    data : dict
+        Parsed JSON response from the weather API.
+    location : str
+        Human‑readable location string (e.g. “New York”).
+    date_string : str
+        Date in the format used by the user (e.g. ``"2024‑10‑01"``).
+
+    Notes
+    -----
+    * Calculates average, high, low temperatures and the most common
+      weather condition for the day.
+    * Displays rain probability as a bar of asterisks.
+    * The function logs the start and completion of the analysis.
+    """
+    
     day_info = data['days'][0]
     all_hours = day_info['hours']
     
@@ -143,7 +225,7 @@ def show_simple_report(data, location, date_string):
     lowest_temp = min(temp_list) #min
     most_common_weather = statistics.mode(condition_list) #mode weather type
     rain_percent = day_info.get('precipprob', 0) #chance of rain
-    #!! And Log?
+    LOG.info('Data Analysis Complete')
 
     #REPORTING OF CALCULATED DATA
     print(titleprint(f"SUMMARY FOR: {location.upper()} | DATE: {date_string}"))
@@ -156,9 +238,27 @@ def show_simple_report(data, location, date_string):
     stars = "*" * star_count
     print(f"Rain Chance:     [{stars:<20}] {rain_percent}%")
     print("="*30)
-    #!! And Log
+    LOG.info('Simple Analysis Report Generated')
 
-def show_detailed_report(data):
+
+def show_detailed_report(data: dict) -> None:
+    """
+    Print a per‑hour table of temperature and weather conditions.
+
+    Parameters
+    ----------
+    data : dict
+        Parsed JSON response from the weather API.
+
+    Notes
+    -----
+    * Shows time in ``HH:MM`` format, temperature in Celsius, and
+      the weather description.
+    * The table is formatted for terminal display with fixed column
+      widths.
+    * Logs the completion of the detailed report.
+    """
+
     day_info = data['days'][0]
     all_hours = day_info['hours']
 
@@ -175,20 +275,20 @@ def show_detailed_report(data):
         weather = hour['conditions']
         
         print(f"{short_time:<10} | {sorted_celcius:<10.1f} | {weather}")
-    #!! And Log
+    LOG.info('Detailed Table Report Generated')
 
 def run_reports(response, user_location, user_date):
-    #!! And Log: run_reports accessed
+    LOG.info('Running Report Menu')
     try:
         data = response.json()
-    except:
+    except JSONDecodeError as err:
         #!!Need to do something here
-        print("Error parsing JSON") #!! And Log
-        return backout()
+        print("Error parsing JSON") 
+        LOG.info('',err)
 
     #formatting date string for header
-    time_info = TimeBreak(user_date)
-    formatted_date = time_info.reporting_date
+    #time_info = TimeBreak(user_date) NEEDS FIXING!!!!
+    #formatted_date = time_info.reporting_date
     
 
     print(titleprint('Report Menu'))
@@ -203,19 +303,19 @@ def run_reports(response, user_location, user_date):
     elif user_choice == "2":
         show_detailed_report(data)
     else:
-        return backout()
+        return None
 
 
 """MAIN FUNCTION"""
 #Function for main code
 def main():
     while True:
-        #!! And Log: Program Loop Started
+        LOG.info('')
         print(titleprint('Weather Data'))
         user_location = input("Enter location (e.g. London): ")
         if not user_location:
-            #!! And Log
-            break
+            LOG.info('')
+            return None
 
         user_date = input("Enter date (YYYY-MM-DD) or leave blank: ")
         
@@ -230,9 +330,9 @@ def main():
                 run_reports(response, user_location, user_date)
             else:
                 print("Failed to retrieve data.") #!! LOG
-                return backout()
+                return None
         else:
-            return backout()
+            return None
     
  
 """Initialises Main"""
