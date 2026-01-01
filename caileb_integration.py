@@ -18,23 +18,40 @@ Main Function
 """
 
 """IMPORTED MODULES"""
-from requests import requests, HTTPError
-from json import JSON, JSONDecodeError
+import request
+import requests
+from requests.exceptions import HTTPError, JSONDecodeError
 import logging as LOG
 from datetime import datetime
+import json
 import csv
 import statistics
+
+statuscodes = {
+            #success
+            '200':'| JSON Recieved | Data Present and Formatted Correctly |',
+            '204': '| JSON Recieved|  Data Not Present, Formatted Correctly |',
+            #client error
+            '400':'| Bad Request | Improper Query or Bad JSON Recieved |',
+            '401':'| Bad API Key | Invalid or None API Key used |',
+            '403':'| Forbidden | Fetch request is valid but no permission is given |',
+            '404':'| Not Found | Requested resource does not exist |',
+            '429':'| Rate-Limit Exceeded| Too Many Requests, Try again later! |',
+            #server error
+            '500':'| Internal Server Error | Unexpected Error with Server |',
+            '502':'| Service Unavailable | Try again Later, Servers may be under maintenance |'
+}
 
 LOG.basicConfig(
     level = LOG.INFO,
     format = '%(asctime)s [%(levelnames)s] %(message)s',
-    datemt = '%Y-%m-%d %H:%M:%S'
+    datefmt = '%Y-%m-%d %H:%M:%S'
 )
 """CLASSES"""
 class TimeBreak:
     """Handles report timestamps and formatting"""
     def __init__(self, user_date=None):
-        #!! Log: TimeBreak initialized
+        LOG.info('TimeBreak Initialized.')
         #if user_date is None then it is formatted to Todays date
         if not user_date:
             self.reporting_date = datetime.now().strftime("%d/%m/%Y")
@@ -43,12 +60,12 @@ class TimeBreak:
 
 class APIHandler:
     """Handles API Communication"""
-    def __init__(self, user_location, user_date):
-        #!! Log: APIHandler initialized
+    def __init__(self, user_location, user_date, statuscodes):
+        LOG.info('API Handler Initialized.')
         #assigning variables to instance 'self'
         self.user_location = user_location
         self.user_date = user_date if user_date else ""
-
+        self.statuscodes = statuscodes
         #API Basic info
         self.api_data = {
             'url':'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
@@ -56,24 +73,30 @@ class APIHandler:
         }
         
         #Connect Function
-    def connect(self) -> JSON | None:
-        url = self.api_data{'url'}
-        for i in self.api_data{'keys'}:
+    def connect(self) -> json | None:
+        url = self.api_data['url']
+        for i in self.api_data['keys']:
             date_path = f"/{self.user_date}" if self.user_date else ""
             full_url = f'{url}{self.user_location}{date_path}?key={i}'
-            print(f"Attempt {i.index()}: Connecting to {url}")
             try:
                 with requests.get(full_url, timeout=10) as response:
-                    if response.status_code == 200:
-                        print("Connection successful!") #!! LOG 
+                    LOG.info(f"Attempt {i.index()}: Connecting to {url}")
+                    LOG.info(f"")
+                    if response.statuscode in (200,204):
+                        LOG.info(f"Successfully fetched from {full_url}")
                         return response
-                    else:
-                        print(f"Error:{response.status_code}") #!! LOG
+                    else
+                    
+                        
             except HTTPError as err:
-                print(f"HTTP Error whilst Connecting to {full_url}")
-                
-            except JSONDecodeError as err
-
+                print(f"HTTP Error whilst Communicating with {full_url}")
+                LOG.info(f"{err}")
+            except JSONDecodeError as err:
+                print(f"JSON Decode Error whilst Communicating with {full_url}")
+                LOG.info(f"{err}")
+            except Exception as err:
+                print(f"Exception Error whilst Communicating with {full_url}")
+                LOG.info(f"{err}")
 
 
 """BACKROUND FUNCTIONS"""
