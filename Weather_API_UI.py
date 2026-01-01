@@ -48,6 +48,24 @@ def detailed_report():
     else:
         messagebox.showinfo(title="Detailed Weather Report", message=f"A more detailed report of\n the weather in {location} on {date} at {hour} \nwould be xyz")
 
+#function for generating a comparison report
+
+def comparison_report():
+    location = location_entry.get()
+    date = date_entry.get()
+    hour = hour_dropdown.get()
+    comp_location = comparison_location_entry.get()
+    comp_date = comparison_date_entry.get()
+    comp_hour = comparison_hour_dropdown.get()
+    if (check_state.get() == 0) and (comp_check_state.get() == 0):
+        messagebox.showinfo(title="Comparison Weather Report", message=f"The weather in {location} on {date} is be xyz, whereas the weather in {comp_location} on {comp_date} is xyz")
+    elif (check_state.get() == 1) and (comp_check_state.get() == 0):
+        messagebox.showinfo(title="Comparison Weather Report", message=f"The weather in {location} on {date} at {hour} is be xyz, whereas the weather in {comp_location} on {comp_date} is xyz")
+    elif (check_state.get() == 0) and (comp_check_state.get() == 1):
+        messagebox.showinfo(title="Comparison Weather Report", message=f"The weather in {location} on {date} is be xyz, whereas the weather in {comp_location} on {comp_date} at {comp_hour} is xyz")
+    elif (check_state.get() == 1) and (comp_check_state.get() == 1):
+        messagebox.showinfo(title="Comparison Weather Report", message=f"The weather in {location} on {date} at {hour} is be xyz, whereas the weather in {comp_location} on {comp_date} at {comp_hour} is xyz")
+
 #function to determine whether the hour dropdown menu should be enabled or disabled
 
 def hour_dropdown_check():
@@ -66,7 +84,6 @@ def comp_hour_dropdown_check():
 
 def comparison_ui_change():    
     if radio_variable.get()==2:
-        print("FUNCTION UNDER CONSTRUCTION")
         report_btn.grid_remove()
         detailed_report_btn.grid_remove()
         
@@ -84,7 +101,6 @@ def comparison_ui_change():
         
         
     else:
-        print("FUNCTION STILL UNDER CONRSTRUCTION")
         report_btn.grid()
         detailed_report_btn.grid()
         comparison_report_btn.grid_remove()
@@ -132,7 +148,7 @@ comparison_hour_dropdown.set("Please select an hour")
 
 report_btn = Button(root, text="Generate Report", command=basic_report)
 detailed_report_btn = Button(root, text="Generate In-Depth Report", command=detailed_report)
-comparison_report_btn = Button(root, text="Compare These Two Reports")
+comparison_report_btn = Button(root, text="Compare These Two Reports", command=comparison_report)
 
 #creates radio buttons so the user can choose to compare
 
