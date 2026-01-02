@@ -33,6 +33,7 @@ def title_print(x: str) -> str:
 #Farenheit conversion
 def farenheit_to_celcius(x: int):
     return (x - 32) / 1.8
+
 STATUS_CODES = {
             #success
             '200':'| JSON Recieved | Data Present and Formatted Correctly |',
@@ -48,7 +49,7 @@ STATUS_CODES = {
             '502':'| Service Unavailable | Try again Later, Servers may be under maintenance |'
 }
 
-#Log Config
+#   LOG CONFIG
 LOG.basicConfig(
     level = LOG.INFO,  #level captures minimum level to log
     format = '%(asctime)s [%(levelname)s] %(message)s', #format for logging
@@ -66,12 +67,11 @@ class APIHandler:
         Location & Date Variables
     """
 
-    def __init__(self, userquery[0][1], userquery[0]):
+    def __init__(self, location, date=""):
         LOG.info('API Handler Initialized.')
         #assigning variables to instance 'self'
-        self.userquery[0][1] = userquery[0][1]
-        self.userquery[0] = userquery[0] if userquery[0] else ""
-        
+        self.location = location
+        self.date = date
         #API BASIC INFO
         self.api_data = {
             'url':'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
@@ -113,16 +113,17 @@ class APIHandler:
         
         url = self.api_data['url']
         for i in self.api_data['keys']:
-            date_path = f"/{self.userquery[0]}" if self.userquery[0] else ""
-            full_url = f'{url}{self.userquery[0][1]}{date_path}?key={i}'
+            date_path = f"/{self.date}" if self.date else ""
+            full_url = f'{url}{self.location}{date_path}?key={i}'
+
             try:
                 LOG.info(f"Connecting to {url}")
                 with requests.get(full_url, timeout=10) as response:
                     response.raise_for_status()
                     LOG.info(STATUS_CODES.get(str(response.status_code)))
-                    print(response.status_code)
+
                     if int(response.status_code) in (200, 204):
-                        LOG.info(f"Successfully fetched from {url},Key No.{i}")
+                        LOG.info(f"Successfully fetched from {url},Key ending in.{i[-4:]}") #Only logs last 4 characters of Key (Due to sensitive data)
                         return response
                     else:
                         LOG.info("Retrying......")
