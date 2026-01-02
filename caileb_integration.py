@@ -129,15 +129,9 @@ class APIHandler:
                         LOG.info("Retrying......")
                     
                         
-            except HTTPError as err:
-                print(f"HTTP Error whilst Communicating with {full_url}")
-                LOG.info(f"{err}")
-            except JSONDecodeError as err:
-                print(f"JSON Decode Error whilst Communicating with {full_url}")
-                LOG.info(f"{err}")
-            except Exception as err:
-                print(f"Exception Error whilst Communicating with {full_url}")
-                LOG.info(f"{err}")
+            except (HTTPError, JSONDecodeError, Exception) as err:
+                print(f"Error whilst Communicating with {full_url},Key ending in.{i[-4:]}")
+                LOG.warning(f"{err}")
         LOG.critical("Unable to Connect to API. Returning to Main")
         return None
 
