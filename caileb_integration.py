@@ -25,7 +25,13 @@ import json # Read/Writing to JSON
 import csv # Read/Writing to CSV
 import statistics #Helps with analysis
 
-#Called in Connect
+#   UTILS AND CONSTANTS
+
+#Title formatting for Reporting and Menu Functions
+def title_print(x: str) -> str:
+    return '\n'*3 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
+#Farenheit conversion
+farenheit_to_celcius = lambda x: (x - 32) / 1.8
 STATUS_CODES = {
             #success
             '200':'| JSON Recieved | Data Present and Formatted Correctly |',
@@ -49,7 +55,7 @@ LOG.basicConfig(
 )
 
 
-#CLASSES
+#   CLASSES
 
 class APIHandler:
     """
@@ -163,14 +169,6 @@ class UserQuery:
             
 
 
-
-#BACKGROUND FUNCTIONS
-
-#Title formatting for Reporting and Menu Functions
-def title_print(x):
-    return '\n'*3 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
-#Farenheit conversion
-farenheit_to_celcius = lambda x: (x - 32) / 1.8
 
 
 
