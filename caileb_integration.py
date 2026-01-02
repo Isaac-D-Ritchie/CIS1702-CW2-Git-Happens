@@ -19,14 +19,14 @@ Main Function
 import requests # Util for API requests
 from requests.exceptions import HTTPError, JSONDecodeError # Exceptions for requests related errors
 import logging as LOG # For Logging instead of Printing
-from datetime import datetime as dt #May use timedelta to report on multiple days
+from datetime import datetime as dt #formatting and timedelta
 from typing import List, Dict, Optional, Any #Would've liked JSON import but issues with differing versions of python
 import json # Read/Writing to JSON
 import csv # Read/Writing to CSV
 import statistics #Helps with analysis
 
 #Called in Connect
-statuscodes = {
+STATUS_CODES = {
             #success
             '200':'| JSON Recieved | Data Present and Formatted Correctly |',
             '204': '| JSON Recieved |  Data Not Present, Formatted Correctly |',
@@ -112,7 +112,7 @@ class APIHandler:
                 LOG.info(f"Connecting to {url}")
                 with requests.get(full_url, timeout=10) as response:
                     response.raise_for_status()
-                    LOG.info(statuscodes.get(str(response.status_code)))
+                    LOG.info(STATUS_CODES.get(str(response.status_code)))
                     print(response.status_code)
                     if int(response.status_code) in (200, 204):
                         LOG.info(f"Successfully fetched from {url},Key No.{i}")
@@ -153,7 +153,7 @@ class UserQuery:
                 else:
                     self.querycache['cities'].append(i)
                     LOG.info('Cached Query Location')
-                    
+
         except TypeError as err:
             LOG.warning(f'TypeError when Caching Query "{i}", Error:{err}')
         except ValueError as err:
@@ -166,10 +166,9 @@ class UserQuery:
 
 #BACKGROUND FUNCTIONS
 
-#Handler function passes x = Location, y = Date
-handler = lambda x,y: APIHandler(x,y)
 #Title formatting for Reporting and Menu Functions
-titleprint = lambda x: '\n'*3 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
+def title_print(x):
+    return '\n'*3 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
 #Farenheit conversion
 farenheit_to_celcius = lambda x: (x - 32) / 1.8
 
@@ -258,7 +257,7 @@ def show_simple_report(data: dict, location: str, date_string: str) -> None:
     LOG.info('Data Analysis Complete')
 
     #REPORTING OF CALCULATED DATA
-    print(titleprint(f"SUMMARY FOR: {location.upper()} | DATE: {date_string}"))
+    print(title_print(f"SUMMARY FOR: {location.upper()} | DATE: {date_string}"))
 
     print(f"Main Condition:  {most_common_weather}")
     print(f"Average Temp:    {average_temp:.1f}°C")
@@ -320,7 +319,7 @@ def run_reports(response, userquery[0][1], userquery[0]):
     #formatted_date = time_info.reporting_date
     
 
-    print(titleprint('Report Menu'))
+    print(title_print('Report Menu'))
     print("1. Simple Summary")
     print("2. Detailed Hourly Breakdown")
     print("3. Cancel")
@@ -342,7 +341,7 @@ def main():
     userquery = [[],[]]
     while True:
         LOG.info('')
-        print(titleprint('Weather Data'))
+        print(title_print('Weather Data'))
         userquery[0][1] = input("Enter location (e.g. London): ")
         if not userquery[0][1]:
             LOG.info('')
