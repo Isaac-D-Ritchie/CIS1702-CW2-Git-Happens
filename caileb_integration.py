@@ -20,7 +20,7 @@ import requests # Util for API requests
 from requests.exceptions import HTTPError, JSONDecodeError # Exceptions for requests related errors
 import logging as LOG # For Logging instead of Printing
 from datetime import datetime as dt #May use timedelta to report on multiple days
-from typing import Dict, Optional, Any #Would've liked JSON import but issues with differing versions of python
+from typing import List, Dict, Optional, Any #Would've liked JSON import but issues with differing versions of python
 import json # Read/Writing to JSON
 import csv # Read/Writing to CSV
 import statistics #Helps with analysis
@@ -54,16 +54,16 @@ LOG.basicConfig(
 class APIHandler:
     """
     Handles API Communication
-    Contains:
-    Connect Function
-    Location & Date Variables
+        Contains:
+        Connect Function
+        Location & Date Variables
     """
 
-    def __init__(self, user_location, user_date):
+    def __init__(self, userquery[0][1], userquery[0]):
         LOG.info('API Handler Initialized.')
         #assigning variables to instance 'self'
-        self.user_location = user_location
-        self.user_date = user_date if user_date else ""
+        self.userquery[0][1] = userquery[0][1]
+        self.userquery[0] = userquery[0] if userquery[0] else ""
         
         #API BASIC INFO
         self.api_data = {
@@ -79,7 +79,7 @@ class APIHandler:
 
         The method iterates over the API keys stored in
         ``self.api_data['keys']``.  For each key it constructs the request
-        URL (optionally including ``self.user_date``) and attempts a GET
+        URL (optionally including ``self.userquery[0]``) and attempts a GET
         request with a 10‑second timeout.  If the HTTP status code is
         200 (OK) or 204 (No Content) the response is returned immediately.
         Any other successful status code or an exception triggers a retry
@@ -106,8 +106,8 @@ class APIHandler:
         
         url = self.api_data['url']
         for i in self.api_data['keys']:
-            date_path = f"/{self.user_date}" if self.user_date else ""
-            full_url = f'{url}{self.user_location}{date_path}?key={i}'
+            date_path = f"/{self.userquery[0]}" if self.userquery[0] else ""
+            full_url = f'{url}{self.userquery[0][1]}{date_path}?key={i}'
             try:
                 LOG.info(f"Connecting to {url}")
                 with requests.get(full_url, timeout=10) as response:
@@ -132,6 +132,36 @@ class APIHandler:
                 LOG.info(f"{err}")
         LOG.critical("Unable to Connect to API. Returning to Main")
         return None
+
+class UserQuery:
+
+    def __init__(self, cli_query: List[str]) -> None:
+        self.cli_query = cli_query
+        self.querycache: Dict[str, List[str]] = {'cities': [],'dates': []}
+
+    def querystore(self):
+        try:
+            for i in self.cli_query:
+                if not i:
+                    LOG.debug('Skipping empty query item')
+                    continue
+
+                if dt.strptime(i,str('%Y-%m-%d')):
+                    self.querycache['dates'].append(i)
+                    LOG.info('Cached Query Date')
+
+                else:
+                    self.querycache['cities'].append(i)
+                    LOG.info('Cached Query Location')
+                    
+        except TypeError as err:
+            LOG.warning(f'TypeError when Caching Query "{i}", Error:{err}')
+        except ValueError as err:
+            LOG.warning(f'ValueError when Caching Query "{i}", Error:{err}')
+        except Exception as err:
+            LOG.warning(f'Exception when Caching Query "{i}", Error:{err}')
+            
+
 
 
 #BACKGROUND FUNCTIONS
@@ -277,17 +307,16 @@ def show_detailed_report(data: dict) -> None:
         print(f"{short_time:<10} | {sorted_celcius:<10.1f} | {weather}")
     LOG.info('Detailed Table Report Generated')
 
-def run_reports(response, user_location, user_date):
+def run_reports(response, userquery[0][1], userquery[0]):
     LOG.info('Running Report Menu')
     try:
         data = response.json()
     except JSONDecodeError as err:
-        #!!Need to do something here
-        print("Error parsing JSON") 
-        LOG.info('',err)
+        #!!Need to do something here 
+        LOG.info('Error parsing JSON',err)
 
     #formatting date string for header
-    #time_info = TimeBreak(user_date) NEEDS FIXING!!!!
+    #time_info = TimeBreak(userquery[0]) NEEDS FIXING!!!!
     #formatted_date = time_info.reporting_date
     
 
@@ -299,7 +328,7 @@ def run_reports(response, user_location, user_date):
     user_choice = input("Enter 1, 2, or 3: ")
 
     if user_choice == "1":
-        show_simple_report(data, user_location, formatted_date)
+        show_simple_report(data, userquery[0][1], formatted_date)
     elif user_choice == "2":
         show_detailed_report(data)
     else:
@@ -309,25 +338,27 @@ def run_reports(response, user_location, user_date):
 """MAIN FUNCTION"""
 #Function for main code
 def main():
+    #userquery contains Dates then Cities in 2d array
+    userquery = [[],[]]
     while True:
         LOG.info('')
         print(titleprint('Weather Data'))
-        user_location = input("Enter location (e.g. London): ")
-        if not user_location:
+        userquery[0][1] = input("Enter location (e.g. London): ")
+        if not userquery[0][1]:
             LOG.info('')
             return None
 
-        user_date = input("Enter date (YYYY-MM-DD) or leave blank: ")
+        userquery[0][0] = input("Enter date (YYYY-MM-DD) or leave blank: ")
         
-        confirm = input(f"Proceed with {user_location} on {user_date if user_date else 'Today'}? (Y/N): ")
+        confirm = input(f"Proceed with {userquery[0][1]} on {userquery[0] if userquery[0] else 'Today'}? (Y/N): ")
         
         if confirm.lower() == "y":
             #Checks Connection
-            response = handler(user_location, user_date).connect()
+            response = handler(userquery[0][1], userquery[0]).connect()
             
             #If Connection is active then report functions are called with data
             if response:
-                run_reports(response, user_location, user_date)
+                run_reports(response, userquery[0][1], userquery[0])
             else:
                 print("Failed to retrieve data.") #!! LOG
                 return None
