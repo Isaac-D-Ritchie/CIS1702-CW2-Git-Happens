@@ -137,31 +137,24 @@ class APIHandler:
 
 class UserQuery:
 
-    def __init__(self, cli_query: List[str]) -> None:
-        self.cli_query = cli_query
+    def __init__(self) -> None:
         self.querycache: Dict[str, List[str]] = {'cities': [],'dates': []}
 
-    def querystore(self):
+    def add_to_cache(self, location: str, date: str):
+        if not location or not date:
+            LOG.info('Skipping empty query item')
         try:
-            for i in self.cli_query:
-                if not i:
-                    LOG.debug('Skipping empty query item')
-                    continue
+            
+            
 
-                if dt.strptime(i,str('%Y-%m-%d')):
-                    self.querycache['dates'].append(i)
-                    LOG.info('Cached Query Date')
 
-                else:
-                    self.querycache['cities'].append(i)
-                    LOG.info('Cached Query Location')
+            LOG.info('Cached Query Date')
 
-        except TypeError as err:
-            LOG.warning(f'TypeError when Caching Query "{i}", Error:{err}')
-        except ValueError as err:
-            LOG.warning(f'ValueError when Caching Query "{i}", Error:{err}')
-        except Exception as err:
-            LOG.warning(f'Exception when Caching Query "{i}", Error:{err}')
+            LOG.info('Cached Query Location')
+
+        except (TypeError, ValueError, Exception) as err:
+            LOG.warning(f'Error when Caching Query "{i}", Error:{err}')
+
             
 
 
