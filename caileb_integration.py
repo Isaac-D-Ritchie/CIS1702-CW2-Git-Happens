@@ -31,7 +31,8 @@ import statistics #Helps with analysis
 def title_print(x: str) -> str:
     return '\n'*3 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
 #Farenheit conversion
-farenheit_to_celcius = lambda x: (x - 32) / 1.8
+def farenheit_to_celcius(x: int):
+    return (x - 32) / 1.8
 STATUS_CODES = {
             #success
             '200':'| JSON Recieved | Data Present and Formatted Correctly |',
