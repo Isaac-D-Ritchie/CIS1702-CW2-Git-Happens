@@ -24,16 +24,10 @@ from typing import List, Dict, Optional, Any #Would've liked JSON import but iss
 import json # Read/Writing to JSON
 import csv # Read/Writing to CSV
 import statistics #Helps with analysis
+import os #helper to find files
 
-#   UTILS AND CONSTANTS
 
-#Title formatting for Reporting and Menu Functions
-def title_print(x: str) -> str:
-    return '\n'*3 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
-#Farenheit conversion
-def farenheit_to_celcius(x: int):
-    return (x - 32) / 1.8
-
+# --- LOG.CONFIG, UTILS & CONSTANTS ---
 STATUS_CODES = {
             #success
             '200':'| JSON Recieved | Data Present and Formatted Correctly |',
@@ -49,15 +43,17 @@ STATUS_CODES = {
             '502':'| Service Unavailable | Try again Later, Servers may be under maintenance |'
 }
 
-#   LOG CONFIG
-LOG.basicConfig(
-    level = LOG.INFO,  #level captures minimum level to log
-    format = '%(asctime)s [%(levelname)s] %(message)s', #format for logging
-    datefmt = '%Y-%m-%d %H:%M:%S' #dateformat for asctime
-)
+LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
+
+#Title formatting for Reporting and Menu Functions
+def title_print(x: str) -> str:
+    return '\n'*3 + '='*25 + f'\n {x}\n' + '='*25 + '\n'*2
+#Farenheit conversion
+def farenheit_to_celcius(x: int):
+    return (x - 32) / 1.8
 
 
-#   CLASSES
+# --- CORE CLASSES ---
 
 class APIHandler:
     """
@@ -117,7 +113,7 @@ class APIHandler:
             full_url = f'{url}{self.location}{date_path}?key={i}'
 
             try:
-                LOG.info(f"Connecting to {url}")
+                LOG.info(f"Connecting to {url} with location:{self.location} and date:{self.date}")
                 with requests.get(full_url, timeout=10) as response:
                     response.raise_for_status()
                     LOG.info(STATUS_CODES.get(str(response.status_code)))
@@ -185,12 +181,13 @@ class UserQuery:
             Recent Cities: New York, London
             Recent Dates:  23-04-01, 23-04-02
     """
+    
     def __init__(self) -> None:
         self.querycache: Dict[str, List[str]] = {'cities': [],'dates': []}
 
     def add_to_cache(self, location: str, date: str):
         if not location or not date:
-            LOG.info('Skipping empty query item')
+            LOG.info(f'Empty Query Location:{location} Date:{date}, Skipping')
         try:
             if location and location not in self.querycache['cities']:
                 self.querycache['cities'].append(location)
@@ -212,8 +209,8 @@ class UserQuery:
             return f"Recent Cities: {cities}\nRecent Dates:  {dates}"
             
 
-#>> SAVING FUNCTION
-def save_report(fieldnames,data_array) -> None: #Only saves to csv currently
+#--- SAVING FUNCTION ---
+def save_report(data:dict) -> None: #Only saves to csv currently
     """
     Append a single weather report to the CSV “reporting.csv” file and
     persist the same record in JSON and plain‑text formats.
@@ -243,13 +240,29 @@ def save_report(fieldnames,data_array) -> None: #Only saves to csv currently
     -------
     None
     """
-    
+    day = data['days'][0]
+    location_name = data.get('address', 'Unknown').title()
+
+    report_fields = {
+        'timestamp': dt.now().strftime("%Y-%m-%d %H:%M:%S"),
+        'location': location_name,
+        'date': day['datetime'],
+        'avg_temp': round(farenheit_to_celcius(day['temp']), 1),
+        'humidity': day.get('humidity'),
+        'conditions': day.get('conditions')
+    }
     try:
+        csvpresent = os.path.isfile('reporting.csv')
         with open('reporting.csv','a', newline='') as f:
-            writer = csv.DictWriter(f,fieldnames = fieldnames)
-            writer.writeheader()
-            writer.writerow(data_array)
+            writer = csv.DictWriter(f,fieldnames = report_fields.keys())
+            if not csvpresent:
+                writer.writeheader()
+            writer.writerow(report_fields)
             LOG.info('Report appended to reporting.csv')
+        jsonpresent = os.path.isfile('reporting.json')
+        txtpresent = os.path.isfile('reporting.txt')
+
+
         #with open('reporting.json', 'a') as f:
             #f.write(json.dumps(something) + '\n')
         #with open('reporting.txt', 'a') as f:
@@ -388,7 +401,7 @@ def main():
         if not loc: continue
 
         date = input("Date (YYYY-MM-DD) or Enter for today: ").strip()
-        session_cache.fetch_history(loc, date)
+        session_cache.add_to_cache(loc, date)
 
         handler = APIHandler(loc, date)
         data = handler.connect()
