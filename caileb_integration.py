@@ -144,17 +144,24 @@ class UserQuery:
         if not location or not date:
             LOG.info('Skipping empty query item')
         try:
-            
-            
+            if location and location not in self.querycache['cities']:
+                self.querycache['cities'].append(location)
+                LOG.info(f'Cached Location:{location}')
+            if date:
+                dt.strptime(date, '%y-%m-%d')
+                if date not in self.querycache['dates']:
+                    self.querycache['dates'].append(date)
+                    LOG.info(f'Cached Date:{date}')
+        except (TypeError, ValueError) as err:
+            LOG.warning(f'Error Date formatting or type invalid, Error{err}')
+        except Exception as err:
+            LOG.warning(f'Error when Caching Query, Error:{err}')
 
-
-            LOG.info('Cached Query Date')
-
-            LOG.info('Cached Query Location')
-
-        except (TypeError, ValueError, Exception) as err:
-            LOG.warning(f'Error when Caching Query "{i}", Error:{err}')
-
+    def fetch_history(self) -> str:
+            #returns string summary of session history
+            cities = ", ".join(self.querycache['cities']) or "None"
+            dates = ", ".join(self.querycache['dates']) or "None"
+            return f"Recent Cities: {cities}\nRecent Dates:  {dates}"
             
 
 
