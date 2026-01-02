@@ -136,7 +136,55 @@ class APIHandler:
         return None
 
 class UserQuery:
+    """
+    Stores and manages a short history of user queries.
 
+    The :class:`UserQuery` class keeps a lightweight cache of the most recent
+    city names and dates that the user has requested.  The cache is held in a
+    dictionary with two keys – ``'cities'`` and ``'dates'`` – each pointing
+    to a list of strings.  The class offers two public methods: one to
+    add a new query to the cache and one to retrieve a human‑readable
+    summary of the cached items.
+
+    The implementation deliberately keeps the logic simple: the cache
+    is never cleared automatically and duplicate entries are ignored.
+    Dates are validated against the ``%y-%m-%d`` format; if the format is
+    invalid the entry is skipped and a warning is logged.  Logging is used
+    throughout to aid debugging and to provide a trace of the cache
+    operations.
+
+    Errors are caught and logged:
+
+        * ``TypeError`` – raised when a non‑string value is passed as a
+          location or date.
+        * ``ValueError`` – raised when the supplied date string does not
+          match the expected ``%y-%m-%d`` format.
+        * ``Exception`` – any other unexpected error that occurs while
+          updating the cache.
+
+    Logging here
+        * On successful addition of a location or date a ``LOG.info`` entry
+          records the cached value.
+        * When a query item is empty a ``LOG.info`` message indicates the
+          skip.
+        * If a date fails validation a ``LOG.warning`` message is emitted.
+        * Any other error during caching is logged as a warning with the
+          exception details.
+
+    Parameters
+    ----------
+    None – all required values are supplied when the methods are called.
+
+    Returns
+    -------
+    str
+        A multi‑line string that lists the cached cities and dates, e.g.
+
+        .. code-block:: text
+
+            Recent Cities: New York, London
+            Recent Dates:  23-04-01, 23-04-02
+    """
     def __init__(self) -> None:
         self.querycache: Dict[str, List[str]] = {'cities': [],'dates': []}
 
@@ -164,12 +212,8 @@ class UserQuery:
             return f"Recent Cities: {cities}\nRecent Dates:  {dates}"
             
 
-
-
-
-
-
-def save_report(fieldnames,data_array) -> None:
+#>> SAVING FUNCTION
+def save_report(fieldnames,data_array) -> None: #Only saves to csv currently
     """
     Append a single weather report to the CSV “reporting.csv” file and
     persist the same record in JSON and plain‑text formats.
@@ -201,15 +245,22 @@ def save_report(fieldnames,data_array) -> None:
     """
     
     try:
-        with open(f"reporting.csv","a", newline='') as f:
+        with open('reporting.csv','a', newline='') as f:
             writer = csv.DictWriter(f,fieldnames = fieldnames)
             writer.writeheader()
             writer.writerow(data_array)
-        LOG.info('Report appended to reporting.csv')
+            LOG.info('Report appended to reporting.csv')
+        #with open('reporting.json', 'a') as f:
+            #f.write(json.dumps(something) + '\n')
+        #with open('reporting.txt', 'a') as f:
+            #f.write(f"---(timestamp)---\n")
+            #for key, value in something.items():
+                #f.write(f"{key}:{value}\n")
+            #or save each line of terminal reporting to a list then when saving save each line to replicate the report.
     except Exception as err:
         LOG.warning('Error with saving to reporting.csv',err)
 
-"""REPORTING FUNCTIONS"""
+#>> REPORTING FUNCTIONS
 def show_simple_report(data: dict, location: str, date_string: str) -> None:
     """
     Print a concise summary of the first day’s weather.
@@ -231,13 +282,13 @@ def show_simple_report(data: dict, location: str, date_string: str) -> None:
     * The function logs the start and completion of the analysis.
     """
     
-    day_info = data['days'][0]
-    all_hours = day_info['hours']
+    day_data = data['days'][0]
+    hours_data = day_data['hours']
     
     temp_list = []
     condition_list = []
     
-    for hour in all_hours:
+    for hour in hours_data:
         celsius = farenheit_to_celcius(hour['temp'])
         temp_list.append(celsius)
         condition_list.append(hour['conditions'])
@@ -247,7 +298,7 @@ def show_simple_report(data: dict, location: str, date_string: str) -> None:
     highest_temp = max(temp_list) #max
     lowest_temp = min(temp_list) #min
     most_common_weather = statistics.mode(condition_list) #mode weather type
-    rain_percent = day_info.get('precipprob', 0) #chance of rain
+    rain_percent = day_data.get('precipprob', 0) #chance of rain
     LOG.info('Data Analysis Complete')
 
     #REPORTING OF CALCULATED DATA
@@ -282,13 +333,13 @@ def show_detailed_report(data: dict) -> None:
     * Logs the completion of the detailed report.
     """
 
-    day_info = data['days'][0]
-    all_hours = day_info['hours']
+    day_data = data['days'][0]
+    hours_data = day_data['hours']
 
     print(f"\n{'TIME':<10} | {'TEMP (°C)':<10} | {'WEATHER'}")
     print("-" * 40)
 
-    for hour in all_hours:
+    for hour in hours_data:
         raw_time = hour['datetime']
         short_time = raw_time[0:5] 
         
@@ -300,63 +351,52 @@ def show_detailed_report(data: dict) -> None:
         print(f"{short_time:<10} | {sorted_celcius:<10.1f} | {weather}")
     LOG.info('Detailed Table Report Generated')
 
-def run_reports(response, userquery[0][1], userquery[0]):
+def run_reports(data, location: str, date_string: str):
+
     LOG.info('Running Report Menu')
-    try:
-        data = response.json()
-    except JSONDecodeError as err:
-        #!!Need to do something here 
-        LOG.info('Error parsing JSON',err)
 
-    #formatting date string for header
-    #time_info = TimeBreak(userquery[0]) NEEDS FIXING!!!!
-    #formatted_date = time_info.reporting_date
-    
+    formatted_date = date_string if date_string else "Today (Current)"
 
-    print(title_print('Report Menu'))
-    print("1. Simple Summary")
-    print("2. Detailed Hourly Breakdown")
-    print("3. Cancel")
-    
-    user_choice = input("Enter 1, 2, or 3: ")
+    while True:
+        print(title_print('Report Menu'))
+        print(f"Current View: {location.upper()}| {formatted_date}")
+        print("1. Simple Summary")
+        print("2. Detailed Hourly Breakdown")
+        print("3. Save this report (CSV/JSON/TXT)")
+        print("4. Cancel/Back")
+        
+        user_choice = input("Enter 1, 2, 3 or 4: ")
 
-    if user_choice == "1":
-        show_simple_report(data, userquery[0][1], formatted_date)
-    elif user_choice == "2":
-        show_detailed_report(data)
-    else:
-        return None
+        if user_choice == "1":
+            show_simple_report(data, location, formatted_date)
+        elif user_choice == "2":
+            show_detailed_report(data)
+        #elif user_choice == "3":
+            #save_report(data, location) need to fix
+        else:
+            print("\nInvalid choice, please try again.\n")
 
 
 """MAIN FUNCTION"""
 #Function for main code
 def main():
-    #userquery contains Dates then Cities in 2d array
-    userquery = [[],[]]
+    session_cache = UserQuery()
     while True:
-        LOG.info('')
-        print(title_print('Weather Data'))
-        userquery[0][1] = input("Enter location (e.g. London): ")
-        if not userquery[0][1]:
-            LOG.info('')
-            return None
+        print(title_print('Weather Tool'))
+        loc = input("Location (or 'Q' to quit): ").strip()
+        if loc.lower() == 'q': break
+        if not loc: continue
 
-        userquery[0][0] = input("Enter date (YYYY-MM-DD) or leave blank: ")
-        
-        confirm = input(f"Proceed with {userquery[0][1]} on {userquery[0] if userquery[0] else 'Today'}? (Y/N): ")
-        
-        if confirm.lower() == "y":
-            #Checks Connection
-            response = handler(userquery[0][1], userquery[0]).connect()
-            
-            #If Connection is active then report functions are called with data
-            if response:
-                run_reports(response, userquery[0][1], userquery[0])
-            else:
-                print("Failed to retrieve data.") #!! LOG
-                return None
+        date = input("Date (YYYY-MM-DD) or Enter for today: ").strip()
+        session_cache.fetch_history(loc, date)
+
+        handler = APIHandler(loc, date)
+        data = handler.connect()
+
+        if data:
+            run_reports(data, loc, date)
         else:
-            return None
+            print("Data retrieval failed.")
     
  
 """Initialises Main"""
