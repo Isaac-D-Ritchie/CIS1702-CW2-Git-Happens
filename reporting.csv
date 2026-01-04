@@ -1,0 +1,4 @@
+timestamp,location,date,avg_temp,humidity,conditions
+2026-01-04 15:27:24,Liverpool Uk,2026-01-04,0.4,78.7,"Snow, Rain, Partially cloudy"
+2026-01-04 15:57:26,Southport Uk,2026-01-04,0.8,73.7,"Snow, Rain, Partially cloudy"
+2026-01-04 16:01:15,Ormskirk Uk,2026-01-04,0.1,78.0,"Snow, Rain, Partially cloudy"

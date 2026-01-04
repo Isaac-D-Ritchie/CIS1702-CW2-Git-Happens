@@ -274,6 +274,29 @@ def save_report(data: dict) -> None:
     except Exception as err:
         LOG.warning(f'Error with saving to files: {err}')
 
+# --- CSV COMPARISON ---
+
+def compare_csv():
+    while True:
+        print("\n=== CSV COMPARISON ===")
+        try:
+            with open("reporting.csv","r",newline="") as f:
+                reader = csv.DictReader(f)
+                print("All current CSV data:")
+                i = 1
+                for row in reader:
+                    print(f"{i}. {row['location']}, {row['date']}, {row['avg_temp']}°C, {row['conditions']}")
+                    i += 1
+                
+                first_choice = input(f"Please select first data point (1-{i-1})")
+
+                input("\nPress Enter to return to menu")
+
+        except FileNotFoundError:
+            print("\nCSV file Not found, Please try again")
+        break
+
+
 # --- REPORTING FUNCTIONS ---
 
 def show_simple_report(data: dict, location: str, date_string: str) -> None:
@@ -351,8 +374,9 @@ def run_reports(data: dict, location: str, date_string: str):
         print("2. Detailed Hourly Breakdown")
         print("3. Save this report (CSV/JSON/TXT)")
         print("4. Back to Main Search")
+        print("5. Compare CSV data")
         
-        user_choice = input("\nEnter selection (1-4): ")
+        user_choice = input("\nEnter selection (1-5): ")
 
         if user_choice == "1":
             show_simple_report(data, location, formatted_date)
@@ -362,6 +386,8 @@ def run_reports(data: dict, location: str, date_string: str):
             save_report(data)
         elif user_choice == "4":
             break
+        elif user_choice == "5":
+            compare_csv()
         else:
             print("\nInvalid choice, please try again.\n")
 
