@@ -35,6 +35,7 @@ Program Information:
     Util Functions, Configs and Constants
     Classes
     Saving Function
+    CSV comparison Function
     Reporting Function
     Main Function
 """
@@ -339,8 +340,10 @@ def compare_csv():
         print("{:<20}  {:<20}  {:<20}  {}".format("Data", "Row 1", "Row 2", "Difference"))
         print("~" * 76)
         print("{:<20}  {:<20}  {:<20}  {}".format("Location", location_1, location_2, "N/A"))
-        print("{:<20}  {:<20}  {:<20}  {}".format("Average Temp", "{:.2f}°C".format(avg_temp_1), "{:.2f}°C".format(avg_temp_2), "{:.2f}°C".format(temp_diff)))
-        print("{:<20}  {:<20}  {:<20}  {}".format("Humidity", "{:.0f}%".format(humidity_1), "{:.0f}%".format(humidity_2), "{:.0f}%".format(humidity_diff)))
+        print("{:<20}  {:<20}  {:<20}  {}".format("Average Temp", 
+                "{:.2f}°C".format(avg_temp_1), "{:.2f}°C".format(avg_temp_2), "{:.2f}°C".format(temp_diff)))
+        print("{:<20}  {:<20}  {:<20}  {}".format("Humidity", "{:.0f}%".format(humidity_1),
+                "{:.0f}%".format(humidity_2), "{:.0f}%".format(humidity_diff)))
 
         if conditions_1 == conditions_2:
             print(f"\nConditions in {location_1} and {location_2} are the same: {conditions_1}")
