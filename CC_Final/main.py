@@ -277,24 +277,55 @@ def save_report(data: dict) -> None:
 # --- CSV COMPARISON ---
 
 def compare_csv():
-    while True:
-        print("\n=== CSV COMPARISON ===")
-        try:
-            with open("reporting.csv","r",newline="") as f:
-                reader = csv.DictReader(f)
-                print("All current CSV data:")
-                i = 1
-                for row in reader:
-                    print(f"{i}. {row['location']}, {row['date']}, {row['avg_temp']}°C, {row['conditions']}")
-                    i += 1
+    print("\n=== CSV COMPARISON ===")
+    try:
+        with open("reporting.csv","r",newline="") as f:
+            reader = csv.DictReader(f)
+            print("All current CSV data:")
+            i = 1
+            rows = []
+            for row in reader:
+                print(f"{i}. {row['location']}, {row['date']}, {row['avg_temp']}°C, {row['conditions']}")
+                rows.append(row)
+                i += 1
                 
-                first_choice = input(f"Please select first data point (1-{i-1})")
+            if len(rows) < 2:
+                print("Not enough values to compare, please try again\n")
+                return
 
-                input("\nPress Enter to return to menu")
+            #First data point input
+            while True:
+                try: 
+                    first_data_point = int(input(f"Please select first data point (1-{i-1})"))
+                    if 1 <= first_data_point <= i-1:
+                        break
+                    else:
+                        print("Invalid input, please try again")
+                except ValueError:
+                    print("Invalid input, please try again")
 
-        except FileNotFoundError:
-            print("\nCSV file Not found, Please try again")
-        break
+            #Second data point input
+            while True:
+                try: 
+                    second_data_point = int(input(f"Please select second data point (1-{i-1})"))
+                    if 1 <= second_data_point <= i-1:
+                        break
+                    elif first_data_point == second_data_point:
+                        print("Cannot compare identical data points")
+                    else:
+                        print("Invalid input, please try again")
+                except ValueError:
+                    print("Invalid input, please try again")
+            
+            row_1 = rows[first_data_point - 1]
+            row_2 = rows[second_data_point - 1]
+            print(f"{row_1}\n{row_2}")
+
+
+            input("\nPress Enter to return to menu")
+
+    except FileNotFoundError:
+        print("\nCSV file Not found, Please try again")
 
 
 # --- REPORTING FUNCTIONS ---
