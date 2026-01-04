@@ -44,3 +44,12 @@ AVG_TEMP    : 0.1
 HUMIDITY    : 78.0
 CONDITIONS  : Snow, Rain, Partially cloudy
 -----------------------------------
+
+[ENTRY: 2026-01-04 21:05:09]
+TIMESTAMP   : 2026-01-04 21:05:09
+LOCATION    : London Uk
+DATE        : 2026-01-04
+AVG_TEMP    : -0.3
+HUMIDITY    : 75.2
+CONDITIONS  : Partially cloudy
+-----------------------------------

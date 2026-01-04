@@ -319,17 +319,33 @@ def compare_csv():
             
         row_1 = rows[first_data_point - 1]
         row_2 = rows[second_data_point - 1]
+
+        location_1 = row_1.get("location")
+        location_2 = row_2.get("location")
+
         avg_temp_1 = float(row_1.get("avg_temp"))
         avg_temp_2 = float(row_2.get("avg_temp"))
         temp_diff = avg_temp_1 - avg_temp_2
 
+        humidity_1 = float(row_1.get("humidity"))
+        humidity_2 = float(row_2.get("humidity"))
+        humidity_diff = humidity_1 - humidity_2
+
+        conditions_1 = row_1.get("conditions")
+        conditions_2 = row_2.get("conditions")
+
         #Data Comparison Table
-        print("\n=== WEATHER COMPARISON ===")
+        print("\n=== WEATHER COMPARISON ===\n")
         print("{:<20}  {:<20}  {:<20}  {}".format("Data", "Row 1", "Row 2", "Difference"))
         print("~" * 76)
-        print("{:<20}  {:<20}  {:<20}  {}".format("Location", row_1.get("location"), row_2.get("location"), "N/A"))
+        print("{:<20}  {:<20}  {:<20}  {}".format("Location", location_1, location_2, "N/A"))
         print("{:<20}  {:<20}  {:<20}  {}".format("Average Temp", "{:.2f}°C".format(avg_temp_1), "{:.2f}°C".format(avg_temp_2), "{:.2f}°C".format(temp_diff)))
+        print("{:<20}  {:<20}  {:<20}  {}".format("Humidity", "{:.0f}%".format(humidity_1), "{:.0f}%".format(humidity_2), "{:.0f}%".format(humidity_diff)))
 
+        if conditions_1 == conditions_2:
+            print(f"\nConditions in {location_1} and {location_2} are the same: {conditions_1}")
+        else:
+            print(f"\nThe conditions in {location_1} are {conditions_1}.\nWhile the conditions in {location_2} are {conditions_2}")
 
         input("\nPress Enter to return to menu")
 
