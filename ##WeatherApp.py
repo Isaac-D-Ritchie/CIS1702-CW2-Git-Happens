@@ -7,11 +7,14 @@ VISUAL CROSSING WEATHER API
 #1) Account for edge-cases
 #2) Allow the saving to a csv to account for the range of dates
 
-"""Imports"""
+"""Imports / API key"""
 import json
 import requests
 import csv
 api_key = '247BUSAAULFLBGWM7NVZ49M4B'
+
+
+
 
 class APIHandler:
     def __init__(self,api_key):
@@ -51,7 +54,10 @@ class APIHandler:
 handler = lambda x,y: APIHandler(x,y)
 
 
+
+
 """Main Code"""
+
 #Function for main code
 def main():
     handler = APIHandler('247BUSAAULFLBGWM7NVZ49M4B')
@@ -89,9 +95,6 @@ def main():
 
 
 """API Code"""
-
-
-
 #Function for farenheight to celcius because visual Crossing API uses farenheit
 def farenheit_to_celcius(farenheit):
     celcius = (farenheit - 32) / 1.8
@@ -99,8 +102,9 @@ def farenheit_to_celcius(farenheit):
     
 
 #Function for printing weather results and returning weather values
-"""Data Gathering"""
 
+
+"""Data Gathering"""
 
 def weather_values(location_data, user_date):
     date_time = location_data['days'][0]['datetime']
@@ -126,6 +130,7 @@ def weather_values_range(location_data,day_index):
 
 
 """UI"""
+
 def print_values(user_location,user_date,date_time,temp_max,temp_min,temp_current,weather_condition):
         print(f"=========={user_location}=={date_time}==========")
         print(weather_condition)
@@ -136,7 +141,6 @@ def print_values(user_location,user_date,date_time,temp_max,temp_min,temp_curren
         else:
             print(f"Average temperature is {temp_current} C")
         print("===============================")
-
 
 
 def extra_options_menu(user_location,date_time,temp_max,temp_min,temp_current,weather_condition,location_data):
@@ -159,10 +163,17 @@ def extra_options_menu(user_location,date_time,temp_max,temp_min,temp_current,we
 
 #Function to save report file (.CSV)
 def save_report(date_time,fieldnames,data_array):
-    with open(f"WeatherReport-{date_time}.csv","w", newline='') as f:
+    with open(f"Weather_Reports.csv","a+", newline='') as f:
         writer = csv.DictWriter(f,fieldnames = fieldnames)
-        writer.writeheader()
-        writer.writerow(data_array)
+        
+        f.seek(0) #Checks if file is empty
+        file_empty = (f.read() == "")
+
+        if file_empty == True: #Appends data
+            writer.writeheader()
+            writer.writerow(data_array)
+        else:
+            writer.writerow(data_array)
 
 
 #Function for temp by hour
@@ -174,5 +185,7 @@ def weather_per_hour(location_data):
 
 
 
+
 """Starts Program"""
+
 main()
