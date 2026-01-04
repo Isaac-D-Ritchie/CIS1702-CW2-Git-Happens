@@ -296,33 +296,42 @@ def compare_csv():
             #First data point input
             while True:
                 try: 
-                    first_data_point = int(input(f"Please select first data point (1-{i-1})"))
+                    first_data_point = int(input(f"\nPlease select first data point (1-{i-1})"))
                     if 1 <= first_data_point <= i-1:
                         break
                     else:
-                        print("Invalid input, please try again")
+                        print("Invalid input, please try again\n")
                 except ValueError:
-                    print("Invalid input, please try again")
+                    print("Invalid input, please try again\n")
 
             #Second data point input
             while True:
                 try: 
-                    second_data_point = int(input(f"Please select second data point (1-{i-1})"))
+                    second_data_point = int(input(f"\nPlease select second data point (1-{i-1})"))
                     if 1 <= second_data_point <= i-1:
                         break
                     elif first_data_point == second_data_point:
-                        print("Cannot compare identical data points")
+                        print("Cannot compare identical data points\n")
                     else:
-                        print("Invalid input, please try again")
+                        print("Invalid input, please try again\n")
                 except ValueError:
-                    print("Invalid input, please try again")
+                    print("Invalid input, please try again\n")
             
-            row_1 = rows[first_data_point - 1]
-            row_2 = rows[second_data_point - 1]
-            print(f"{row_1}\n{row_2}")
+        row_1 = rows[first_data_point - 1]
+        row_2 = rows[second_data_point - 1]
+        avg_temp_1 = float(row_1.get("avg_temp"))
+        avg_temp_2 = float(row_2.get("avg_temp"))
+        temp_diff = avg_temp_1 - avg_temp_2
+
+        #Data Comparison Table
+        print("\n=== WEATHER COMPARISON ===")
+        print("{:<20}  {:<20}  {:<20}  {}".format("Data", "Row 1", "Row 2", "Difference"))
+        print("~" * 76)
+        print("{:<20}  {:<20}  {:<20}  {}".format("Location", row_1.get("location"), row_2.get("location"), "N/A"))
+        print("{:<20}  {:<20}  {:<20}  {}".format("Average Temp", "{:.2f}°C".format(avg_temp_1), "{:.2f}°C".format(avg_temp_2), "{:.2f}°C".format(temp_diff)))
 
 
-            input("\nPress Enter to return to menu")
+        input("\nPress Enter to return to menu")
 
     except FileNotFoundError:
         print("\nCSV file Not found, Please try again")
