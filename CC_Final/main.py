@@ -50,6 +50,7 @@ import json # Read/Writing to JSON
 import csv # Read/Writing to CSV
 import statistics #Helps with analysis
 import os #helper to find files
+import datetime
 
 
 # --- LOG.CONFIG, UTILS & CONSTANTS ---
@@ -124,12 +125,13 @@ class APIHandler:
         A dictionary containing the base URL and a list of API keys.
     """
 
-    def __init__(self, location: str, date: str = ""):
+    def __init__(self, location: str, date: str = "", date2: str = ""):
         """Initializes the APIHandler with user query parameters."""
         LOG.info('API Handler Initialized.')
 
         self.location = location
         self.date = date
+        self.date2 = date2
         self.api_data = {
             'url': 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
             'keys': ['247BUSAAULFLBGWM7NVZ49M4B', 'U4QN48S3UU3XJ2C3LAK6TC8MM']
@@ -147,8 +149,13 @@ class APIHandler:
         """
         url = self.api_data['url']
         for key in self.api_data['keys']:
+            if self.date == "":
+                self.date = datetime.date.today()
+            
             date_path = f"/{self.date}" if self.date else ""
-            full_url = f'{url}{self.location}{date_path}?key={key}'
+            if self.date2:
+                date_path += f"/{self.date2}"
+            full_url = f'{url}{self.location}{date_path}?key={key}&include=hours'
 
             try:
                 LOG.info(f"Connecting to API for {self.location}...")
@@ -384,28 +391,42 @@ def show_simple_report(data: dict, location: str, date_string: str) -> None:
         The date being reported.
     """
     day_data = data['days'][0]
-    hours_data = day_data['hours']
+    hours_data = day_data.get('hours')
     
-    temp_list = [farenheit_to_celcius(h['temp']) for h in hours_data]
-    condition_list = [h['conditions'] for h in hours_data]
+    """
+    API Has a limit for data gathering, [hours] can only be accessed in a range for a limited number of days,
+    code below checks if hours_data is accesible, if not the program switches to gathering data without it.
+    """
 
-    average_temp = statistics.mean(temp_list)
-    most_common_weather = statistics.mode(condition_list)
+    if hours_data:
+        temp_list = [farenheit_to_celcius(h['temp']) for h in hours_data]
+        condition_list = [h['conditions'] for h in hours_data]
+        average_temp = statistics.mean(temp_list)
+        most_common_weather = statistics.mode(condition_list)
+        high_temp = max(temp_list)
+        low_temp = min(temp_list)
+    else:
+        average_temp = farenheit_to_celcius(day_data['temp'])
+        most_common_weather = day_data.get('conditions','N/A')
+        high_temp = farenheit_to_celcius(day_data['tempmax'])
+        low_temp = farenheit_to_celcius(day_data['tempmin'])
+        print("Hourly Breakdown Unavailable for this date")
+    
+
     rain_percent = day_data.get('precipprob', 0)
 
     print(title_print(f"SUMMARY FOR: {location.upper()} | DATE: {date_string}"))
     print(f"Main Condition:  {most_common_weather}")
     print(f"Average Temp:    {average_temp:.1f}°C")
-    print(f"High / Low:      {max(temp_list):.1f}°C / {min(temp_list):.1f}°C")
+    print(f"High / Low:      {high_temp:.1f}°C / {low_temp:.1f}°C")
     
     stars = "*" * int(rain_percent // 5)
     print(f"Rain Chance:     [{stars:<20}] {rain_percent}%")
     print("="*30)
-
-    suggestion_Clothes = clothing_recommendation(average_temp)
-    print(suggestion_Clothes)
+    suggstion_Clothes = clothing_recommendation(average_temp)
+    print(suggstion_Clothes)
     LOG.info('Simple Analysis Report Generated')
-    input("\nPress Enter to return to menu")
+    
 
 def show_detailed_report(data: dict) -> None:
     """
@@ -427,7 +448,7 @@ def show_detailed_report(data: dict) -> None:
     LOG.info('Detailed Table Report Generated')
     input("\nPress Enter to return to menu")
 
-def run_reports(data: dict, location: str, date_string: str):
+def run_reports(data: dict, location: str, date_string: str, date2: str = ""):
     """
     Display a sub-menu for different viewing options for the current data.
 
@@ -441,7 +462,16 @@ def run_reports(data: dict, location: str, date_string: str):
         The date string.
     """
     LOG.info('Running Report Menu')
-    formatted_date = date_string if date_string else "Today (Current)"
+    
+    
+    if date2:
+        formatted_date = date_string if date_string else "Today (Current)"
+        formatted_date = formatted_date + f" to {date2}"
+        is_range = True
+    else:
+        formatted_date = date_string if date_string else "Today (Current)"
+        is_range = False
+
 
     while True:
         print(title_print('Report Menu'))
@@ -455,7 +485,12 @@ def run_reports(data: dict, location: str, date_string: str):
         user_choice = input("\nEnter selection (1-5): ")
 
         if user_choice == "1":
-            show_simple_report(data, location, formatted_date)
+            if is_range == True:    
+                for days in data['days']:
+                    temp_data = {'days': [days], 'address': data.get('address')}
+                    show_simple_report(temp_data,location,days['datetime'])
+            else:
+                show_simple_report(data, location, formatted_date)
         elif user_choice == "2":
             show_detailed_report(data)
         elif user_choice == "3":
@@ -485,13 +520,14 @@ def main():
         if not loc: continue
 
         date = input("Date (YYYY-MM-DD) or Enter for today: ").strip()
+        date2 = input("OPTIONAL: End date (YYYY-MM-DD) ").strip()
         session_cache.add_to_cache(loc, date)
 
-        handler = APIHandler(loc, date)
+        handler = APIHandler(loc, date,date2)
         data = handler.connect()
 
         if data:
-            run_reports(data, loc, date)
+            run_reports(data, loc, date, date2)
         else:
             print("\n!!! Data retrieval failed. Please check location/date and try again.\n")
 
