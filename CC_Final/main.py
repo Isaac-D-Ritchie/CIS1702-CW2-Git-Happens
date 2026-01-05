@@ -12,8 +12,6 @@
         Allow for Saving Simple and Detailed Reporting, only Simple at the minute
         Allow txt to save exactly as is printed in terminal e.g Rain Chance Bar not saved to txt
 
-        Reporting on Date Range One Location
-            Trends over date range
         Reporting on Compare Cities
             Prints Side By Side metrics
             Maybe prints which is hottest, least chance of rain in a summary
