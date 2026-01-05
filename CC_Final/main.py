@@ -405,6 +405,7 @@ def show_simple_report(data: dict, location: str, date_string: str) -> None:
     suggestion_Clothes = clothing_recommendation(average_temp)
     print(suggestion_Clothes)
     LOG.info('Simple Analysis Report Generated')
+    input("\nPress Enter to return to menu")
 
 def show_detailed_report(data: dict) -> None:
     """
@@ -424,6 +425,7 @@ def show_detailed_report(data: dict) -> None:
         celsius = farenheit_to_celcius(hour['temp'])
         print(f"{short_time:<10} | {celsius:<10.1f} | {hour['conditions']}")
     LOG.info('Detailed Table Report Generated')
+    input("\nPress Enter to return to menu")
 
 def run_reports(data: dict, location: str, date_string: str):
     """
