@@ -355,6 +355,18 @@ def compare_csv():
     except FileNotFoundError:
         print("\nCSV file Not found, Please try again")
 
+# Function to recommend clothing based on temperature
+def clothing_recommendation(average_temp):
+    if average_temp >= 30:
+        print("It's very hot outside, wear light clothing like shorts and a t-shirt")
+    elif average_temp >= 20:
+        print("The weather is warm, a t-shirt and jeans would be a good choice")
+    elif average_temp >= 10:
+        print("It's a little cold, a light jumper is recommended")
+    elif average_temp >= 0:
+        print("It's very cold outside today, wear a thick coat and warm clothes")
+    else:
+        print("Extremely cold weather! Make sure to wrap up with thermals, a coat and a hat and gloves")
 
 # --- REPORTING FUNCTIONS ---
 
@@ -389,6 +401,9 @@ def show_simple_report(data: dict, location: str, date_string: str) -> None:
     stars = "*" * int(rain_percent // 5)
     print(f"Rain Chance:     [{stars:<20}] {rain_percent}%")
     print("="*30)
+
+    suggestion_Clothes = clothing_recommendation(average_temp)
+    print(suggestion_Clothes)
     LOG.info('Simple Analysis Report Generated')
 
 def show_detailed_report(data: dict) -> None:
