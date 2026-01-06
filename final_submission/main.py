@@ -532,7 +532,6 @@ def show_detailed_report(data: dict) -> None:
 def run_reports(data: dict, location: str, date_string: str, date2: str = ""):
     """
     Display a sub-menu for different viewing options for the current data.
-
     Parameters
     ----------
     data : dict
@@ -543,8 +542,6 @@ def run_reports(data: dict, location: str, date_string: str, date2: str = ""):
         The date string.
     """
     LOG.info('Running Report Menu')
-    
-    
     if date2:
         formatted_date = date_string if date_string else "Today (Current)"
         formatted_date = formatted_date + f" to {date2}"
@@ -552,9 +549,15 @@ def run_reports(data: dict, location: str, date_string: str, date2: str = ""):
     else:
         formatted_date = date_string if date_string else "Today (Current)"
         is_range = False
-        
-
-    while True: #both while loops are required here, one for menu looping, one for input validation
+    
+    # If no 'days' data, exit early
+    if 'days' not in data or not data.get('days'):
+        print("\nNo weather data available for the specified range. Please check dates and try again.\n")
+        LOG.warning("No 'days' data in API response for range.")
+        input("\nPress Enter to return to menu")
+        return
+    
+    while True:
         print(title_print('Report Menu'))
         print(f"Current View: {location.upper()} | {formatted_date}")
         print("1. Simple Summary")
@@ -566,22 +569,33 @@ def run_reports(data: dict, location: str, date_string: str, date2: str = ""):
             user_choice = input("\nEnter selection (1-5): ").strip()
             if user_choice in {"1","2","3","4","5"}:
                 break
-            else: 
+            else:
                 print("Invalid choice, please try again.\n")
                 LOG.warning("Invalid input in Report Menu, retrying...")
-
         LOG.info(f'User selected option {user_choice} in Report Menu')
         if user_choice == "1":
-            if is_range == True:    
-                for days in data['days']:
-                    temp_data = {'days': [days], 'address': data.get('address')}
-                    show_simple_report(temp_data,location,days['datetime'])
+            if is_range:
+                for day in data['days']:
+                    temp_data = {'days': [day], 'address': data.get('address'), 'stations': data.get('stations', [])}
+                    show_simple_report(temp_data, location, day['datetime'])
             else:
                 show_simple_report(data, location, formatted_date)
         elif user_choice == "2":
-            show_detailed_report(data)
+            if is_range:
+                for day in data['days']:
+                    temp_data = {'days': [day], 'address': data.get('address'), 'stations': data.get('stations', [])}
+                    print(title_print(f"DETAILED REPORT FOR {location.upper()} ON {day['datetime']}"))
+                    show_detailed_report(temp_data)
+            else:
+                show_detailed_report(data)
         elif user_choice == "3":
-            save_report(data)
+            if is_range:
+                print("\nSaving reports iteratively for each day in the range...\n")
+                for day in data['days']:
+                    temp_data = {'days': [day], 'address': data.get('address'), 'stations': data.get('stations', [])}
+                    save_report(temp_data)
+            else:
+                save_report(data)
         elif user_choice == "4":
             break
         elif user_choice == "5":

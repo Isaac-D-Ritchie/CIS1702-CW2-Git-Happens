@@ -607,3 +607,179 @@
 2026-01-06 21:13:53,927 [INFO] User selected option 1 in Report Menu
 2026-01-06 21:13:53,927 [INFO] Hourly breakdown available for this date, using hourly data
 2026-01-06 21:13:53,928 [INFO] Simple Analysis Report Generated
+2026-01-06 21:23:30,670 [INFO] Fetched query history for display
+2026-01-06 21:23:40,111 [INFO] Cached Location: Liverpool
+2026-01-06 21:23:40,111 [INFO] API Handler Initialized.
+2026-01-06 21:23:40,111 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:23:40,819 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:23:40,819 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:23:41,521 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:23:41,522 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:23:42,213 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:23:42,213 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:23:42,214 [INFO] Running Report Menu
+2026-01-06 21:23:44,263 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:24:46,790 [INFO] Fetched query history for display
+2026-01-06 21:24:50,870 [INFO] Cached Location: Liverpool
+2026-01-06 21:24:50,870 [INFO] API Handler Initialized.
+2026-01-06 21:24:50,870 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:24:51,572 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:24:51,572 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:24:52,254 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:24:52,254 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:24:52,957 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:24:52,957 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:24:52,959 [INFO] Running Report Menu
+2026-01-06 21:24:53,487 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:24:53,488 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:24:53,489 [INFO] Simple Analysis Report Generated
+2026-01-06 21:24:58,027 [INFO] User selected option 4 in Report Menu
+2026-01-06 21:24:58,027 [INFO] Fetched query history for display
+2026-01-06 21:25:06,036 [INFO] API Handler Initialized.
+2026-01-06 21:25:06,036 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:25:06,714 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:25:06,714 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:25:07,390 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:25:07,390 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:25:08,097 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:25:08,097 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:25:08,099 [INFO] Running Report Menu
+2026-01-06 21:25:10,747 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:31:21,073 [INFO] Fetched query history for display
+2026-01-06 21:31:27,401 [INFO] Cached Location: Liverpool
+2026-01-06 21:31:27,401 [INFO] API Handler Initialized.
+2026-01-06 21:31:27,401 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:31:28,125 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:31:28,125 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:31:28,822 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:31:28,822 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:31:29,536 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:31:29,537 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:31:29,538 [INFO] Running Report Menu
+2026-01-06 21:31:31,817 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:33:19,110 [INFO] Fetched query history for display
+2026-01-06 21:33:24,275 [INFO] Cached Location: Liverpool
+2026-01-06 21:33:24,275 [INFO] API Handler Initialized.
+2026-01-06 21:33:24,275 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:33:24,976 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:33:24,976 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:33:25,654 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:33:25,654 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:33:26,351 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:33:26,351 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:33:26,352 [INFO] Running Report Menu
+2026-01-06 21:33:27,116 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:33:27,116 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:33:27,116 [INFO] Simple Analysis Report Generated
+2026-01-06 21:33:30,540 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:33:30,540 [INFO] Simple Analysis Report Generated
+2026-01-06 21:33:31,056 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:33:31,056 [INFO] Simple Analysis Report Generated
+2026-01-06 21:33:31,622 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:33:31,623 [INFO] Simple Analysis Report Generated
+2026-01-06 21:33:32,076 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:33:32,076 [INFO] Simple Analysis Report Generated
+2026-01-06 21:33:32,790 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 21:33:44,266 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:33:44,267 [INFO] Detailed Table Report Generated
+2026-01-06 21:35:05,721 [INFO] Detailed Table Report Generated
+2026-01-06 21:35:09,731 [INFO] Detailed Table Report Generated
+2026-01-06 21:35:10,091 [INFO] Detailed Table Report Generated
+2026-01-06 21:35:10,377 [INFO] Detailed Table Report Generated
+2026-01-06 21:42:46,387 [INFO] Fetched query history for display
+2026-01-06 21:42:55,131 [INFO] Cached Location: Liverpool
+2026-01-06 21:42:55,131 [INFO] API Handler Initialized.
+2026-01-06 21:42:55,131 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:42:55,849 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-20?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:42:55,849 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:42:56,525 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-20?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:42:56,525 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:42:57,315 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:42:57,315 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:42:57,317 [INFO] Running Report Menu
+2026-01-06 21:42:58,323 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:43:26,703 [INFO] Fetched query history for display
+2026-01-06 21:43:34,099 [INFO] Cached Location: Liverpool
+2026-01-06 21:43:34,099 [INFO] API Handler Initialized.
+2026-01-06 21:43:34,099 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:43:34,788 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-20?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:43:34,788 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:43:35,477 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-20?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:43:35,477 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:43:36,287 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:43:36,287 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:43:36,289 [INFO] Running Report Menu
+2026-01-06 21:43:37,564 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:43:37,566 [INFO] Detailed Table Report Generated
+2026-01-06 21:43:40,328 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 21:44:31,584 [INFO] Fetched query history for display
+2026-01-06 21:44:37,397 [INFO] Cached Location: Liverpool
+2026-01-06 21:44:37,397 [INFO] API Handler Initialized.
+2026-01-06 21:44:37,397 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:44:38,132 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:44:38,132 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:44:38,807 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:44:38,807 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:44:39,509 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:44:39,510 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:44:39,511 [INFO] Running Report Menu
+2026-01-06 21:44:41,983 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:45:51,156 [INFO] Fetched query history for display
+2026-01-06 21:45:54,214 [INFO] Cached Location: Liverpool
+2026-01-06 21:45:54,215 [INFO] API Handler Initialized.
+2026-01-06 21:45:54,215 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:45:54,903 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:45:54,903 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:45:55,568 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:45:55,568 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:45:56,256 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:45:56,256 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:45:56,257 [INFO] Running Report Menu
+2026-01-06 21:45:56,869 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:45:56,870 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:45:56,871 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:00,572 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:46:00,573 [INFO] Detailed Table Report Generated
+2026-01-06 21:46:21,471 [INFO] Fetched query history for display
+2026-01-06 21:46:25,701 [INFO] Cached Location: Liverpool
+2026-01-06 21:46:25,701 [INFO] API Handler Initialized.
+2026-01-06 21:46:25,701 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:26,387 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:46:26,388 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:27,047 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:46:27,047 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:27,733 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:46:27,733 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:46:27,734 [INFO] Running Report Menu
+2026-01-06 21:46:28,248 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:46:28,248 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:28,248 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:33,587 [INFO] Fetched query history for display
+2026-01-06 21:46:40,338 [INFO] Cached Location: Liverpool
+2026-01-06 21:46:40,339 [INFO] API Handler Initialized.
+2026-01-06 21:46:40,339 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:41,013 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:46:41,013 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:41,697 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:46:41,698 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:42,387 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:46:42,387 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:46:42,389 [INFO] Running Report Menu
+2026-01-06 21:46:43,455 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:46:43,456 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:43,456 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:48,361 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:48,362 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:48,970 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:48,971 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:49,293 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:49,293 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:49,593 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:49,593 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:50,897 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:46:50,898 [INFO] Detailed Table Report Generated
+2026-01-06 21:46:52,658 [INFO] Detailed Table Report Generated
+2026-01-06 21:46:53,559 [INFO] Detailed Table Report Generated
+2026-01-06 21:46:54,000 [INFO] Detailed Table Report Generated
+2026-01-06 21:46:54,418 [INFO] Detailed Table Report Generated
+2026-01-06 21:47:47,963 [INFO] Fetched query history for display
