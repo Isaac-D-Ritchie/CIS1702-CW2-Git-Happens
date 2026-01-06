@@ -662,8 +662,24 @@ comparison_file_2_label = Label(root, text="Please select the 2nd file you would
 location_entry = Entry(root)
 date_entry = Entry(root)
 
-comparison_file_1_entry = ttk.Combobox(root)
-comparison_file_2_entry = ttk.Combobox(root)
+variable = StringVar(root)
+variable2 = StringVar(root)
+variable.set("Please Select an option")
+variable2.set("Please Select an Option")
+
+with open("reporting.csv","r",newline="") as f:
+        reader = csv.DictReader(f)
+        print("All current CSV data:")
+        i = 1
+        rows = []
+        for row in reader:
+            print(f"{i}. {row['location']}, {row['date']}")
+            rows.append(row)
+            i += 1
+
+
+comparison_file_1_entry = OptionMenu(root, variable2, *rows)
+comparison_file_2_entry = OptionMenu(root, variable, *rows)
 
 #creates button to generate report
 
