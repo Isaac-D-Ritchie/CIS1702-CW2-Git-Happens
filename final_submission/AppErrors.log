@@ -55,3 +55,284 @@
 2026-01-06 14:05:52,073 [INFO] Simple Analysis Report Generated
 2026-01-06 14:05:52,415 [INFO] Hourly breakdown available for this date, using hourly data
 2026-01-06 14:05:52,415 [INFO] Simple Analysis Report Generated
+2026-01-06 16:46:11,240 [INFO] Fetched query history for display
+2026-01-06 16:46:15,047 [WARNING] Location not found in : 
+2026-01-06 16:46:15,047 [INFO] Fetched query history for display
+2026-01-06 16:46:18,059 [INFO] Cached Location: Wigan
+2026-01-06 16:46:18,059 [INFO] API Handler Initialized.
+2026-01-06 16:46:18,059 [INFO] Connecting to API for location Wigan...
+2026-01-06 16:46:18,613 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 16:46:18,613 [INFO] Success with Key ending in ..9M4B
+2026-01-06 16:46:18,614 [INFO] Running Report Menu
+2026-01-06 16:46:18,615 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 16:46:23,603 [INFO] User selected option 5 in Report Menu
+2026-01-06 16:46:23,603 [INFO] Starting CSV Comparison Function
+2026-01-06 16:46:25,803 [INFO] CSV Comparison Completed Successfully
+2026-01-06 17:31:08,325 [INFO] Fetched query history for display
+2026-01-06 17:31:13,596 [INFO] Cached Location: Wigan
+2026-01-06 17:31:13,597 [INFO] API Handler Initialized.
+2026-01-06 17:31:13,597 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:31:14,153 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:31:14,153 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:31:14,154 [INFO] Running Report Menu
+2026-01-06 17:31:15,124 [INFO] User selected option 1 in Report Menu
+2026-01-06 17:31:15,125 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 17:31:15,125 [INFO] Simple Analysis Report Generated
+2026-01-06 17:35:14,111 [INFO] Fetched query history for display
+2026-01-06 17:35:21,597 [INFO] Fetched query history for display
+2026-01-06 17:35:24,956 [INFO] Cached Location: Wigan
+2026-01-06 17:35:24,956 [INFO] API Handler Initialized.
+2026-01-06 17:35:24,956 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:35:25,499 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:35:25,499 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:35:25,500 [INFO] Running Report Menu
+2026-01-06 17:35:27,388 [INFO] User selected option 1 in Report Menu
+2026-01-06 17:35:27,388 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 17:35:27,388 [INFO] Simple Analysis Report Generated
+2026-01-06 17:37:24,811 [INFO] Fetched query history for display
+2026-01-06 17:37:30,567 [INFO] Cached Location: Wigan
+2026-01-06 17:37:30,567 [INFO] API Handler Initialized.
+2026-01-06 17:37:30,567 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:37:31,115 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:37:31,116 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:37:31,117 [INFO] Running Report Menu
+2026-01-06 17:37:34,255 [INFO] User selected option 1 in Report Menu
+2026-01-06 17:37:34,255 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 17:37:34,256 [INFO] Simple Analysis Report Generated
+2026-01-06 17:39:28,434 [INFO] User selected option 2 in Report Menu
+2026-01-06 17:40:33,113 [INFO] Fetched query history for display
+2026-01-06 17:40:36,124 [INFO] Cached Location: Wigan
+2026-01-06 17:40:36,124 [INFO] API Handler Initialized.
+2026-01-06 17:40:36,124 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:40:36,682 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:40:36,682 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:40:36,683 [INFO] Running Report Menu
+2026-01-06 17:40:37,932 [INFO] User selected option 2 in Report Menu
+2026-01-06 17:41:11,793 [INFO] Fetched query history for display
+2026-01-06 17:41:14,125 [INFO] Cached Location: Wigan
+2026-01-06 17:41:14,125 [INFO] API Handler Initialized.
+2026-01-06 17:41:14,125 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:41:14,619 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:41:14,619 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:41:14,620 [INFO] Running Report Menu
+2026-01-06 17:41:15,781 [INFO] User selected option 2 in Report Menu
+2026-01-06 17:41:38,366 [INFO] Fetched query history for display
+2026-01-06 17:41:41,518 [INFO] Cached Location: Wigan
+2026-01-06 17:41:41,518 [INFO] API Handler Initialized.
+2026-01-06 17:41:41,518 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:41:42,034 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:41:42,034 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:41:42,035 [INFO] Running Report Menu
+2026-01-06 17:41:44,117 [INFO] User selected option 1 in Report Menu
+2026-01-06 17:41:54,805 [INFO] Fetched query history for display
+2026-01-06 17:42:02,566 [INFO] Cached Location: wigan
+2026-01-06 17:42:02,566 [INFO] API Handler Initialized.
+2026-01-06 17:42:02,566 [INFO] Connecting to API for location wigan...
+2026-01-06 17:42:03,055 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:42:03,055 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:42:03,056 [INFO] Running Report Menu
+2026-01-06 17:42:03,598 [INFO] User selected option 1 in Report Menu
+2026-01-06 17:42:03,598 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 17:42:03,598 [INFO] Simple Analysis Report Generated
+2026-01-06 18:00:25,040 [INFO] Fetched query history for display
+2026-01-06 18:00:28,331 [INFO] Cached Location: Wigan
+2026-01-06 18:00:28,331 [INFO] API Handler Initialized.
+2026-01-06 18:00:28,331 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:00:28,840 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:00:28,840 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:00:28,841 [INFO] Running Report Menu
+2026-01-06 18:00:29,498 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:06:50,304 [INFO] Fetched query history for display
+2026-01-06 18:06:52,838 [INFO] Cached Location: Wigan
+2026-01-06 18:06:52,838 [INFO] API Handler Initialized.
+2026-01-06 18:06:52,838 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:06:53,353 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:06:53,353 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:06:53,354 [INFO] Running Report Menu
+2026-01-06 18:06:53,934 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:06:53,935 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:06:53,935 [INFO] Simple Analysis Report Generated
+2026-01-06 18:07:30,292 [INFO] Fetched query history for display
+2026-01-06 18:07:33,303 [INFO] Cached Location: Wigan
+2026-01-06 18:07:33,303 [INFO] API Handler Initialized.
+2026-01-06 18:07:33,303 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:07:33,817 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:07:33,817 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:07:33,818 [INFO] Running Report Menu
+2026-01-06 18:07:34,423 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:07:34,423 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:07:34,423 [INFO] Simple Analysis Report Generated
+2026-01-06 18:08:26,160 [INFO] Fetched query history for display
+2026-01-06 18:08:28,184 [INFO] Cached Location: Wigan
+2026-01-06 18:08:28,185 [INFO] API Handler Initialized.
+2026-01-06 18:08:28,185 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:08:28,713 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:08:28,713 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:08:28,714 [INFO] Running Report Menu
+2026-01-06 18:08:29,169 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:08:29,169 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:08:29,169 [INFO] Simple Analysis Report Generated
+2026-01-06 18:08:33,111 [INFO] Fetched query history for display
+2026-01-06 18:08:36,881 [INFO] Cached Location: Wigan
+2026-01-06 18:08:36,881 [INFO] API Handler Initialized.
+2026-01-06 18:08:36,881 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:08:37,711 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:08:37,711 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:08:37,712 [INFO] Running Report Menu
+2026-01-06 18:08:39,817 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:08:39,818 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:08:39,818 [INFO] Simple Analysis Report Generated
+2026-01-06 18:09:31,222 [INFO] Fetched query history for display
+2026-01-06 18:09:33,386 [INFO] Cached Location: Wigan
+2026-01-06 18:09:33,386 [INFO] API Handler Initialized.
+2026-01-06 18:09:33,386 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:09:33,906 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:09:33,906 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:09:33,907 [INFO] Running Report Menu
+2026-01-06 18:09:34,619 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:09:34,619 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:09:34,619 [INFO] Simple Analysis Report Generated
+2026-01-06 18:11:06,235 [INFO] Fetched query history for display
+2026-01-06 18:11:08,317 [INFO] Cached Location: Wigan
+2026-01-06 18:11:08,317 [INFO] API Handler Initialized.
+2026-01-06 18:11:08,317 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:11:08,875 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:11:08,875 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:11:08,876 [INFO] Running Report Menu
+2026-01-06 18:11:09,309 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:11:09,309 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:11:09,309 [INFO] Simple Analysis Report Generated
+2026-01-06 18:11:24,493 [INFO] Fetched query history for display
+2026-01-06 18:11:26,797 [INFO] Cached Location: Wigan
+2026-01-06 18:11:26,798 [INFO] API Handler Initialized.
+2026-01-06 18:11:26,798 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:11:27,310 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:11:27,310 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:11:27,311 [INFO] Running Report Menu
+2026-01-06 18:11:27,734 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:11:27,734 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:11:27,734 [INFO] Simple Analysis Report Generated
+2026-01-06 18:13:32,284 [INFO] Fetched query history for display
+2026-01-06 18:13:34,569 [INFO] Cached Location: Wigan
+2026-01-06 18:13:34,569 [INFO] API Handler Initialized.
+2026-01-06 18:13:34,569 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:13:35,090 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:13:35,090 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:13:35,091 [INFO] Running Report Menu
+2026-01-06 18:13:36,425 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:13:36,425 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:13:36,425 [INFO] Simple Analysis Report Generated
+2026-01-06 18:14:18,650 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:16:52,433 [INFO] Fetched query history for display
+2026-01-06 18:16:54,670 [INFO] Cached Location: Wigan
+2026-01-06 18:16:54,671 [INFO] API Handler Initialized.
+2026-01-06 18:16:54,671 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:16:55,235 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:16:55,235 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:16:55,235 [INFO] Running Report Menu
+2026-01-06 18:16:55,998 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:16:55,999 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:16:55,999 [INFO] Simple Analysis Report Generated
+2026-01-06 18:17:00,695 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:17:00,695 [INFO] Detailed Table Report Generated
+2026-01-06 18:17:40,574 [INFO] Fetched query history for display
+2026-01-06 18:17:44,288 [INFO] Cached Location: Wigan
+2026-01-06 18:17:44,288 [INFO] API Handler Initialized.
+2026-01-06 18:17:44,288 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:17:44,785 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:17:44,785 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:17:44,786 [INFO] Running Report Menu
+2026-01-06 18:17:45,704 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:17:45,704 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:17:45,704 [INFO] Simple Analysis Report Generated
+2026-01-06 18:17:59,448 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:17:59,449 [INFO] Detailed Table Report Generated
+2026-01-06 18:18:50,766 [INFO] Fetched query history for display
+2026-01-06 18:18:53,090 [INFO] Cached Location: Wigan
+2026-01-06 18:18:53,090 [INFO] API Handler Initialized.
+2026-01-06 18:18:53,090 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:18:53,632 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:18:53,632 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:18:53,633 [INFO] Running Report Menu
+2026-01-06 18:18:55,626 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:18:55,626 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:18:55,626 [INFO] Simple Analysis Report Generated
+2026-01-06 18:19:10,113 [INFO] Fetched query history for display
+2026-01-06 18:19:17,027 [INFO] Cached Location: Wigan
+2026-01-06 18:19:17,027 [INFO] API Handler Initialized.
+2026-01-06 18:19:17,027 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:19:17,654 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:19:17,654 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:19:17,655 [INFO] Running Report Menu
+2026-01-06 18:19:21,946 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:19:21,947 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:19:21,947 [INFO] Simple Analysis Report Generated
+2026-01-06 18:19:29,771 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:19:29,771 [INFO] Detailed Table Report Generated
+2026-01-06 18:20:19,249 [INFO] Fetched query history for display
+2026-01-06 18:20:22,980 [INFO] Cached Location: Wigan
+2026-01-06 18:20:22,980 [INFO] API Handler Initialized.
+2026-01-06 18:20:22,981 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:20:23,516 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:20:23,516 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:20:23,518 [INFO] Running Report Menu
+2026-01-06 18:20:24,428 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:20:24,428 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:20:24,428 [INFO] Simple Analysis Report Generated
+2026-01-06 18:20:29,028 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:20:29,029 [INFO] Detailed Table Report Generated
+2026-01-06 18:20:32,605 [INFO] User selected option 3 in Report Menu
+2026-01-06 18:20:32,605 [INFO] Validated and saved to reporting.csv
+2026-01-06 18:20:32,605 [INFO] Validated and saved to reporting.json
+2026-01-06 18:20:32,605 [INFO] Validated and saved to reporting.txt
+2026-01-06 18:21:38,655 [INFO] Fetched query history for display
+2026-01-06 18:21:40,702 [INFO] Cached Location: Wigan
+2026-01-06 18:21:40,702 [INFO] API Handler Initialized.
+2026-01-06 18:21:40,703 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:21:41,247 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:21:41,247 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:21:41,248 [INFO] Running Report Menu
+2026-01-06 18:21:42,150 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:21:42,151 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:21:42,151 [INFO] Simple Analysis Report Generated
+2026-01-06 18:21:43,342 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:21:43,343 [INFO] Detailed Table Report Generated
+2026-01-06 18:21:45,214 [INFO] User selected option 3 in Report Menu
+2026-01-06 18:21:45,215 [INFO] Validated and saved to reporting.csv
+2026-01-06 18:21:45,215 [INFO] Validated and saved to reporting.json
+2026-01-06 18:21:45,215 [INFO] Validated and saved to reporting.txt
+2026-01-06 18:23:32,647 [INFO] Fetched query history for display
+2026-01-06 18:23:34,729 [INFO] Cached Location: Wigan
+2026-01-06 18:23:34,729 [INFO] API Handler Initialized.
+2026-01-06 18:23:34,730 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:23:35,258 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:23:35,258 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:23:35,259 [INFO] Running Report Menu
+2026-01-06 18:23:36,649 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:23:36,650 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:23:36,650 [INFO] Simple Analysis Report Generated
+2026-01-06 18:23:39,770 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:23:39,770 [INFO] Detailed Table Report Generated
+2026-01-06 18:23:41,066 [INFO] User selected option 3 in Report Menu
+2026-01-06 18:23:51,759 [INFO] Fetched query history for display
+2026-01-06 18:23:59,858 [INFO] Cached Location: Wigan
+2026-01-06 18:23:59,858 [INFO] API Handler Initialized.
+2026-01-06 18:23:59,858 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:24:00,378 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:24:00,378 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:24:00,379 [INFO] Running Report Menu
+2026-01-06 18:24:01,098 [INFO] User selected option 3 in Report Menu
+2026-01-06 18:24:01,098 [INFO] Validated and saved to reporting.csv
+2026-01-06 18:24:01,098 [INFO] Validated and saved to reporting.json
+2026-01-06 18:24:01,098 [INFO] Validated and saved to reporting.txt
+2026-01-06 18:24:37,371 [INFO] Fetched query history for display
+2026-01-06 18:24:40,395 [INFO] Cached Location: Wigan
+2026-01-06 18:24:40,395 [INFO] API Handler Initialized.
+2026-01-06 18:24:40,395 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:24:40,939 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:24:40,939 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:24:40,940 [INFO] Running Report Menu
+2026-01-06 18:24:46,971 [INFO] User selected option 3 in Report Menu
+2026-01-06 18:24:46,972 [INFO] Validated and saved to reporting.csv
+2026-01-06 18:24:46,972 [INFO] Validated and saved to reporting.json
+2026-01-06 18:24:46,972 [INFO] Validated and saved to reporting.txt

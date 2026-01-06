@@ -5,8 +5,6 @@
 
         !!Stability & Security!!
         API Key Security (Calling on .env using os.getenv)
-        Date Validation Loop (Loops until valid input for Date)
-        Location Validation (Checks API recognises City Name)
 
         !!Data Handling!!
         Allow for Saving Simple and Detailed Reporting, only Simple at the minute
@@ -276,7 +274,10 @@ def save_report(data: dict) -> None:
         'date': day['datetime'],
         'avg_temp': round(farenheit_to_celcius(day['temp']), 1),
         'humidity': day.get('humidity'),
-        'conditions': day.get('conditions')
+        'conditions': day.get('conditions'),
+        'tempmax': round(farenheit_to_celcius(day.get('tempmax')), 1),
+        'tempmin': round(farenheit_to_celcius(day.get('tempmin')), 1),
+        'stations_used': ", ".join(data.get('stations', []))
     }
     
     try:
@@ -308,6 +309,7 @@ def save_report(data: dict) -> None:
 
     except Exception as err:
         LOG.warning(f'Error with saving to files: {err}')
+    print("\nReport saved to reporting.csv, reporting.json, and reporting.txt")
 
 
 # --- CSV COMPARISON ---
@@ -329,7 +331,7 @@ def compare_csv():
             i = 1
             rows = []
             for row in reader:
-                print(f"{i}. {row['location']}, {row['date']}, {row['avg_temp']}°C, {row['conditions']}")
+                print(f"{i}. {row['location']}, {row['date']}, {row['avg_temp']}°C, {row['conditions']}, {row['feelslikemax']}°C/{row['feelslikemin']}°C, Stations Used: {row['stations_used']}")
                 rows.append(row)
                 i += 1
                 
@@ -385,6 +387,12 @@ def compare_csv():
         conditions_1 = row_1.get("conditions")
         conditions_2 = row_2.get("conditions")
 
+        max_temp_1 = float(row_1.get("tempmax"))
+        max_temp_2 = float(row_2.get("tempmax"))
+        min_temp_1 = float(row_1.get("tempmin"))
+        min_temp_2 = float(row_2.get("tempmin"))
+
+
         #Data Comparison Table
         print("\n=== WEATHER COMPARISON ===\n")
         print("{:<20}  {:<20}  {:<20}  {}".format("Data", "Row 1", "Row 2", "Difference"))
@@ -394,6 +402,13 @@ def compare_csv():
                 "{:.2f}°C".format(avg_temp_1), "{:.2f}°C".format(avg_temp_2), "{:.2f}°C".format(temp_diff)))
         print("{:<20}  {:<20}  {:<20}  {}".format("Humidity", "{:.0f}%".format(humidity_1),
                 "{:.0f}%".format(humidity_2), "{:.0f}%".format(humidity_diff)))
+        print("{:<20}  {:<20}  {:<20}  {}".format("Max Temp",
+                "{:.2f}°C".format(max_temp_1), "{:.2f}°C".format(max_temp_2), "{:.2f}°C".format(max_temp_1 - max_temp_2)))
+        print("{:<20}  {:<20}  {:<20}  {}".format("Min Temp",
+                "{:.2f}°C".format(min_temp_1), "{:.2f}°C".format(min_temp_2), "{:.2f}°C".format(min_temp_1 - min_temp_2)))
+        
+
+
 
         if conditions_1 == conditions_2:
             print(f"\nConditions in {location_1} and {location_2} are the same: {conditions_1}")
@@ -409,7 +424,7 @@ def compare_csv():
 
 # --- CLOTHING RECOMENDATION ---
 
-def clothing_recommendation(average_temp):
+def clothing_recommendation(average_temp) -> str:
     """
     Print recomended clothing based on temp
 
@@ -419,15 +434,15 @@ def clothing_recommendation(average_temp):
         Tempreture to compare for recomendation
     """
     if average_temp >= 30:
-        print("It's very hot outside, wear light clothing like shorts and a t-shirt")
+        return "It's very hot outside, wear light clothing like shorts and a t-shirt"
     elif average_temp >= 20:
-        print("The weather is warm, a t-shirt and jeans would be a good choice")
+        return "The weather is warm, a t-shirt and jeans would be a good choice"
     elif average_temp >= 10:
-        print("It's a little cold, a light jumper is recommended")
+        return "It's a little cold, a light jumper is recommended"
     elif average_temp >= 0:
-        print("It's very cold outside today, wear a thick coat and warm clothes")
+        return "It's very cold outside today, wear a thick coat and warm clothes"
     else:
-        print("Extremely cold weather! Make sure to wrap up with thermals, a coat and a hat and gloves")
+        return "Extremely cold weather! Make sure to wrap up with thermals, a coat and a hat and gloves"
 
 
 # --- REPORTING FUNCTIONS ---
@@ -447,11 +462,12 @@ def show_simple_report(data: dict, location: str, date_string: str) -> None:
     """
     day_data = data['days'][0]
     hours_data = day_data.get('hours')
-    
     """
     API Has a limit for data gathering, [hours] can only be accessed in a range for a limited number of days,
     code below checks if hours_data is accesible, if not the program switches to gathering data without it.
     """
+    data_source = data['stations']
+
 
     if hours_data:
         temp_list = [farenheit_to_celcius(h['temp']) for h in hours_data]
@@ -471,19 +487,22 @@ def show_simple_report(data: dict, location: str, date_string: str) -> None:
     
 
     rain_percent = day_data.get('precipprob', 0)
-
+    
     print(title_print(f"SUMMARY FOR: {location.upper()} | DATE: {date_string}"))
     print(f"Main Condition:  {most_common_weather}")
-    print(f"Average Temp:    {average_temp:.1f}°C")
-    print(f"High / Low:      {high_temp:.1f}°C / {low_temp:.1f}°C")
-    
+    print(f"Average Temperature:    {average_temp:.1f}°C")
+    print(f"Highs of:      {high_temp:.1f}°C")
+    print(f"Lows of:     {low_temp:.1f}°C")
+    print(clothing_recommendation(average_temp))
+
     stars = "*" * int(rain_percent // 5)
-    print(f"Rain Chance:     [{stars:<20}] {rain_percent}%")
+    print(f"Rain Chance:     [{stars:<20}] {rain_percent}%\n")
+    print(f"Data sourced from stations: {', '.join(data_source) if data_source else 'N/A'}")
     print("="*30)
-    suggstion_Clothes = clothing_recommendation(average_temp)
-    print(suggstion_Clothes)
+    
     LOG.info('Simple Analysis Report Generated')
     input("\nPress Enter to display further date range, or return to menu")
+    return None
     
 
 def show_detailed_report(data: dict) -> None:
@@ -498,11 +517,15 @@ def show_detailed_report(data: dict) -> None:
     day_data = data['days'][0]
     print(f"\n{'TIME':<10} | {'TEMP (°C)':<10} | {'WEATHER'}")
     print("-" * 45)
-
+    totaltemp = []
     for hour in day_data['hours']:
         short_time = hour['datetime'][:5]
         celsius = farenheit_to_celcius(hour['temp'])
         print(f"{short_time:<10} | {celsius:<10.1f} | {hour['conditions']}")
+        totaltemp.append(celsius)
+
+    print(f"Average Temperature is {statistics.mean(totaltemp):.1f}°C with Highs of {max(totaltemp):.1f}°C and Lows of {min(totaltemp):.1f}°C")
+    print(f"Data sourced from stations: {', '.join(data.get('stations', []))}")
     LOG.info('Detailed Table Report Generated')
     input("\nPress Enter to return to menu")
 
