@@ -80,7 +80,6 @@ def validate_location(location: str) -> bool:
         reader = csv.DictReader(f)
         for row in reader:
             if row['city'].lower() == location.lower():
-                loc = row['city']
                 return True
     return False
 def validate_date(date_list: List[str]) -> bool:
