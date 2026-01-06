@@ -74,7 +74,27 @@ STATUS_CODES = {
 #adds the logging to log file, 'AppErrors.log'
 LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s', filename='AppErrors.log', filemode='a')
 
-
+def validate_location(location: str) -> bool:
+    """Validate location string against city list CSV."""
+    with open("worldcities.csv","r",newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if row['city'].lower() == location.lower():
+                loc = row['city']
+                return True
+    return False
+def validate_date(date_list: List[str]) -> bool:
+    """Validate date string is in YYYY-MM-DD format."""
+    try:
+        for date_str in date_list:
+            if date_str:  # Only validate non-empty strings
+                dt.strptime(date_str, '%Y-%m-%d')
+                continue
+            else:
+                return False
+        return True
+    except ValueError:
+        return False
 
 def title_print(x: str) -> str:
     """
@@ -561,14 +581,23 @@ def main():
         if loc.lower() == 'q': 
             print("Ending session. Goodbye!")
             break
-        if not loc: continue
-
-        date = input("Date (YYYY-MM-DD) or Enter for today: ").strip()
-        date2 = input("OPTIONAL: End date (YYYY-MM-DD) ").strip()
-        session_cache.add_to_cache(loc, date)
-
-        handler = APIHandler(loc, date,date2)
-        data = handler.connect()
+        if not validate_location(loc):
+            print("\n!!! Invalid location. Please try again.\n")
+            LOG.warning(f"Invalid location input: {loc}")
+            continue
+        else:
+            date = input("Date (YYYY-MM-DD) or Enter for today: ").strip()
+            date2 = input("OPTIONAL: End date (YYYY-MM-DD) ").strip()
+            dates = [date, date2]
+            if not validate_date(dates) and dates != "":
+                print("\n!!! Invalid date format. Please use YYYY-MM-DD.\n")
+                LOG.warning(f"Invalid date format input: {date}")
+                continue#
+            else:
+                session_cache.add_to_cache(loc, date)
+                
+                handler = APIHandler(loc, date,date2)
+                data = handler.connect()
 
         if data:
             run_reports(data, loc, date, date2)
