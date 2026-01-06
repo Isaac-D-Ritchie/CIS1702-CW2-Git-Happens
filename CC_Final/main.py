@@ -457,6 +457,7 @@ def generate_detailed_report():
         else:
             messagebox.showerror(title= "ERROR", message="!!! Data retrieval failed. Please check location/date and try again.\n")
 
+
 #GUI Stuff
 
 # creates root window
@@ -497,11 +498,17 @@ def display_basic_report(data: dict, location: str, date_string: str) -> None:
         rain_percent = day_data.get('precipprob', 0)
 
         if date_string == "":
-            messagebox.askyesno(title="Basic Weather Report", message=f"SUMMARY FOR: {location.upper()} | DATE: TODAY\nMain Condition:  {most_common_weather}\nAverage Temp:    {average_temp:.1f}°C\nHigh / Low:      {max(temp_list):.1f}°C / {min(temp_list):.1f}°C\nRain Chance:     {rain_percent}%\n\n Would you like to save this report?")
-            if YES:
+            save_decision_1 = messagebox.askyesno(title="Basic Weather Report", message=f"SUMMARY FOR: {location.upper()} | DATE: TODAY\nMain Condition:  {most_common_weather}\nAverage Temp:    {average_temp:.1f}°C\nHigh / Low:      {max(temp_list):.1f}°C / {min(temp_list):.1f}°C\nRain Chance:     {rain_percent}%\n\n Would you like to save this report?")
+            if save_decision_1 == True:
                 save_report(data)
+            else:
+                pass
         else:
-            messagebox.showinfo(title="Basic Weather Report", message=f"SUMMARY FOR: {location.upper()} | DATE: {date_string}\nMain Condition:  {most_common_weather}\nAverage Temp:    {average_temp:.1f}°C\nHigh / Low:      {max(temp_list):.1f}°C / {min(temp_list):.1f}°C\nRain Chance:     {rain_percent}%")
+            save_decision_2 = messagebox.askyesno(title="Basic Weather Report", message=f"SUMMARY FOR: {location.upper()} | DATE: {date_string}\nMain Condition:  {most_common_weather}\nAverage Temp:    {average_temp:.1f}°C\nHigh / Low:      {max(temp_list):.1f}°C / {min(temp_list):.1f}°C\nRain Chance:     {rain_percent}%\n\n Would you like to save this report?")
+            if save_decision_2 == True:
+                save_report(data)
+            else:
+                pass
         
 
         LOG.info('Simple Analysis Report Generated')
@@ -521,41 +528,91 @@ def display_detailed_report(data: dict) -> None:
         celsius = farenheit_to_celcius(hour['temp'])
         table += f"{short_time:<10} | {celsius:<10.1f} | {hour['conditions']}\n"
         
-    messagebox.showinfo(title="Hour By Hour Breakdown", message=table)
+    messagebox.showinfo(title="Hour By Hour Breakdown", message=f"{table}\n\n Would you like to save this report?")
 
     LOG.info('Detailed Table Report Generated')
 
 #function for generating a comparison report
 
-def comparison_report():
-    location = location_entry.get()
-    date = date_entry.get()
-    hour = hour_dropdown.get()
-    comp_location = comparison_location_entry.get()
-    comp_date = comparison_date_entry.get()
-    comp_hour = comparison_hour_dropdown.get()
-    if (check_state.get() == 0) and (comp_check_state.get() == 0):
-        messagebox.showinfo(title="Comparison Weather Report", message=f"The weather in {location} on {date} is be xyz, whereas the weather in {comp_location} on {comp_date} is xyz")
-    elif (check_state.get() == 1) and (comp_check_state.get() == 0):
-        messagebox.showinfo(title="Comparison Weather Report", message=f"The weather in {location} on {date} at {hour} is be xyz, whereas the weather in {comp_location} on {comp_date} is xyz")
-    elif (check_state.get() == 0) and (comp_check_state.get() == 1):
-        messagebox.showinfo(title="Comparison Weather Report", message=f"The weather in {location} on {date} is be xyz, whereas the weather in {comp_location} on {comp_date} at {comp_hour} is xyz")
-    elif (check_state.get() == 1) and (comp_check_state.get() == 1):
-        messagebox.showinfo(title="Comparison Weather Report", message=f"The weather in {location} on {date} at {hour} is be xyz, whereas the weather in {comp_location} on {comp_date} at {comp_hour} is xyz")
+def display_comparison_report():
+    print("\n=== CSV COMPARISON ===")
+    try:
+        with open("reporting.csv","r",newline="") as f:
+            reader = csv.DictReader(f)
+            print("All current CSV data:")
+            i = 1
+            rows = []
+            for row in reader:
+                print(f"{i}. {row['location']}, {row['date']}, {row['avg_temp']}°C, {row['conditions']}")
+                rows.append(row)
+                i += 1
+                
+            if len(rows) < 2:
+                print("Not enough values to compare, please try again\n")
+                return
 
-#function to determine whether the hour dropdown menu should be enabled or disabled
+            #First data point input
+            while True:
+                try: 
+                    first_data_point = int(comparison_file_1_entry.get())
+                    if 1 <= first_data_point <= i-1:
+                        break
+                    else:
+                        print("Invalid input, please try again\n")
+                except ValueError:
+                    print("Invalid input, please try again\n")
+                    break
 
-def hour_dropdown_check():
-    if (check_state.get() == 0):
-        hour_dropdown.configure(state="disabled")
-    elif (check_state.get() == 1):
-        hour_dropdown.configure(state="enabled")
-    
-def comp_hour_dropdown_check():
-    if (comp_check_state.get() == 0):
-        comparison_hour_dropdown.configure(state="disabled")
-    elif (comp_check_state.get() == 1):
-        comparison_hour_dropdown.configure(state="enabled")
+            #Second data point input
+            while True:
+                try: 
+                    second_data_point = int(comparison_file_2_entry.get())
+                    if 1 <= second_data_point <= i-1:
+                        break
+                    elif first_data_point == second_data_point:
+                        print("Cannot compare identical data points\n")
+                    else:
+                        print("Invalid input, please try again\n")
+                except ValueError:
+                    print("Invalid input, please try again\n")
+                    break
+            
+        row_1 = rows[first_data_point - 1]
+        row_2 = rows[second_data_point - 1]
+
+        location_1 = row_1.get("location")
+        location_2 = row_2.get("location")
+
+        avg_temp_1 = float(row_1.get("avg_temp"))
+        avg_temp_2 = float(row_2.get("avg_temp"))
+        temp_diff = avg_temp_1 - avg_temp_2
+
+        humidity_1 = float(row_1.get("humidity"))
+        humidity_2 = float(row_2.get("humidity"))
+        humidity_diff = humidity_1 - humidity_2
+
+        conditions_1 = row_1.get("conditions")
+        conditions_2 = row_2.get("conditions")
+
+        #Data Comparison Table
+        print("\n=== WEATHER COMPARISON ===\n")
+        print("{:<20}  {:<20}  {:<20}  {}".format("Data", "Row 1", "Row 2", "Difference"))
+        print("~" * 76)
+        print("{:<20}  {:<20}  {:<20}  {}".format("Location", location_1, location_2, "N/A"))
+        print("{:<20}  {:<20}  {:<20}  {}".format("Average Temp", 
+                "{:.2f}°C".format(avg_temp_1), "{:.2f}°C".format(avg_temp_2), "{:.2f}°C".format(temp_diff)))
+        print("{:<20}  {:<20}  {:<20}  {}".format("Humidity", "{:.0f}%".format(humidity_1),
+                "{:.0f}%".format(humidity_2), "{:.0f}%".format(humidity_diff)))
+
+        if conditions_1 == conditions_2:
+            print(f"\nConditions in {location_1} and {location_2} are the same: {conditions_1}")
+        else:
+            print(f"\nThe conditions in {location_1} are {conditions_1}.\nWhile the conditions in {location_2} are {conditions_2}")
+
+        input("\nPress Enter to return to menu")
+
+    except FileNotFoundError:
+        print("\nCSV file Not found, Please try again")
 
 #function to add+arrange widgets and appropriate button when the user wishes to make a comparison
 
@@ -566,66 +623,53 @@ def comparison_ui_change():
         
         comparison_report_btn.grid(row=8, column=0, columnspan=2, sticky=tk.E+tk.W+tk.S)
         
-        comparison_location_label.grid(row=5, column=0, pady=2, padx=2, sticky=tk.W+tk.E+tk.N)
-        comparison_location_entry.grid(row=5, column=1, pady=2, padx=2, sticky=tk.W+tk.E+tk.N)
+        comparison_file_1_label.grid(row=5, column=0, pady=2, padx=2, sticky=tk.W+tk.E+tk.N)
+        comparison_file_1_entry.grid(row=5, column=1, pady=2, padx=2, sticky=tk.W+tk.E+tk.N)
         
-        comparison_date_label.grid(row=6, column=0, pady=2, padx=2, sticky=tk.W+tk.E+tk.N)
-        comparison_date_entry.grid(row=6, column=1, pady=2, padx=2, sticky=tk.W+tk.E+tk.N)
+        comparison_file_2_label.grid(row=6, column=0, pady=2, padx=2, sticky=tk.W+tk.E+tk.N)
+        comparison_file_2_entry.grid(row=6, column=1, pady=2, padx=2, sticky=tk.W+tk.E+tk.N)
 
-        comparison_hour_label.grid(row=7, column=0, pady=2, padx=2, sticky=tk.W+tk.E+tk.N)
-        comparison_hour_checkbox.grid(row=7, column=0, pady=2, padx=2, sticky=tk.E+tk.N)
-        comparison_hour_dropdown.grid(row=7, column=1, pady=2, padx=2, sticky=tk.N)
-        
+        location_label.configure(state="disabled")
+        location_entry.configure(state="disabled")
+        date_label.configure(state="disabled")
+        date_entry.configure(state="disabled")
         
     else:
         report_btn.grid()
         detailed_report_btn.grid()
         comparison_report_btn.grid_remove()
-        comparison_location_label.grid_remove()
-        comparison_location_entry.grid_remove()
-        comparison_date_label.grid_remove()
-        comparison_date_entry.grid_remove()
-        comparison_hour_label.grid_remove()
-        comparison_hour_checkbox.grid_remove()
-        comparison_hour_dropdown.grid_remove()
+        comparison_file_1_label.grid_remove()
+        comparison_file_1_entry.grid_remove()
+        comparison_file_2_label.grid_remove()
+        comparison_file_2_entry.grid_remove()
+        location_label.configure(state="normal")
+        location_entry.configure(state="normal")
+        date_label.configure(state="normal")
+        date_entry.configure(state="normal")
 
 # creates labels so user knows where to inpurt data
 
 location_label = Label(root, text="Please enter a location:")
 date_label = Label(root, text="Please enter a date (YYYY-MM-DD):")
-hour_label = Label(root, text="Add an hour?")
 
 comparison_label = Label(root, text="Would you like to do a comparison?")
 
-comparison_location_label = Label(root, text="Please enter a location:")
-comparison_date_label = Label(root, text="Please enter a date (YYYY-MM-DD):")
-comparison_hour_label = Label(root, text="Add an hour?")
+comparison_file_1_label = Label(root, text="Please select the 1st file you would like to compare:")
+comparison_file_2_label = Label(root, text="Please select the 2nd file you would like to compare:")
 
 #creates widgets to take data inputs from the user
 
 location_entry = Entry(root)
 date_entry = Entry(root)
 
-comparison_location_entry = Entry(root)
-comparison_date_entry = Entry(root)
-
-#creates checkbox and listbox for hour values
-
-check_state = tk.IntVar()
-hour_checkbox = Checkbutton(root, variable=check_state, onvalue=1, offvalue=0, command=hour_dropdown_check)
-hour_dropdown = ttk.Combobox(root, values=hours, state=DISABLED)
-hour_dropdown.set("Please select an hour")
-
-comp_check_state= tk.IntVar()
-comparison_hour_checkbox = Checkbutton(root, variable=comp_check_state, onvalue=1, offvalue=0, command=comp_hour_dropdown_check)
-comparison_hour_dropdown = ttk.Combobox(root, values=hours, state=DISABLED)
-comparison_hour_dropdown.set("Please select an hour")
+comparison_file_1_entry = ttk.Combobox(root)
+comparison_file_2_entry = ttk.Combobox(root)
 
 #creates button to generate report
 
 report_btn = Button(root, text="Generate Report", command=generate_basic_report)
 detailed_report_btn = Button(root, text="Generate In-Depth Report", command=generate_detailed_report)
-comparison_report_btn = Button(root, text="Compare These Two Reports", command=comparison_report)
+comparison_report_btn = Button(root, text="Compare These Two Reports", command=display_comparison_report)
 
 #creates radio buttons so the user can choose to compare
 
@@ -639,18 +683,14 @@ radio_yes = Radiobutton(root, text="Yes", variable=radio_variable, value=2, comm
 
 location_label.grid(row=0, column=0, pady=2, padx=2, sticky=tk.W+tk.E)
 date_label.grid(row=1, column=0, pady=2, padx=2, sticky=tk.W+tk.E)
-hour_label.grid(row=2, column=0, pady=2, padx=2, sticky=tk.W+tk.E+tk.N)
 comparison_label.grid(row=3, column=0, pady=13, padx=2, sticky=tk.W+tk.E+tk.N)
-comparison_location_label.grid_remove()
-comparison_date_label.grid_remove()
-comparison_hour_label.grid_remove()
+comparison_file_1_label.grid_remove()
+comparison_file_2_label.grid_remove()
 
 location_entry.grid(row=0, column=1, pady=2, padx=2, sticky=tk.W+tk.E)
 date_entry.grid(row=1, column=1, pady=2, padx=2, sticky=tk.W+tk.E)
-hour_checkbox.grid(row=2, column=0, pady=2, padx=2, sticky=tk.E+tk.N)
-hour_dropdown.grid(row=2, column=1, pady=2, padx=2, sticky=tk.N)
-comparison_location_entry.grid_remove()
-comparison_date_entry.grid_remove()
+comparison_file_1_entry.grid_remove()
+comparison_file_2_entry.grid_remove()
 
 radio_yes.grid(row=3, column=1, sticky=tk.N+tk.W)
 radio_no.grid(row=3, column=1, pady=25, sticky=tk.N+tk.W)
