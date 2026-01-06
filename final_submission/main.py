@@ -582,8 +582,8 @@ def main():
             print("Ending session. Goodbye!")
             break
         if not validate_location(loc):
-            print("\n!!! Invalid location. Please try again.\n")
-            LOG.warning(f"Invalid location input: {loc}")
+            print("\n!!! Location not found. Please try again.\n")
+            LOG.warning(f"Location not found in : {loc}")
             continue
         else:
             date = input("Date (YYYY-MM-DD) or Enter for today: ").strip()
