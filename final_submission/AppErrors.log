@@ -783,3 +783,30 @@
 2026-01-06 21:46:54,000 [INFO] Detailed Table Report Generated
 2026-01-06 21:46:54,418 [INFO] Detailed Table Report Generated
 2026-01-06 21:47:47,963 [INFO] Fetched query history for display
+2026-01-06 21:47:55,014 [INFO] Cached Location: Liverpool
+2026-01-06 21:47:55,014 [INFO] API Handler Initialized.
+2026-01-06 21:47:55,014 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:47:55,736 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:47:55,736 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:47:56,417 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:47:56,418 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:47:57,106 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:47:57,107 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:47:57,108 [INFO] Running Report Menu
+2026-01-06 21:47:58,022 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:47:58,022 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:47:58,023 [INFO] Simple Analysis Report Generated
+2026-01-06 21:48:00,255 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:48:00,256 [INFO] Simple Analysis Report Generated
+2026-01-06 21:48:00,926 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:48:00,927 [INFO] Simple Analysis Report Generated
+2026-01-06 21:48:01,218 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:48:01,219 [INFO] Simple Analysis Report Generated
+2026-01-06 21:48:01,450 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:48:01,450 [INFO] Simple Analysis Report Generated
+2026-01-06 21:48:02,892 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:48:02,894 [INFO] Detailed Table Report Generated
+2026-01-06 21:48:03,748 [INFO] Detailed Table Report Generated
+2026-01-06 21:48:04,063 [INFO] Detailed Table Report Generated
+2026-01-06 21:48:04,246 [INFO] Detailed Table Report Generated
+2026-01-06 21:48:04,487 [INFO] Detailed Table Report Generated
