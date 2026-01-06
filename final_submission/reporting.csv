@@ -3,3 +3,5 @@ timestamp,location,date,avg_temp,humidity,conditions,tempmax,tempmin,stations_us
 2026-01-06 19:53:49,London,2026-01-06,-0.3,84.6,"Snow, Rain, Partially cloudy",3.8,-4.5,"EGWU, EGLC, EGLL, D5621"
 2026-01-06 19:54:49,Liverpool,2026-01-06,1.9,88.9,"Snow, Rain, Partially cloudy",6.3,-3.3,"EGCC, C9436, EGGP, EGNR"
 2026-01-06 20:45:22,Singapore,2026-01-06,26.7,81.4,"Rain, Partially cloudy",29.0,25.3,"WSAP, WSSS, WSSL"
+2026-01-06 21:51:14,Wigan,2026-01-05,-2.2,79.7,Partially cloudy,1.9,-5.2,"EGCC, EGNO, F5450, F1692, EGGP, EGNH"
+2026-01-06 21:51:14,Wigan,2026-01-06,1.1,91.5,"Snow, Rain, Partially cloudy",4.3,-4.8,"EGCC, EGNO, F5450, F1692, EGGP, EGNH"

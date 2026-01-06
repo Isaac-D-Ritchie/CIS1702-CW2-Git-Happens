@@ -622,6 +622,7 @@ def main():
             LOG.warning(f"Location not found in : {loc}")
             continue
         else:
+            print("\nIf you wish to check a date range, enter both start and end dates.\ne.g Start Date: 2023-10-01 | End Date: 2023-10-07\n")
             date = input("Date (YYYY-MM-DD) or Enter for today: ").strip()
             date2 = input("OPTIONAL: End date (YYYY-MM-DD) ").strip()
             dates = [date, date2]

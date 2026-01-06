@@ -810,3 +810,38 @@
 2026-01-06 21:48:04,063 [INFO] Detailed Table Report Generated
 2026-01-06 21:48:04,246 [INFO] Detailed Table Report Generated
 2026-01-06 21:48:04,487 [INFO] Detailed Table Report Generated
+2026-01-06 21:50:48,710 [INFO] Fetched query history for display
+2026-01-06 21:51:08,082 [INFO] Cached Location: Wigan
+2026-01-06 21:51:08,082 [INFO] Cached Date: 2026-01-05
+2026-01-06 21:51:08,082 [INFO] API Handler Initialized.
+2026-01-06 21:51:08,082 [INFO] Connecting to API for location Wigan...
+2026-01-06 21:51:08,596 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Wigan/2026-01-05/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:51:08,596 [INFO] Connecting to API for location Wigan...
+2026-01-06 21:51:09,070 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Wigan/2026-01-05/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:51:09,071 [INFO] Connecting to API for location Wigan...
+2026-01-06 21:51:09,586 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:51:09,586 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:51:09,587 [INFO] Running Report Menu
+2026-01-06 21:51:10,360 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:51:10,361 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:51:10,361 [INFO] Simple Analysis Report Generated
+2026-01-06 21:51:11,113 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:51:11,113 [INFO] Simple Analysis Report Generated
+2026-01-06 21:51:12,865 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:51:12,865 [INFO] Detailed Table Report Generated
+2026-01-06 21:51:13,161 [INFO] Detailed Table Report Generated
+2026-01-06 21:51:14,041 [INFO] User selected option 3 in Report Menu
+2026-01-06 21:51:14,041 [INFO] Validated and saved to reporting.csv
+2026-01-06 21:51:14,041 [INFO] Validated and saved to reporting.json
+2026-01-06 21:51:14,041 [INFO] Validated and saved to reporting.txt
+2026-01-06 21:51:14,041 [INFO] Validated and saved to reporting.csv
+2026-01-06 21:51:14,042 [INFO] Validated and saved to reporting.json
+2026-01-06 21:51:14,042 [INFO] Validated and saved to reporting.txt
+2026-01-06 21:51:14,369 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 21:51:17,152 [INFO] User selected option 4 in Report Menu
+2026-01-06 21:51:17,153 [INFO] Fetched query history for display
+2026-01-06 21:54:19,087 [INFO] Fetched query history for display
+2026-01-06 21:54:29,981 [INFO] Fetched query history for display
+2026-01-06 21:54:39,311 [INFO] Fetched query history for display
+2026-01-06 21:54:53,389 [INFO] Fetched query history for display
+2026-01-06 21:55:05,164 [INFO] Fetched query history for display

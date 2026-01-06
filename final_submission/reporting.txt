@@ -47,3 +47,27 @@ TEMPMAX     : 29.0
 TEMPMIN     : 25.3
 STATIONS_USED: WSAP, WSSS, WSSL
 -----------------------------------
+
+[ENTRY: 2026-01-06 21:51:14]
+TIMESTAMP   : 2026-01-06 21:51:14
+LOCATION    : Wigan
+DATE        : 2026-01-05
+AVG_TEMP    : -2.2
+HUMIDITY    : 79.7
+CONDITIONS  : Partially cloudy
+TEMPMAX     : 1.9
+TEMPMIN     : -5.2
+STATIONS_USED: EGCC, EGNO, F5450, F1692, EGGP, EGNH
+-----------------------------------
+
+[ENTRY: 2026-01-06 21:51:14]
+TIMESTAMP   : 2026-01-06 21:51:14
+LOCATION    : Wigan
+DATE        : 2026-01-06
+AVG_TEMP    : 1.1
+HUMIDITY    : 91.5
+CONDITIONS  : Snow, Rain, Partially cloudy
+TEMPMAX     : 4.3
+TEMPMIN     : -4.8
+STATIONS_USED: EGCC, EGNO, F5450, F1692, EGGP, EGNH
+-----------------------------------
