@@ -76,7 +76,7 @@ LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s'
 
 def validate_location(location: str) -> bool:
     """Validate location string against city list CSV."""
-    with open("final_submission/worldcities.csv","r",newline="") as f:
+    with open("worldcities.csv","r",newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
             if row['city'].lower() == location.lower():
@@ -589,10 +589,10 @@ def main():
             date = input("Date (YYYY-MM-DD) or Enter for today: ").strip()
             date2 = input("OPTIONAL: End date (YYYY-MM-DD) ").strip()
             dates = [date, date2]
-            if not validate_date(dates) and dates != "":
+            if not validate_date(dates) and "" not in dates:
                 print("\n!!! Invalid date format. Please use YYYY-MM-DD.\n")
                 LOG.warning(f"Invalid date format input: {date}")
-                continue#
+                continue
             else:
                 session_cache.add_to_cache(loc, date)
                 

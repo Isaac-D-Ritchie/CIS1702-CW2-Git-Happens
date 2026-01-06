@@ -131,3 +131,23 @@
 2026-01-06 12:35:25,800 [INFO] Fetched query history for display
 2026-01-06 12:36:05,902 [INFO] Fetched query history for display
 2026-01-06 12:42:04,142 [INFO] Fetched query history for display
+2026-01-06 12:42:42,708 [INFO] Fetched query history for display
+2026-01-06 12:46:16,712 [INFO] Fetched query history for display
+2026-01-06 12:46:17,741 [WARNING] Invalid location input: asdasdas
+2026-01-06 12:46:17,741 [INFO] Fetched query history for display
+2026-01-06 12:46:29,489 [WARNING] Invalid date format input: sdasdas
+2026-01-06 12:46:29,489 [INFO] Fetched query history for display
+2026-01-06 12:46:37,704 [WARNING] Invalid date format input: 
+2026-01-06 12:46:37,704 [INFO] Fetched query history for display
+2026-01-06 12:47:45,100 [INFO] Fetched query history for display
+2026-01-06 12:47:49,432 [WARNING] Invalid location input: asdasds
+2026-01-06 12:47:49,432 [INFO] Fetched query history for display
+2026-01-06 12:47:53,018 [INFO] Cached Location: wigan
+2026-01-06 12:47:53,019 [INFO] API Handler Initialized.
+2026-01-06 12:47:53,019 [INFO] Connecting to API for location wigan...
+2026-01-06 12:47:53,546 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 12:47:53,546 [INFO] Success with Key ending in ..9M4B
+2026-01-06 12:47:53,547 [INFO] Running Report Menu
+2026-01-06 12:47:54,650 [INFO] User selected option 1 in Report Menu
+2026-01-06 12:47:54,651 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 12:47:54,651 [INFO] Simple Analysis Report Generated
