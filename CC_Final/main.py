@@ -67,7 +67,10 @@ STATUS_CODES = {
             '502':'| Service Unavailable | Try again Later, Servers may be under maintenance |'
 }
 
-LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
+#now adds the logging to a file called AppErrors.log
+LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s', filename='AppErrors.log', filemode='a')
+
+
 
 def title_print(x: str) -> str:
     """
@@ -156,7 +159,7 @@ class APIHandler:
             full_url = f'{url}{self.location}{date_path}?key={key}&include=hours'
 
             try:
-                LOG.info(f"Connecting to API for {self.location}...")
+                LOG.info(f"Connecting to API for location {self.location}...")
                 with requests.get(full_url, timeout=10) as response:
                     response.raise_for_status()
                     LOG.info(STATUS_CODES.get(str(response.status_code), "| Status Code Received |"))
@@ -219,6 +222,7 @@ class UserQuery:
         """
         cities = ", ".join(self.querycache['cities']) or "None"
         dates = ", ".join(self.querycache['dates']) or "None"
+        LOG.info('Fetched query history for display')
         return f"Recent Cities: {cities}\nRecent Dates:  {dates}"
 
 # --- SAVING FUNCTION ---
@@ -285,6 +289,7 @@ def save_report(data: dict) -> None:
 def compare_csv():
     print("\n=== CSV COMPARISON ===")
     try:
+        LOG.info("Starting CSV Comparison Function")
         with open("reporting.csv","r",newline="") as f:
             reader = csv.DictReader(f)
             print("All current CSV data:")
@@ -297,6 +302,7 @@ def compare_csv():
                 
             if len(rows) < 2:
                 print("Not enough values to compare, please try again\n")
+                LOG.warning("not enough values to compare in CSV Comparison Function")
                 return
 
             #First data point input
@@ -307,8 +313,10 @@ def compare_csv():
                         break
                     else:
                         print("Invalid input, please try again\n")
-                except ValueError:
+                        LOG.warning("Invalid input for first data point in CSV comparison")
+                except ValueError as err:
                     print("Invalid input, please try again\n")
+                    LOG.warning(f"{err} for first data point in CSV comparison")
 
             #Second data point input
             while True:
@@ -318,10 +326,13 @@ def compare_csv():
                         break
                     elif first_data_point == second_data_point:
                         print("Cannot compare identical data points\n")
+                        LOG.warning("Attempted to compare identical data points in CSV comparison")
                     else:
                         print("Invalid input, please try again\n")
-                except ValueError:
+                        LOG.warning("Invalid input for second data point in CSV comparison")
+                except ValueError as err:
                     print("Invalid input, please try again\n")
+                    LOG.warning(f"{err} for second data point in CSV comparison")
             
         row_1 = rows[first_data_point - 1]
         row_2 = rows[second_data_point - 1]
@@ -354,11 +365,12 @@ def compare_csv():
             print(f"\nConditions in {location_1} and {location_2} are the same: {conditions_1}")
         else:
             print(f"\nThe conditions in {location_1} are {conditions_1}.\nWhile the conditions in {location_2} are {conditions_2}")
-
+        LOG.info("CSV Comparison Completed Successfully")   
         input("\nPress Enter to return to menu")
 
     except FileNotFoundError:
         print("\nCSV file Not found, Please try again")
+        LOG.warning("CSV file Not found when trying to compare")
 
 # Function to recommend clothing based on temperature
 def clothing_recommendation(average_temp):
@@ -403,12 +415,14 @@ def show_simple_report(data: dict, location: str, date_string: str) -> None:
         most_common_weather = statistics.mode(condition_list)
         high_temp = max(temp_list)
         low_temp = min(temp_list)
+        LOG.info("Hourly breakdown available for this date, using hourly data")
     else:
         average_temp = farenheit_to_celcius(day_data['temp'])
         most_common_weather = day_data.get('conditions','N/A')
         high_temp = farenheit_to_celcius(day_data['tempmax'])
         low_temp = farenheit_to_celcius(day_data['tempmin'])
         print("Hourly Breakdown Unavailable for this date")
+        LOG.warning("Hourly breakdown unavailable for this date, using daily data")
     
 
     rain_percent = day_data.get('precipprob', 0)
@@ -469,19 +483,25 @@ def run_reports(data: dict, location: str, date_string: str, date2: str = ""):
     else:
         formatted_date = date_string if date_string else "Today (Current)"
         is_range = False
+        
 
-
-    while True:
+    while True: #both while loops are required here, one for menu looping, one for input validation
         print(title_print('Report Menu'))
-        print(f"Current View: {location.upper()} | {formatted_date}")
+        print(f"Current View: {data['location'].upper()} | {formatted_date}")
         print("1. Simple Summary")
         print("2. Detailed Hourly Breakdown")
         print("3. Save this report (CSV/JSON/TXT)")
         print("4. Back to Main Search")
         print("5. Compare CSV data")
-        
-        user_choice = input("\nEnter selection (1-5): ")
+        while True:
+            user_choice = input("\nEnter selection (1-5): ").strip()
+            if user_choice in {"1","2","3","4","5"}:
+                break
+            else: 
+                print("Invalid choice, please try again.\n")
+                LOG.warning("Invalid input in Report Menu, retrying...")
 
+        LOG.info(f'User selected option {user_choice} in Report Menu')
         if user_choice == "1":
             if is_range == True:    
                 for days in data['days']:
@@ -497,8 +517,6 @@ def run_reports(data: dict, location: str, date_string: str, date2: str = ""):
             break
         elif user_choice == "5":
             compare_csv()
-        else:
-            print("\nInvalid choice, please try again.\n")
 
 # --- MAIN FUNCTION ---
 
@@ -528,6 +546,7 @@ def main():
             run_reports(data, loc, date, date2)
         else:
             print("\n!!! Data retrieval failed. Please check location/date and try again.\n")
+            LOG.warning("Data retrieval failed after all API key attempts.")
 
 if __name__ == "__main__":
     main()
