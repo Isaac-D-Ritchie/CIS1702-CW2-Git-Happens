@@ -76,7 +76,7 @@ LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s'
 
 def validate_location(location: str) -> bool:
     """Validate location string against city list CSV."""
-    with open("final_submission/worldcities.csv","r",newline="") as f:
+    with open("final_submission/worldcities.csv","r",newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
             if row['city'].lower() == location.lower():
