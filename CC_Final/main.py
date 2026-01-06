@@ -424,6 +424,7 @@ def show_simple_report(data: dict, location: str, date_string: str) -> None:
     suggstion_Clothes = clothing_recommendation(average_temp)
     print(suggstion_Clothes)
     LOG.info('Simple Analysis Report Generated')
+    input("\nPress Enter to display further date range, or return to menu")
     
 
 def show_detailed_report(data: dict) -> None:
