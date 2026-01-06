@@ -34,11 +34,14 @@ Program Information:
     Classes
     Saving Function
     CSV comparison Function
+    Clothing recomendation Function
     Reporting Function
     Main Function
 """
 
-"""IMPORTED MODULES"""
+
+# --- IMPORTED MODULES ---
+
 import requests # Util for API requests
 from requests.exceptions import HTTPError, JSONDecodeError # Exceptions for requests related errors
 import logging as LOG # For Logging instead of Printing
@@ -52,6 +55,7 @@ import datetime
 
 
 # --- LOG.CONFIG, UTILS & CONSTANTS ---
+
 STATUS_CODES = {
             #success
             '200':'| JSON Recieved | Data Present and Formatted Correctly |',
@@ -67,7 +71,7 @@ STATUS_CODES = {
             '502':'| Service Unavailable | Try again Later, Servers may be under maintenance |'
 }
 
-#now adds the logging to a file called AppErrors.log
+#adds the logging to log file, 'AppErrors.log'
 LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s', filename='AppErrors.log', filemode='a')
 
 
@@ -109,6 +113,7 @@ def farenheit_to_celcius(x: float) -> float:
         The temperature value converted to Celsius.
     """
     return (x - 32) / 1.8
+
 
 # --- CORE CLASSES ---
 
@@ -225,6 +230,7 @@ class UserQuery:
         LOG.info('Fetched query history for display')
         return f"Recent Cities: {cities}\nRecent Dates:  {dates}"
 
+
 # --- SAVING FUNCTION ---
 
 def save_report(data: dict) -> None:
@@ -284,9 +290,17 @@ def save_report(data: dict) -> None:
     except Exception as err:
         LOG.warning(f'Error with saving to files: {err}')
 
+
 # --- CSV COMPARISON ---
 
 def compare_csv():
+    """
+    Choose and compare saved CSV data
+
+    Parameters
+    ----------
+    No parameters, data is taken from CSV file.
+    """
     print("\n=== CSV COMPARISON ===")
     try:
         LOG.info("Starting CSV Comparison Function")
@@ -372,8 +386,18 @@ def compare_csv():
         print("\nCSV file Not found, Please try again")
         LOG.warning("CSV file Not found when trying to compare")
 
-# Function to recommend clothing based on temperature
+
+# --- CLOTHING RECOMENDATION ---
+
 def clothing_recommendation(average_temp):
+    """
+    Print recomended clothing based on temp
+
+    Parameters
+    ----------
+    average_temp: integer
+        Tempreture to compare for recomendation
+    """
     if average_temp >= 30:
         print("It's very hot outside, wear light clothing like shorts and a t-shirt")
     elif average_temp >= 20:
@@ -384,6 +408,7 @@ def clothing_recommendation(average_temp):
         print("It's very cold outside today, wear a thick coat and warm clothes")
     else:
         print("Extremely cold weather! Make sure to wrap up with thermals, a coat and a hat and gloves")
+
 
 # --- REPORTING FUNCTIONS ---
 
@@ -519,8 +544,8 @@ def run_reports(data: dict, location: str, date_string: str, date2: str = ""):
         elif user_choice == "5":
             compare_csv()
 
-# --- MAIN FUNCTION ---
 
+# --- MAIN FUNCTION ---
 
 def main():
     """
