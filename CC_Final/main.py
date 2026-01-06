@@ -487,7 +487,7 @@ def run_reports(data: dict, location: str, date_string: str, date2: str = ""):
 
     while True: #both while loops are required here, one for menu looping, one for input validation
         print(title_print('Report Menu'))
-        print(f"Current View: {data['location'].upper()} | {formatted_date}")
+        print(f"Current View: {location.upper()} | {formatted_date}")
         print("1. Simple Summary")
         print("2. Detailed Hourly Breakdown")
         print("3. Save this report (CSV/JSON/TXT)")
@@ -519,6 +519,7 @@ def run_reports(data: dict, location: str, date_string: str, date2: str = ""):
             compare_csv()
 
 # --- MAIN FUNCTION ---
+
 
 def main():
     """
