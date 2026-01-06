@@ -1,3 +1,4 @@
 {"timestamp": "2026-01-06 19:53:37", "location": "Wigan", "date": "2026-01-06", "avg_temp": 1.1, "humidity": 91.8, "conditions": "Snow, Rain, Partially cloudy", "tempmax": 4.3, "tempmin": -4.8, "stations_used": "EGCC, EGNO, EGGP, EGNH, F1692"}
 {"timestamp": "2026-01-06 19:53:49", "location": "London", "date": "2026-01-06", "avg_temp": -0.3, "humidity": 84.6, "conditions": "Snow, Rain, Partially cloudy", "tempmax": 3.8, "tempmin": -4.5, "stations_used": "EGWU, EGLC, EGLL, D5621"}
 {"timestamp": "2026-01-06 19:54:49", "location": "Liverpool", "date": "2026-01-06", "avg_temp": 1.9, "humidity": 88.9, "conditions": "Snow, Rain, Partially cloudy", "tempmax": 6.3, "tempmin": -3.3, "stations_used": "EGCC, C9436, EGGP, EGNR"}
+{"timestamp": "2026-01-06 20:45:22", "location": "Singapore", "date": "2026-01-06", "avg_temp": 26.7, "humidity": 81.4, "conditions": "Rain, Partially cloudy", "tempmax": 29.0, "tempmin": 25.3, "stations_used": "WSAP, WSSS, WSSL"}

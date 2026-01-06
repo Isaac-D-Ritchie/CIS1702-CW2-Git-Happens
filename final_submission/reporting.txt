@@ -35,3 +35,15 @@ TEMPMAX     : 6.3
 TEMPMIN     : -3.3
 STATIONS_USED: EGCC, C9436, EGGP, EGNR
 -----------------------------------
+
+[ENTRY: 2026-01-06 20:45:22]
+TIMESTAMP   : 2026-01-06 20:45:22
+LOCATION    : Singapore
+DATE        : 2026-01-06
+AVG_TEMP    : 26.7
+HUMIDITY    : 81.4
+CONDITIONS  : Rain, Partially cloudy
+TEMPMAX     : 29.0
+TEMPMIN     : 25.3
+STATIONS_USED: WSAP, WSSS, WSSL
+-----------------------------------

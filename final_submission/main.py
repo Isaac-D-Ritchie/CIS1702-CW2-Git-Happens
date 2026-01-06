@@ -157,7 +157,7 @@ class APIHandler:
         self.date2 = date2
         self.api_data = {
             'url': 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
-            'keys': ['247BUSAAULFLBGWM7NVZ49M4B', 'U4QN48S3UU3XJ2C3LAK6TC8MM']
+            'keys': ['247BUSAAULFLBGWM7NVZ49M4B', 'U4QN48S3UU3XJ2C3LAK6TC8MM','32UK6VYZJELDSBFA2GPRESVGM']
         }
         
     def connect(self) -> Optional[Dict[str, Any]] | None: #Returns JSON
