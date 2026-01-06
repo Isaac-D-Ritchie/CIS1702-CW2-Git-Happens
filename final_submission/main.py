@@ -331,7 +331,7 @@ def compare_csv():
             i = 1
             rows = []
             for row in reader:
-                print(f"{i}. {row['location']}, {row['date']}, {row['avg_temp']}°C, {row['conditions']}, {row['feelslikemax']}°C/{row['feelslikemin']}°C, Stations Used: {row['stations_used']}")
+                print(f"{i}. {row['location']}, {row['date']}, {row['avg_temp']}°C, {row['conditions']}, {row['tempmax']}°C/{row['tempmin']}°C, Stations Used: {row['stations_used']}")
                 rows.append(row)
                 i += 1
                 
