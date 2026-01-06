@@ -301,7 +301,7 @@ def compare_csv():
     ----------
     No parameters, data is taken from CSV file.
     """
-    print("\n=== CSV COMPARISON ===")
+    print(title_print('CSV COMPARISON'))
     try:
         LOG.info("Starting CSV Comparison Function")
         with open("reporting.csv","r",newline="") as f:

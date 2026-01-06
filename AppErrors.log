@@ -25,3 +25,104 @@
 2026-01-06 01:04:51,526 [INFO] Simple Analysis Report Generated
 2026-01-06 01:05:00,216 [INFO] Simple Analysis Report Generated
 2026-01-06 01:06:28,173 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 07:53:20,184 [INFO] Fetched query history for display
+2026-01-06 07:53:40,582 [INFO] Cached Location: Wigan
+2026-01-06 07:53:40,582 [INFO] API Handler Initialized.
+2026-01-06 07:53:40,582 [INFO] Connecting to API for location Wigan...
+2026-01-06 07:53:41,126 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 07:53:41,126 [INFO] Success with Key ending in ..9M4B
+2026-01-06 07:53:41,128 [INFO] Running Report Menu
+2026-01-06 07:53:42,934 [INFO] User selected option 1 in Report Menu
+2026-01-06 07:53:42,934 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:53:42,935 [INFO] Simple Analysis Report Generated
+2026-01-06 07:54:26,470 [INFO] User selected option 5 in Report Menu
+2026-01-06 07:54:26,471 [INFO] Starting CSV Comparison Function
+2026-01-06 07:54:39,559 [INFO] CSV Comparison Completed Successfully
+2026-01-06 07:55:26,544 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 07:55:35,136 [INFO] User selected option 4 in Report Menu
+2026-01-06 07:55:35,136 [INFO] Fetched query history for display
+2026-01-06 07:56:05,466 [INFO] Cached Date: 2025-12-01
+2026-01-06 07:56:05,466 [INFO] API Handler Initialized.
+2026-01-06 07:56:05,466 [INFO] Connecting to API for location Wigan...
+2026-01-06 07:56:05,990 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Wigan/2025-12-01/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 07:56:05,990 [INFO] Connecting to API for location Wigan...
+2026-01-06 07:56:06,675 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 07:56:06,675 [INFO] Success with Key ending in ..C8MM
+2026-01-06 07:56:06,682 [INFO] Running Report Menu
+2026-01-06 07:56:24,706 [INFO] User selected option 1 in Report Menu
+2026-01-06 07:56:24,706 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:24,706 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:31,298 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:31,299 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:33,442 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:33,443 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:33,858 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:33,859 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:34,122 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:34,122 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:34,370 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:34,370 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:34,594 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:34,594 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:34,778 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:34,778 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:34,946 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:34,946 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:35,090 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:35,090 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:35,234 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:35,234 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:35,378 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:35,378 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:35,530 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:35,530 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:35,666 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:35,666 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:35,810 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:35,810 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:35,962 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:35,962 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:36,074 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:36,074 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:36,186 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:36,186 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:36,322 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:36,323 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:36,466 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:36,466 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:36,586 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:36,586 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:36,738 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:36,738 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:36,882 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:36,882 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:37,018 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:37,018 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:37,130 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:37,130 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:37,266 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:37,266 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:37,394 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:37,394 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:37,522 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:37,522 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:37,658 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:37,658 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:37,802 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:37,802 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:37,922 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:37,922 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:38,066 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:38,066 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:38,499 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:38,499 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:38,730 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:38,730 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:38,946 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:38,946 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:39,378 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:39,379 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:39,738 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 07:56:39,739 [INFO] Simple Analysis Report Generated
+2026-01-06 07:56:43,354 [INFO] User selected option 2 in Report Menu
+2026-01-06 07:56:43,355 [INFO] Detailed Table Report Generated
