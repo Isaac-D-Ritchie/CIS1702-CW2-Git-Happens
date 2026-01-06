@@ -1,9 +1,4 @@
-timestamp,location,date,avg_temp,humidity,conditions
-2026-01-02 14:29:37,Wigan,2026-01-02,2.3,68.5,Partially cloudy
-2026-01-02 14:30:11,Wigan,2026-01-02,2.3,68.5,Partially cloudy
-2026-01-02 14:30:50,St Helens,2026-01-02,2.5,68.8,"Rain, Partially cloudy"
-2026-01-02 14:31:36,Liverpool 2025-12-12,2025-12-12,15.9,57.6,Partially cloudy
-2026-01-06 18:20:32,Wigan,2026-01-06,0.8,92.3,"Snow, Rain, Partially cloudy",0.8,-7.6,"EGCC, EGNO, EGGP, EGNH, F1692"
-2026-01-06 18:21:45,Wigan,2026-01-06,0.8,92.3,"Snow, Rain, Partially cloudy",0.8,-7.6,"EGCC, EGNO, EGGP, EGNH, F1692"
-2026-01-06 18:24:01,Wigan,2026-01-06,0.8,92.3,"Snow, Rain, Partially cloudy",3.8,-4.8,"EGCC, EGNO, EGGP, EGNH, F1692"
-2026-01-06 18:24:46,Wigan,2026-01-06,0.8,92.3,"Snow, Rain, Partially cloudy",3.8,-4.8,"EGCC, EGNO, EGGP, EGNH, F1692"
+timestamp,location,date,avg_temp,humidity,conditions,tempmax,tempmin,stations_used
+2026-01-06 19:53:37,Wigan,2026-01-06,1.1,91.8,"Snow, Rain, Partially cloudy",4.3,-4.8,"EGCC, EGNO, EGGP, EGNH, F1692"
+2026-01-06 19:53:49,London,2026-01-06,-0.3,84.6,"Snow, Rain, Partially cloudy",3.8,-4.5,"EGWU, EGLC, EGLL, D5621"
+2026-01-06 19:54:49,Liverpool,2026-01-06,1.9,88.9,"Snow, Rain, Partially cloudy",6.3,-3.3,"EGCC, C9436, EGGP, EGNR"
