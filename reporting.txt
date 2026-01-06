@@ -53,3 +53,21 @@ AVG_TEMP    : -0.3
 HUMIDITY    : 75.2
 CONDITIONS  : Partially cloudy
 -----------------------------------
+
+[ENTRY: 2026-01-06 15:57:06]
+TIMESTAMP   : 2026-01-06 15:57:06
+LOCATION    : Liverpool
+DATE        : 2026-01-06
+AVG_TEMP    : 1.6
+HUMIDITY    : 90.3
+CONDITIONS  : Snow, Rain, Partially cloudy
+-----------------------------------
+
+[ENTRY: 2026-01-06 15:58:20]
+TIMESTAMP   : 2026-01-06 15:58:20
+LOCATION    : London
+DATE        : 2026-01-06
+AVG_TEMP    : -0.6
+HUMIDITY    : 85.9
+CONDITIONS  : Snow, Rain, Partially cloudy
+-----------------------------------

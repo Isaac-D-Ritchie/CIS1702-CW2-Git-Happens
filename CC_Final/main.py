@@ -497,7 +497,9 @@ def display_basic_report(data: dict, location: str, date_string: str) -> None:
         rain_percent = day_data.get('precipprob', 0)
 
         if date_string == "":
-            messagebox.showinfo(title="Basic Weather Report", message=f"SUMMARY FOR: {location.upper()} | DATE: TODAY\nMain Condition:  {most_common_weather}\nAverage Temp:    {average_temp:.1f}°C\nHigh / Low:      {max(temp_list):.1f}°C / {min(temp_list):.1f}°C\nRain Chance:     {rain_percent}%")
+            messagebox.askyesno(title="Basic Weather Report", message=f"SUMMARY FOR: {location.upper()} | DATE: TODAY\nMain Condition:  {most_common_weather}\nAverage Temp:    {average_temp:.1f}°C\nHigh / Low:      {max(temp_list):.1f}°C / {min(temp_list):.1f}°C\nRain Chance:     {rain_percent}%\n\n Would you like to save this report?")
+            if YES:
+                save_report(data)
         else:
             messagebox.showinfo(title="Basic Weather Report", message=f"SUMMARY FOR: {location.upper()} | DATE: {date_string}\nMain Condition:  {most_common_weather}\nAverage Temp:    {average_temp:.1f}°C\nHigh / Low:      {max(temp_list):.1f}°C / {min(temp_list):.1f}°C\nRain Chance:     {rain_percent}%")
         
@@ -658,4 +660,4 @@ detailed_report_btn.grid(row=8, column=1, sticky=tk.S+tk.W+tk.E)
 comparison_report_btn.grid_remove()
 
 # tkinter event loop
-root.mainloop()
+root.mainloop() 
