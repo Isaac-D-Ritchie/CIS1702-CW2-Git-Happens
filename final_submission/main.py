@@ -5,15 +5,11 @@
 
         !!Stability & Security!!
         API Key Security (Calling on .env using os.getenv)
-        Date Validation Loop (Loops until valid input for Date)
-        Location Validation (Checks API recognises City Name)
 
         !!Data Handling!!
         Allow for Saving Simple and Detailed Reporting, only Simple at the minute
         Allow txt to save exactly as is printed in terminal e.g Rain Chance Bar not saved to txt
 
-        Reporting on Date Range One Location
-            Trends over date range
         Reporting on Compare Cities
             Prints Side By Side metrics
             Maybe prints which is hottest, least chance of rain in a summary
@@ -36,11 +32,14 @@ Program Information:
     Classes
     Saving Function
     CSV comparison Function
+    Clothing recomendation Function
     Reporting Function
     Main Function
 """
 
-"""IMPORTED MODULES"""
+
+# --- IMPORTED MODULES ---
+
 import requests # Util for API requests
 from requests.exceptions import HTTPError, JSONDecodeError # Exceptions for requests related errors
 import logging as LOG # For Logging instead of Printing
@@ -54,9 +53,11 @@ import tkinter as tk # For UI
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
+import datetime
 
 
 # --- LOG.CONFIG, UTILS & CONSTANTS ---
+
 STATUS_CODES = {
             #success
             '200':'| JSON Recieved | Data Present and Formatted Correctly |',
@@ -72,7 +73,29 @@ STATUS_CODES = {
             '502':'| Service Unavailable | Try again Later, Servers may be under maintenance |'
 }
 
-LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
+#adds the logging to log file, 'AppErrors.log'
+LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s', filename='final_submission/AppErrors.log', filemode='a')
+
+def validate_location(location: str) -> bool:
+    """Validate location string against city list CSV."""
+    with open("final_submission/worldcities.csv","r",newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if row['city'].lower() == location.lower():
+                return True
+    return False
+def validate_date(date_list: List[str]) -> bool:
+    """Validate date string is in YYYY-MM-DD format."""
+    try:
+        for date_str in date_list:
+            if date_str:  # Only validate non-empty strings
+                dt.strptime(date_str, '%Y-%m-%d')
+                continue
+            else:
+                return False
+        return True
+    except ValueError:
+        return False
 
 def title_print(x: str) -> str:
     """
@@ -112,6 +135,7 @@ def farenheit_to_celcius(x: float) -> float:
     """
     return (x - 32) / 1.8
 
+
 # --- CORE CLASSES ---
 
 class APIHandler:
@@ -128,15 +152,16 @@ class APIHandler:
         A dictionary containing the base URL and a list of API keys.
     """
 
-    def __init__(self, location: str, date: str = ""):
+    def __init__(self, location: str, date: str = "", date2: str = ""):
         """Initializes the APIHandler with user query parameters."""
         LOG.info('API Handler Initialized.')
 
         self.location = location
         self.date = date
+        self.date2 = date2
         self.api_data = {
             'url': 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
-            'keys': ['247BUSAAULFLBGWM7NVZ49M4B', 'U4QN48S3UU3XJ2C3LAK6TC8MM']
+            'keys': ['247BUSAAULFLBGWM7NVZ49M4B', 'U4QN48S3UU3XJ2C3LAK6TC8MM','32UK6VYZJELDSBFA2GPRESVGM']
         }
         
     def connect(self) -> Optional[Dict[str, Any]] | None: #Returns JSON
@@ -151,11 +176,16 @@ class APIHandler:
         """
         url = self.api_data['url']
         for key in self.api_data['keys']:
+            if self.date == "":
+                self.date = datetime.date.today()
+            
             date_path = f"/{self.date}" if self.date else ""
-            full_url = f'{url}{self.location}{date_path}?key={key}'
+            if self.date2:
+                date_path += f"/{self.date2}"
+            full_url = f'{url}{self.location}{date_path}?key={key}&include=hours'
 
             try:
-                LOG.info(f"Connecting to API for {self.location}...")
+                LOG.info(f"Connecting to API for location {self.location}...")
                 with requests.get(full_url, timeout=10) as response:
                     response.raise_for_status()
                     LOG.info(STATUS_CODES.get(str(response.status_code), "| Status Code Received |"))
@@ -218,7 +248,9 @@ class UserQuery:
         """
         cities = ", ".join(self.querycache['cities']) or "None"
         dates = ", ".join(self.querycache['dates']) or "None"
+        LOG.info('Fetched query history for display')
         return f"Recent Cities: {cities}\nRecent Dates:  {dates}"
+
 
 # --- SAVING FUNCTION ---
 
@@ -246,13 +278,16 @@ def save_report(data: dict) -> None:
         'date': day['datetime'],
         'avg_temp': round(farenheit_to_celcius(day['temp']), 1),
         'humidity': day.get('humidity'),
-        'conditions': day.get('conditions')
+        'conditions': day.get('conditions'),
+        'tempmax': round(farenheit_to_celcius(day.get('tempmax')), 1),
+        'tempmin': round(farenheit_to_celcius(day.get('tempmin')), 1),
+        'stations_used': ", ".join(data.get('stations', []))
     }
     
     try:
         # CSV SAVE
-        csvpresent = os.path.isfile('reporting.csv')
-        with open('reporting.csv', 'a', newline='') as f:
+        csvpresent = os.path.isfile('final_submission/reporting.csv')
+        with open('final_submission/reporting.csv', 'a', newline='') as f:
             writer = csv.DictWriter(f, fieldnames=report_fields.keys())
             if not csvpresent:
                 writer.writeheader()
@@ -260,13 +295,13 @@ def save_report(data: dict) -> None:
         LOG.info('Validated and saved to reporting.csv')
 
         # JSON SAVE
-        with open('reporting.json', 'a') as f:
+        with open('final_submission/reporting.json', 'a') as f:
             f.write(json.dumps(report_fields) + '\n')
         LOG.info('Validated and saved to reporting.json')
 
         # TXT SAVE
-        txtpresent = os.path.isfile('reporting.txt')
-        with open('reporting.txt', 'a') as f:
+        txtpresent = os.path.isfile('final_submission/reporting.txt')
+        with open('final_submission/reporting.txt', 'a') as f:
             if not txtpresent:
                 f.write("--- GIT HAPPENS WEATHER LOG START ---\n")
             
@@ -278,13 +313,14 @@ def save_report(data: dict) -> None:
 
     except Exception as err:
         LOG.warning(f'Error with saving to files: {err}')
+    print("\nReport saved to reporting.csv, reporting.json, and reporting.txt")
+
 
 # --- REPORTING FUNCTIONS ---
 
 def run_reports(data: dict, location: str, date_string: str):
     """
     Display a sub-menu for different viewing options for the current data.
-
     Parameters
     ----------
     data : dict
@@ -295,8 +331,21 @@ def run_reports(data: dict, location: str, date_string: str):
         The date string.
     """
     LOG.info('Running Report Menu')
-    formatted_date = date_string if date_string else "Today (Current)"
-
+    if date2:
+        formatted_date = date_string if date_string else "Today (Current)"
+        formatted_date = formatted_date + f" to {date2}"
+        is_range = True
+    else:
+        formatted_date = date_string if date_string else "Today (Current)"
+        is_range = False
+    
+    # If no 'days' data, exit early
+    if 'days' not in data or not data.get('days'):
+        print("\nNo weather data available for the specified range. Please check dates and try again.\n")
+        LOG.warning("No 'days' data in API response for range.")
+        input("\nPress Enter to return to menu")
+        return
+    
     while True:
         print(title_print('Report Menu'))
         print(f"Current View: {location.upper()} | {formatted_date}")

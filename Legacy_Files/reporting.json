@@ -1,0 +1,15 @@
+<<<<<<< HEAD:reporting.json
+{"timestamp": "2026-01-02 14:29:37", "location": "Wigan", "date": "2026-01-02", "avg_temp": 2.3, "humidity": 68.5, "conditions": "Partially cloudy"}
+{"timestamp": "2026-01-02 14:30:11", "location": "Wigan", "date": "2026-01-02", "avg_temp": 2.3, "humidity": 68.5, "conditions": "Partially cloudy"}
+{"timestamp": "2026-01-02 14:30:50", "location": "St Helens", "date": "2026-01-02", "avg_temp": 2.5, "humidity": 68.8, "conditions": "Rain, Partially cloudy"}
+{"timestamp": "2026-01-02 14:31:36", "location": "Liverpool 2025-12-12", "date": "2025-12-12", "avg_temp": 15.9, "humidity": 57.6, "conditions": "Partially cloudy"}
+=======
+{"timestamp": "2026-01-04 15:03:07", "location": "Liverpool Uk", "date": "2026-01-04", "avg_temp": 0.6, "humidity": 77.7, "conditions": "Snow, Rain, Partially cloudy"}
+{"timestamp": "2026-01-04 15:26:02", "location": "Southport Uk", "date": "2026-01-04", "avg_temp": 0.8, "humidity": 73.7, "conditions": "Snow, Rain, Partially cloudy"}
+{"timestamp": "2026-01-04 15:27:24", "location": "Liverpool Uk", "date": "2026-01-04", "avg_temp": 0.4, "humidity": 78.7, "conditions": "Snow, Rain, Partially cloudy"}
+{"timestamp": "2026-01-04 15:57:26", "location": "Southport Uk", "date": "2026-01-04", "avg_temp": 0.8, "humidity": 73.7, "conditions": "Snow, Rain, Partially cloudy"}
+{"timestamp": "2026-01-04 16:01:15", "location": "Ormskirk Uk", "date": "2026-01-04", "avg_temp": 0.1, "humidity": 78.0, "conditions": "Snow, Rain, Partially cloudy"}
+{"timestamp": "2026-01-04 21:05:09", "location": "London Uk", "date": "2026-01-04", "avg_temp": -0.3, "humidity": 75.2, "conditions": "Partially cloudy"}
+{"timestamp": "2026-01-05 20:33:32", "location": "Liverpool", "date": "2026-01-05", "avg_temp": -0.8, "humidity": 77.6, "conditions": "Partially cloudy"}
+{"timestamp": "2026-01-06 00:33:01", "location": "Bethlehem", "date": "2026-01-05", "avg_temp": -1.6, "humidity": 68.3, "conditions": "Partially cloudy"}
+>>>>>>> origin/Pre_Merge_GUI:Legacy_Files/reporting.json

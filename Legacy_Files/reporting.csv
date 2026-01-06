@@ -1,0 +1,14 @@
+timestamp,location,date,avg_temp,humidity,conditions
+<<<<<<< HEAD:reporting.csv
+2026-01-02 14:29:37,Wigan,2026-01-02,2.3,68.5,Partially cloudy
+2026-01-02 14:30:11,Wigan,2026-01-02,2.3,68.5,Partially cloudy
+2026-01-02 14:30:50,St Helens,2026-01-02,2.5,68.8,"Rain, Partially cloudy"
+2026-01-02 14:31:36,Liverpool 2025-12-12,2025-12-12,15.9,57.6,Partially cloudy
+=======
+2026-01-04 15:27:24,Liverpool Uk,2026-01-04,0.4,78.7,"Snow, Rain, Partially cloudy"
+2026-01-04 15:57:26,Southport Uk,2026-01-04,0.8,73.7,"Snow, Rain, Partially cloudy"
+2026-01-04 16:01:15,Ormskirk Uk,2026-01-04,0.1,78.0,"Snow, Rain, Partially cloudy"
+2026-01-04 21:05:09,London Uk,2026-01-04,-0.3,75.2,Partially cloudy
+2026-01-05 20:33:32,Liverpool,2026-01-05,-0.8,77.6,Partially cloudy
+2026-01-06 00:33:01,Bethlehem,2026-01-05,-1.6,68.3,Partially cloudy
+>>>>>>> origin/Pre_Merge_GUI:Legacy_Files/reporting.csv

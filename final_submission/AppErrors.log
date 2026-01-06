@@ -1,0 +1,847 @@
+2026-01-06 12:53:52,517 [INFO] Fetched query history for display
+2026-01-06 12:53:55,168 [WARNING] Location not found in : asdasdas
+2026-01-06 12:53:55,168 [INFO] Fetched query history for display
+2026-01-06 13:58:28,898 [INFO] Fetched query history for display
+2026-01-06 13:58:46,428 [INFO] Fetched query history for display
+2026-01-06 14:01:13,697 [INFO] Fetched query history for display
+2026-01-06 14:03:58,859 [INFO] Fetched query history for display
+2026-01-06 14:04:06,382 [INFO] Cached Location: Liverpool
+2026-01-06 14:04:06,382 [INFO] API Handler Initialized.
+2026-01-06 14:04:06,382 [INFO] Connecting to API for location Liverpool...
+2026-01-06 14:04:07,194 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 14:04:07,194 [INFO] Success with Key ending in ..9M4B
+2026-01-06 14:04:07,195 [INFO] Running Report Menu
+2026-01-06 14:04:08,105 [INFO] User selected option 1 in Report Menu
+2026-01-06 14:04:08,105 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:04:08,109 [INFO] Simple Analysis Report Generated
+2026-01-06 14:04:25,058 [INFO] User selected option 4 in Report Menu
+2026-01-06 14:04:25,058 [INFO] Fetched query history for display
+2026-01-06 14:04:27,567 [WARNING] Location not found in : St Helens
+2026-01-06 14:04:27,567 [INFO] Fetched query history for display
+2026-01-06 14:05:34,376 [INFO] Cached Date: 2026-01-06
+2026-01-06 14:05:34,377 [INFO] API Handler Initialized.
+2026-01-06 14:05:34,377 [INFO] Connecting to API for location Liverpool...
+2026-01-06 14:05:35,182 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 14:05:35,182 [INFO] Success with Key ending in ..9M4B
+2026-01-06 14:05:35,185 [INFO] Running Report Menu
+2026-01-06 14:05:39,198 [INFO] User selected option 1 in Report Menu
+2026-01-06 14:05:39,198 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:39,199 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:42,426 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:42,427 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:43,741 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:43,741 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:46,558 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:46,559 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:46,993 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:46,993 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:48,001 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:48,001 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:48,403 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:48,403 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:48,849 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:48,849 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:49,562 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:49,563 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:49,968 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:49,969 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:50,547 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:50,547 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:51,194 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:51,195 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:51,713 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:51,713 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:52,072 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:52,073 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:52,415 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:52,415 [INFO] Simple Analysis Report Generated
+2026-01-06 16:46:11,240 [INFO] Fetched query history for display
+2026-01-06 16:46:15,047 [WARNING] Location not found in : 
+2026-01-06 16:46:15,047 [INFO] Fetched query history for display
+2026-01-06 16:46:18,059 [INFO] Cached Location: Wigan
+2026-01-06 16:46:18,059 [INFO] API Handler Initialized.
+2026-01-06 16:46:18,059 [INFO] Connecting to API for location Wigan...
+2026-01-06 16:46:18,613 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 16:46:18,613 [INFO] Success with Key ending in ..9M4B
+2026-01-06 16:46:18,614 [INFO] Running Report Menu
+2026-01-06 16:46:18,615 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 16:46:23,603 [INFO] User selected option 5 in Report Menu
+2026-01-06 16:46:23,603 [INFO] Starting CSV Comparison Function
+2026-01-06 16:46:25,803 [INFO] CSV Comparison Completed Successfully
+2026-01-06 17:31:08,325 [INFO] Fetched query history for display
+2026-01-06 17:31:13,596 [INFO] Cached Location: Wigan
+2026-01-06 17:31:13,597 [INFO] API Handler Initialized.
+2026-01-06 17:31:13,597 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:31:14,153 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:31:14,153 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:31:14,154 [INFO] Running Report Menu
+2026-01-06 17:31:15,124 [INFO] User selected option 1 in Report Menu
+2026-01-06 17:31:15,125 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 17:31:15,125 [INFO] Simple Analysis Report Generated
+2026-01-06 17:35:14,111 [INFO] Fetched query history for display
+2026-01-06 17:35:21,597 [INFO] Fetched query history for display
+2026-01-06 17:35:24,956 [INFO] Cached Location: Wigan
+2026-01-06 17:35:24,956 [INFO] API Handler Initialized.
+2026-01-06 17:35:24,956 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:35:25,499 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:35:25,499 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:35:25,500 [INFO] Running Report Menu
+2026-01-06 17:35:27,388 [INFO] User selected option 1 in Report Menu
+2026-01-06 17:35:27,388 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 17:35:27,388 [INFO] Simple Analysis Report Generated
+2026-01-06 17:37:24,811 [INFO] Fetched query history for display
+2026-01-06 17:37:30,567 [INFO] Cached Location: Wigan
+2026-01-06 17:37:30,567 [INFO] API Handler Initialized.
+2026-01-06 17:37:30,567 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:37:31,115 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:37:31,116 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:37:31,117 [INFO] Running Report Menu
+2026-01-06 17:37:34,255 [INFO] User selected option 1 in Report Menu
+2026-01-06 17:37:34,255 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 17:37:34,256 [INFO] Simple Analysis Report Generated
+2026-01-06 17:39:28,434 [INFO] User selected option 2 in Report Menu
+2026-01-06 17:40:33,113 [INFO] Fetched query history for display
+2026-01-06 17:40:36,124 [INFO] Cached Location: Wigan
+2026-01-06 17:40:36,124 [INFO] API Handler Initialized.
+2026-01-06 17:40:36,124 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:40:36,682 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:40:36,682 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:40:36,683 [INFO] Running Report Menu
+2026-01-06 17:40:37,932 [INFO] User selected option 2 in Report Menu
+2026-01-06 17:41:11,793 [INFO] Fetched query history for display
+2026-01-06 17:41:14,125 [INFO] Cached Location: Wigan
+2026-01-06 17:41:14,125 [INFO] API Handler Initialized.
+2026-01-06 17:41:14,125 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:41:14,619 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:41:14,619 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:41:14,620 [INFO] Running Report Menu
+2026-01-06 17:41:15,781 [INFO] User selected option 2 in Report Menu
+2026-01-06 17:41:38,366 [INFO] Fetched query history for display
+2026-01-06 17:41:41,518 [INFO] Cached Location: Wigan
+2026-01-06 17:41:41,518 [INFO] API Handler Initialized.
+2026-01-06 17:41:41,518 [INFO] Connecting to API for location Wigan...
+2026-01-06 17:41:42,034 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:41:42,034 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:41:42,035 [INFO] Running Report Menu
+2026-01-06 17:41:44,117 [INFO] User selected option 1 in Report Menu
+2026-01-06 17:41:54,805 [INFO] Fetched query history for display
+2026-01-06 17:42:02,566 [INFO] Cached Location: wigan
+2026-01-06 17:42:02,566 [INFO] API Handler Initialized.
+2026-01-06 17:42:02,566 [INFO] Connecting to API for location wigan...
+2026-01-06 17:42:03,055 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 17:42:03,055 [INFO] Success with Key ending in ..9M4B
+2026-01-06 17:42:03,056 [INFO] Running Report Menu
+2026-01-06 17:42:03,598 [INFO] User selected option 1 in Report Menu
+2026-01-06 17:42:03,598 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 17:42:03,598 [INFO] Simple Analysis Report Generated
+2026-01-06 18:00:25,040 [INFO] Fetched query history for display
+2026-01-06 18:00:28,331 [INFO] Cached Location: Wigan
+2026-01-06 18:00:28,331 [INFO] API Handler Initialized.
+2026-01-06 18:00:28,331 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:00:28,840 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:00:28,840 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:00:28,841 [INFO] Running Report Menu
+2026-01-06 18:00:29,498 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:06:50,304 [INFO] Fetched query history for display
+2026-01-06 18:06:52,838 [INFO] Cached Location: Wigan
+2026-01-06 18:06:52,838 [INFO] API Handler Initialized.
+2026-01-06 18:06:52,838 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:06:53,353 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:06:53,353 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:06:53,354 [INFO] Running Report Menu
+2026-01-06 18:06:53,934 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:06:53,935 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:06:53,935 [INFO] Simple Analysis Report Generated
+2026-01-06 18:07:30,292 [INFO] Fetched query history for display
+2026-01-06 18:07:33,303 [INFO] Cached Location: Wigan
+2026-01-06 18:07:33,303 [INFO] API Handler Initialized.
+2026-01-06 18:07:33,303 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:07:33,817 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:07:33,817 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:07:33,818 [INFO] Running Report Menu
+2026-01-06 18:07:34,423 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:07:34,423 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:07:34,423 [INFO] Simple Analysis Report Generated
+2026-01-06 18:08:26,160 [INFO] Fetched query history for display
+2026-01-06 18:08:28,184 [INFO] Cached Location: Wigan
+2026-01-06 18:08:28,185 [INFO] API Handler Initialized.
+2026-01-06 18:08:28,185 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:08:28,713 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:08:28,713 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:08:28,714 [INFO] Running Report Menu
+2026-01-06 18:08:29,169 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:08:29,169 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:08:29,169 [INFO] Simple Analysis Report Generated
+2026-01-06 18:08:33,111 [INFO] Fetched query history for display
+2026-01-06 18:08:36,881 [INFO] Cached Location: Wigan
+2026-01-06 18:08:36,881 [INFO] API Handler Initialized.
+2026-01-06 18:08:36,881 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:08:37,711 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:08:37,711 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:08:37,712 [INFO] Running Report Menu
+2026-01-06 18:08:39,817 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:08:39,818 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:08:39,818 [INFO] Simple Analysis Report Generated
+2026-01-06 18:09:31,222 [INFO] Fetched query history for display
+2026-01-06 18:09:33,386 [INFO] Cached Location: Wigan
+2026-01-06 18:09:33,386 [INFO] API Handler Initialized.
+2026-01-06 18:09:33,386 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:09:33,906 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:09:33,906 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:09:33,907 [INFO] Running Report Menu
+2026-01-06 18:09:34,619 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:09:34,619 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:09:34,619 [INFO] Simple Analysis Report Generated
+2026-01-06 18:11:06,235 [INFO] Fetched query history for display
+2026-01-06 18:11:08,317 [INFO] Cached Location: Wigan
+2026-01-06 18:11:08,317 [INFO] API Handler Initialized.
+2026-01-06 18:11:08,317 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:11:08,875 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:11:08,875 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:11:08,876 [INFO] Running Report Menu
+2026-01-06 18:11:09,309 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:11:09,309 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:11:09,309 [INFO] Simple Analysis Report Generated
+2026-01-06 18:11:24,493 [INFO] Fetched query history for display
+2026-01-06 18:11:26,797 [INFO] Cached Location: Wigan
+2026-01-06 18:11:26,798 [INFO] API Handler Initialized.
+2026-01-06 18:11:26,798 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:11:27,310 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:11:27,310 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:11:27,311 [INFO] Running Report Menu
+2026-01-06 18:11:27,734 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:11:27,734 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:11:27,734 [INFO] Simple Analysis Report Generated
+2026-01-06 18:13:32,284 [INFO] Fetched query history for display
+2026-01-06 18:13:34,569 [INFO] Cached Location: Wigan
+2026-01-06 18:13:34,569 [INFO] API Handler Initialized.
+2026-01-06 18:13:34,569 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:13:35,090 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:13:35,090 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:13:35,091 [INFO] Running Report Menu
+2026-01-06 18:13:36,425 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:13:36,425 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:13:36,425 [INFO] Simple Analysis Report Generated
+2026-01-06 18:14:18,650 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:16:52,433 [INFO] Fetched query history for display
+2026-01-06 18:16:54,670 [INFO] Cached Location: Wigan
+2026-01-06 18:16:54,671 [INFO] API Handler Initialized.
+2026-01-06 18:16:54,671 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:16:55,235 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:16:55,235 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:16:55,235 [INFO] Running Report Menu
+2026-01-06 18:16:55,998 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:16:55,999 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:16:55,999 [INFO] Simple Analysis Report Generated
+2026-01-06 18:17:00,695 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:17:00,695 [INFO] Detailed Table Report Generated
+2026-01-06 18:17:40,574 [INFO] Fetched query history for display
+2026-01-06 18:17:44,288 [INFO] Cached Location: Wigan
+2026-01-06 18:17:44,288 [INFO] API Handler Initialized.
+2026-01-06 18:17:44,288 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:17:44,785 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:17:44,785 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:17:44,786 [INFO] Running Report Menu
+2026-01-06 18:17:45,704 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:17:45,704 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:17:45,704 [INFO] Simple Analysis Report Generated
+2026-01-06 18:17:59,448 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:17:59,449 [INFO] Detailed Table Report Generated
+2026-01-06 18:18:50,766 [INFO] Fetched query history for display
+2026-01-06 18:18:53,090 [INFO] Cached Location: Wigan
+2026-01-06 18:18:53,090 [INFO] API Handler Initialized.
+2026-01-06 18:18:53,090 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:18:53,632 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:18:53,632 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:18:53,633 [INFO] Running Report Menu
+2026-01-06 18:18:55,626 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:18:55,626 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:18:55,626 [INFO] Simple Analysis Report Generated
+2026-01-06 18:19:10,113 [INFO] Fetched query history for display
+2026-01-06 18:19:17,027 [INFO] Cached Location: Wigan
+2026-01-06 18:19:17,027 [INFO] API Handler Initialized.
+2026-01-06 18:19:17,027 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:19:17,654 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:19:17,654 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:19:17,655 [INFO] Running Report Menu
+2026-01-06 18:19:21,946 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:19:21,947 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:19:21,947 [INFO] Simple Analysis Report Generated
+2026-01-06 18:19:29,771 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:19:29,771 [INFO] Detailed Table Report Generated
+2026-01-06 18:20:19,249 [INFO] Fetched query history for display
+2026-01-06 18:20:22,980 [INFO] Cached Location: Wigan
+2026-01-06 18:20:22,980 [INFO] API Handler Initialized.
+2026-01-06 18:20:22,981 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:20:23,516 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:20:23,516 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:20:23,518 [INFO] Running Report Menu
+2026-01-06 18:20:24,428 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:20:24,428 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:20:24,428 [INFO] Simple Analysis Report Generated
+2026-01-06 18:20:29,028 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:20:29,029 [INFO] Detailed Table Report Generated
+2026-01-06 18:20:32,605 [INFO] User selected option 3 in Report Menu
+2026-01-06 18:20:32,605 [INFO] Validated and saved to reporting.csv
+2026-01-06 18:20:32,605 [INFO] Validated and saved to reporting.json
+2026-01-06 18:20:32,605 [INFO] Validated and saved to reporting.txt
+2026-01-06 18:21:38,655 [INFO] Fetched query history for display
+2026-01-06 18:21:40,702 [INFO] Cached Location: Wigan
+2026-01-06 18:21:40,702 [INFO] API Handler Initialized.
+2026-01-06 18:21:40,703 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:21:41,247 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:21:41,247 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:21:41,248 [INFO] Running Report Menu
+2026-01-06 18:21:42,150 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:21:42,151 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:21:42,151 [INFO] Simple Analysis Report Generated
+2026-01-06 18:21:43,342 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:21:43,343 [INFO] Detailed Table Report Generated
+2026-01-06 18:21:45,214 [INFO] User selected option 3 in Report Menu
+2026-01-06 18:21:45,215 [INFO] Validated and saved to reporting.csv
+2026-01-06 18:21:45,215 [INFO] Validated and saved to reporting.json
+2026-01-06 18:21:45,215 [INFO] Validated and saved to reporting.txt
+2026-01-06 18:23:32,647 [INFO] Fetched query history for display
+2026-01-06 18:23:34,729 [INFO] Cached Location: Wigan
+2026-01-06 18:23:34,729 [INFO] API Handler Initialized.
+2026-01-06 18:23:34,730 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:23:35,258 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:23:35,258 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:23:35,259 [INFO] Running Report Menu
+2026-01-06 18:23:36,649 [INFO] User selected option 1 in Report Menu
+2026-01-06 18:23:36,650 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 18:23:36,650 [INFO] Simple Analysis Report Generated
+2026-01-06 18:23:39,770 [INFO] User selected option 2 in Report Menu
+2026-01-06 18:23:39,770 [INFO] Detailed Table Report Generated
+2026-01-06 18:23:41,066 [INFO] User selected option 3 in Report Menu
+2026-01-06 18:23:51,759 [INFO] Fetched query history for display
+2026-01-06 18:23:59,858 [INFO] Cached Location: Wigan
+2026-01-06 18:23:59,858 [INFO] API Handler Initialized.
+2026-01-06 18:23:59,858 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:24:00,378 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:24:00,378 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:24:00,379 [INFO] Running Report Menu
+2026-01-06 18:24:01,098 [INFO] User selected option 3 in Report Menu
+2026-01-06 18:24:01,098 [INFO] Validated and saved to reporting.csv
+2026-01-06 18:24:01,098 [INFO] Validated and saved to reporting.json
+2026-01-06 18:24:01,098 [INFO] Validated and saved to reporting.txt
+2026-01-06 18:24:37,371 [INFO] Fetched query history for display
+2026-01-06 18:24:40,395 [INFO] Cached Location: Wigan
+2026-01-06 18:24:40,395 [INFO] API Handler Initialized.
+2026-01-06 18:24:40,395 [INFO] Connecting to API for location Wigan...
+2026-01-06 18:24:40,939 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 18:24:40,939 [INFO] Success with Key ending in ..9M4B
+2026-01-06 18:24:40,940 [INFO] Running Report Menu
+2026-01-06 18:24:46,971 [INFO] User selected option 3 in Report Menu
+2026-01-06 18:24:46,972 [INFO] Validated and saved to reporting.csv
+2026-01-06 18:24:46,972 [INFO] Validated and saved to reporting.json
+2026-01-06 18:24:46,972 [INFO] Validated and saved to reporting.txt
+2026-01-06 19:50:29,269 [INFO] Fetched query history for display
+2026-01-06 19:50:32,228 [INFO] Cached Location: Wigan
+2026-01-06 19:50:32,229 [INFO] API Handler Initialized.
+2026-01-06 19:50:32,229 [INFO] Connecting to API for location Wigan...
+2026-01-06 19:50:32,809 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 19:50:32,809 [INFO] Success with Key ending in ..9M4B
+2026-01-06 19:50:32,810 [INFO] Running Report Menu
+2026-01-06 19:50:33,236 [INFO] User selected option 1 in Report Menu
+2026-01-06 19:50:33,236 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 19:50:33,237 [INFO] Simple Analysis Report Generated
+2026-01-06 19:50:34,604 [INFO] User selected option 2 in Report Menu
+2026-01-06 19:50:34,604 [INFO] Detailed Table Report Generated
+2026-01-06 19:50:35,604 [INFO] User selected option 3 in Report Menu
+2026-01-06 19:50:35,604 [INFO] Validated and saved to reporting.csv
+2026-01-06 19:50:35,605 [INFO] Validated and saved to reporting.json
+2026-01-06 19:50:35,605 [INFO] Validated and saved to reporting.txt
+2026-01-06 19:50:40,132 [INFO] User selected option 5 in Report Menu
+2026-01-06 19:50:40,133 [INFO] Starting CSV Comparison Function
+2026-01-06 19:53:29,929 [INFO] Fetched query history for display
+2026-01-06 19:53:34,089 [INFO] Cached Location: wigan
+2026-01-06 19:53:34,090 [INFO] API Handler Initialized.
+2026-01-06 19:53:34,090 [INFO] Connecting to API for location wigan...
+2026-01-06 19:53:34,649 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 19:53:34,649 [INFO] Success with Key ending in ..9M4B
+2026-01-06 19:53:34,650 [INFO] Running Report Menu
+2026-01-06 19:53:35,737 [INFO] User selected option 1 in Report Menu
+2026-01-06 19:53:35,738 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 19:53:35,738 [INFO] Simple Analysis Report Generated
+2026-01-06 19:53:37,625 [INFO] User selected option 3 in Report Menu
+2026-01-06 19:53:37,626 [INFO] Validated and saved to reporting.csv
+2026-01-06 19:53:37,626 [INFO] Validated and saved to reporting.json
+2026-01-06 19:53:37,627 [INFO] Validated and saved to reporting.txt
+2026-01-06 19:53:42,457 [INFO] User selected option 4 in Report Menu
+2026-01-06 19:53:42,458 [INFO] Fetched query history for display
+2026-01-06 19:53:45,634 [INFO] Cached Location: london
+2026-01-06 19:53:45,634 [INFO] API Handler Initialized.
+2026-01-06 19:53:45,634 [INFO] Connecting to API for location london...
+2026-01-06 19:53:46,152 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 19:53:46,152 [INFO] Success with Key ending in ..9M4B
+2026-01-06 19:53:46,154 [INFO] Running Report Menu
+2026-01-06 19:53:47,489 [INFO] User selected option 1 in Report Menu
+2026-01-06 19:53:47,490 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 19:53:47,490 [INFO] Simple Analysis Report Generated
+2026-01-06 19:53:49,946 [INFO] User selected option 3 in Report Menu
+2026-01-06 19:53:49,946 [INFO] Validated and saved to reporting.csv
+2026-01-06 19:53:49,946 [INFO] Validated and saved to reporting.json
+2026-01-06 19:53:49,946 [INFO] Validated and saved to reporting.txt
+2026-01-06 19:53:54,417 [INFO] User selected option 4 in Report Menu
+2026-01-06 19:53:54,418 [INFO] Fetched query history for display
+2026-01-06 19:54:00,915 [INFO] Cached Location: Liverpool
+2026-01-06 19:54:00,915 [INFO] Cached Date: 2022-12-12
+2026-01-06 19:54:00,915 [INFO] API Handler Initialized.
+2026-01-06 19:54:00,916 [INFO] Connecting to API for location Liverpool...
+2026-01-06 19:54:01,433 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2022-12-12?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 19:54:01,434 [INFO] Connecting to API for location Liverpool...
+2026-01-06 19:54:01,956 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2022-12-12?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 19:54:01,957 [CRITICAL] All API keys failed. Returning to Main.
+2026-01-06 19:54:01,957 [WARNING] Data retrieval failed after all API key attempts.
+2026-01-06 19:54:01,957 [INFO] Fetched query history for display
+2026-01-06 19:54:20,587 [INFO] API Handler Initialized.
+2026-01-06 19:54:20,587 [INFO] Connecting to API for location Liverpool...
+2026-01-06 19:54:21,083 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2022-12-12?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 19:54:21,083 [INFO] Connecting to API for location Liverpool...
+2026-01-06 19:54:21,576 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2022-12-12?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 19:54:21,577 [CRITICAL] All API keys failed. Returning to Main.
+2026-01-06 19:54:21,577 [WARNING] Data retrieval failed after all API key attempts.
+2026-01-06 19:54:21,578 [INFO] Fetched query history for display
+2026-01-06 19:54:36,779 [INFO] Cached Date: 2024-12-12
+2026-01-06 19:54:36,779 [INFO] API Handler Initialized.
+2026-01-06 19:54:36,779 [INFO] Connecting to API for location Liverpool...
+2026-01-06 19:54:37,310 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2024-12-12?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 19:54:37,310 [INFO] Connecting to API for location Liverpool...
+2026-01-06 19:54:37,803 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2024-12-12?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 19:54:37,803 [CRITICAL] All API keys failed. Returning to Main.
+2026-01-06 19:54:37,804 [WARNING] Data retrieval failed after all API key attempts.
+2026-01-06 19:54:37,804 [INFO] Fetched query history for display
+2026-01-06 19:54:43,875 [INFO] API Handler Initialized.
+2026-01-06 19:54:43,875 [INFO] Connecting to API for location Liverpool...
+2026-01-06 19:54:44,388 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 19:54:44,388 [INFO] Success with Key ending in ..9M4B
+2026-01-06 19:54:44,389 [INFO] Running Report Menu
+2026-01-06 19:54:48,291 [INFO] User selected option 1 in Report Menu
+2026-01-06 19:54:48,292 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 19:54:48,292 [INFO] Simple Analysis Report Generated
+2026-01-06 19:54:49,723 [INFO] User selected option 3 in Report Menu
+2026-01-06 19:54:49,723 [INFO] Validated and saved to reporting.csv
+2026-01-06 19:54:49,724 [INFO] Validated and saved to reporting.json
+2026-01-06 19:54:49,724 [INFO] Validated and saved to reporting.txt
+2026-01-06 20:29:36,060 [INFO] Fetched query history for display
+2026-01-06 20:30:16,601 [INFO] Cached Location: Liverpool
+2026-01-06 20:30:16,602 [INFO] API Handler Initialized.
+2026-01-06 20:30:16,602 [INFO] Connecting to API for location Liverpool...
+2026-01-06 20:30:17,371 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 20:30:17,371 [INFO] Success with Key ending in ..9M4B
+2026-01-06 20:30:17,372 [INFO] Running Report Menu
+2026-01-06 20:30:20,776 [INFO] User selected option 1 in Report Menu
+2026-01-06 20:33:19,515 [INFO] Fetched query history for display
+2026-01-06 20:33:25,886 [WARNING] Location not found in : St Helens
+2026-01-06 20:33:25,886 [INFO] Fetched query history for display
+2026-01-06 20:33:30,021 [INFO] Cached Location: Liverpool
+2026-01-06 20:33:30,021 [INFO] API Handler Initialized.
+2026-01-06 20:33:30,021 [INFO] Connecting to API for location Liverpool...
+2026-01-06 20:33:30,746 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 20:33:30,746 [INFO] Success with Key ending in ..9M4B
+2026-01-06 20:33:30,747 [INFO] Running Report Menu
+2026-01-06 20:34:42,083 [INFO] User selected option 1 in Report Menu
+2026-01-06 20:34:42,084 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 20:34:42,085 [INFO] Simple Analysis Report Generated
+2026-01-06 20:40:04,280 [INFO] Fetched query history for display
+2026-01-06 20:40:15,340 [INFO] Cached Location: Liverpool
+2026-01-06 20:40:15,340 [INFO] API Handler Initialized.
+2026-01-06 20:40:15,340 [INFO] Connecting to API for location Liverpool...
+2026-01-06 20:40:16,141 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 20:40:16,141 [INFO] Success with Key ending in ..9M4B
+2026-01-06 20:40:16,144 [INFO] Running Report Menu
+2026-01-06 20:40:17,222 [INFO] User selected option 1 in Report Menu
+2026-01-06 20:43:55,730 [INFO] Fetched query history for display
+2026-01-06 20:44:00,041 [INFO] Cached Location: Liverpool
+2026-01-06 20:44:00,041 [INFO] API Handler Initialized.
+2026-01-06 20:44:00,041 [INFO] Connecting to API for location Liverpool...
+2026-01-06 20:44:00,721 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 20:44:00,722 [INFO] Connecting to API for location Liverpool...
+2026-01-06 20:44:01,417 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 20:44:01,417 [INFO] Success with Key ending in ..C8MM
+2026-01-06 20:44:01,419 [INFO] Running Report Menu
+2026-01-06 20:44:02,104 [INFO] User selected option 1 in Report Menu
+2026-01-06 20:44:02,104 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 20:44:02,104 [INFO] Simple Analysis Report Generated
+2026-01-06 20:44:11,869 [INFO] User selected option 2 in Report Menu
+2026-01-06 20:44:19,843 [INFO] User selected option 2 in Report Menu
+2026-01-06 20:44:35,959 [INFO] User selected option 4 in Report Menu
+2026-01-06 20:44:35,960 [INFO] Fetched query history for display
+2026-01-06 20:44:43,056 [INFO] Cached Location: Singapore
+2026-01-06 20:44:43,056 [INFO] API Handler Initialized.
+2026-01-06 20:44:43,056 [INFO] Connecting to API for location Singapore...
+2026-01-06 20:44:43,734 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Singapore/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 20:44:43,734 [INFO] Connecting to API for location Singapore...
+2026-01-06 20:44:44,429 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 20:44:44,429 [INFO] Success with Key ending in ..C8MM
+2026-01-06 20:44:44,431 [INFO] Running Report Menu
+2026-01-06 20:44:45,854 [INFO] User selected option 1 in Report Menu
+2026-01-06 20:44:45,854 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 20:44:45,855 [INFO] Simple Analysis Report Generated
+2026-01-06 20:44:52,036 [INFO] User selected option 2 in Report Menu
+2026-01-06 20:45:22,316 [INFO] User selected option 3 in Report Menu
+2026-01-06 20:45:22,317 [INFO] Validated and saved to reporting.csv
+2026-01-06 20:45:22,318 [INFO] Validated and saved to reporting.json
+2026-01-06 20:45:22,318 [INFO] Validated and saved to reporting.txt
+2026-01-06 20:47:10,861 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 20:47:19,314 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 20:47:20,872 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 20:47:24,441 [INFO] Fetched query history for display
+2026-01-06 20:47:36,710 [INFO] Cached Location: Dublin
+2026-01-06 20:47:36,710 [INFO] API Handler Initialized.
+2026-01-06 20:47:36,710 [INFO] Connecting to API for location Dublin...
+2026-01-06 20:47:37,425 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Dublin/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 20:47:37,425 [INFO] Connecting to API for location Dublin...
+2026-01-06 20:47:38,108 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Dublin/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 20:47:38,108 [CRITICAL] All API keys failed. Returning to Main.
+2026-01-06 20:47:38,110 [WARNING] Data retrieval failed after all API key attempts.
+2026-01-06 20:47:38,110 [INFO] Fetched query history for display
+2026-01-06 20:47:47,770 [INFO] Cached Location: Liverpool
+2026-01-06 20:47:47,770 [INFO] API Handler Initialized.
+2026-01-06 20:47:47,770 [INFO] Connecting to API for location Liverpool...
+2026-01-06 20:47:48,820 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 20:47:48,820 [INFO] Connecting to API for location Liverpool...
+2026-01-06 20:47:49,553 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 20:47:49,553 [CRITICAL] All API keys failed. Returning to Main.
+2026-01-06 20:47:49,554 [WARNING] Data retrieval failed after all API key attempts.
+2026-01-06 20:47:49,554 [INFO] Fetched query history for display
+2026-01-06 20:47:58,541 [INFO] Cached Location: Lisbon
+2026-01-06 20:47:58,541 [INFO] API Handler Initialized.
+2026-01-06 20:47:58,541 [INFO] Connecting to API for location Lisbon...
+2026-01-06 20:47:59,210 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Lisbon/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 20:47:59,210 [INFO] Connecting to API for location Lisbon...
+2026-01-06 20:47:59,875 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Lisbon/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 20:47:59,875 [CRITICAL] All API keys failed. Returning to Main.
+2026-01-06 20:47:59,876 [WARNING] Data retrieval failed after all API key attempts.
+2026-01-06 20:47:59,877 [INFO] Fetched query history for display
+2026-01-06 20:56:29,304 [INFO] Fetched query history for display
+2026-01-06 20:56:33,737 [INFO] Cached Location: Liverpool
+2026-01-06 20:56:33,737 [INFO] API Handler Initialized.
+2026-01-06 20:56:53,774 [INFO] Fetched query history for display
+2026-01-06 20:56:57,060 [INFO] Cached Location: Liverpool
+2026-01-06 20:56:57,060 [INFO] API Handler Initialized.
+2026-01-06 20:57:16,991 [INFO] Fetched query history for display
+2026-01-06 20:57:20,008 [INFO] Cached Location: Liverpool
+2026-01-06 20:57:20,008 [INFO] API Handler Initialized.
+2026-01-06 20:57:47,325 [INFO] Fetched query history for display
+2026-01-06 20:57:50,283 [INFO] Cached Location: Liverpool
+2026-01-06 20:57:50,283 [INFO] API Handler Initialized.
+2026-01-06 20:58:06,207 [INFO] Fetched query history for display
+2026-01-06 20:58:09,162 [INFO] Cached Location: Liverpool
+2026-01-06 20:58:09,163 [INFO] API Handler Initialized.
+2026-01-06 20:59:05,660 [INFO] Fetched query history for display
+2026-01-06 20:59:10,289 [INFO] Fetched query history for display
+2026-01-06 20:59:16,977 [INFO] Cached Location: Liverpool
+2026-01-06 20:59:16,977 [INFO] API Handler Initialized.
+2026-01-06 21:04:17,828 [INFO] Fetched query history for display
+2026-01-06 21:04:21,081 [INFO] Cached Location: Liverpool
+2026-01-06 21:04:21,081 [INFO] API Handler Initialized.
+2026-01-06 21:04:21,081 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:04:21,774 [WARNING] Attempt with key ..(['keys'], ['247BUSAAULFLBGWM7NVZ49M4B']) failed: 401 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=(%5B'keys'%5D,%20%5B'247BUSAAULFLBGWM7NVZ49M4B'%5D)&include=hours
+2026-01-06 21:04:21,774 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:04:22,434 [WARNING] Attempt with key ..(['keys'], ['247BUSAAULFLBGWM7NVZ49M4B']) failed: 401 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=(%5B'keys'%5D,%20%5B'247BUSAAULFLBGWM7NVZ49M4B'%5D)&include=hours
+2026-01-06 21:04:22,434 [CRITICAL] All API keys failed. Returning to Main.
+2026-01-06 21:04:22,435 [WARNING] Data retrieval failed after all API key attempts.
+2026-01-06 21:04:22,435 [INFO] Fetched query history for display
+2026-01-06 21:04:22,479 [WARNING] Location not found in : 
+2026-01-06 21:04:22,479 [INFO] Fetched query history for display
+2026-01-06 21:04:27,219 [INFO] API Handler Initialized.
+2026-01-06 21:04:27,219 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:04:27,877 [WARNING] Attempt with key ..(['keys'], ['247BUSAAULFLBGWM7NVZ49M4B']) failed: 401 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=(%5B'keys'%5D,%20%5B'247BUSAAULFLBGWM7NVZ49M4B'%5D)&include=hours
+2026-01-06 21:04:27,877 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:04:28,534 [WARNING] Attempt with key ..(['keys'], ['247BUSAAULFLBGWM7NVZ49M4B']) failed: 401 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=(%5B'keys'%5D,%20%5B'247BUSAAULFLBGWM7NVZ49M4B'%5D)&include=hours
+2026-01-06 21:04:28,534 [CRITICAL] All API keys failed. Returning to Main.
+2026-01-06 21:04:28,535 [WARNING] Data retrieval failed after all API key attempts.
+2026-01-06 21:04:28,535 [INFO] Fetched query history for display
+2026-01-06 21:05:05,490 [INFO] Fetched query history for display
+2026-01-06 21:05:09,290 [INFO] Cached Location: Liverpool
+2026-01-06 21:05:09,290 [INFO] API Handler Initialized.
+2026-01-06 21:05:22,232 [INFO] Fetched query history for display
+2026-01-06 21:05:25,371 [INFO] Cached Location: Liverpool
+2026-01-06 21:05:25,371 [INFO] API Handler Initialized.
+2026-01-06 21:05:25,371 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:05:26,078 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:05:26,078 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:05:26,764 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:05:26,764 [CRITICAL] All API keys failed. Returning to Main.
+2026-01-06 21:05:26,765 [WARNING] Data retrieval failed after all API key attempts.
+2026-01-06 21:05:26,765 [INFO] Fetched query history for display
+2026-01-06 21:08:02,859 [WARNING] Location not found in : & C:/Users/billy/AppData/Local/Programs/Python/Python312/python.exe c:/Users/billy/Desktop/main.py
+2026-01-06 21:08:02,859 [INFO] Fetched query history for display
+2026-01-06 21:08:05,582 [INFO] Fetched query history for display
+2026-01-06 21:08:08,585 [INFO] Cached Location: Liverpool
+2026-01-06 21:08:08,585 [INFO] API Handler Initialized.
+2026-01-06 21:08:08,585 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:08:09,286 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:08:09,286 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:08:09,981 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:08:09,981 [CRITICAL] All API keys failed. Returning to Main.
+2026-01-06 21:08:09,982 [WARNING] Data retrieval failed after all API key attempts.
+2026-01-06 21:08:09,982 [INFO] Fetched query history for display
+2026-01-06 21:10:59,208 [INFO] Fetched query history for display
+2026-01-06 21:11:03,170 [INFO] Cached Location: Liverpool
+2026-01-06 21:11:03,170 [INFO] API Handler Initialized.
+2026-01-06 21:11:03,170 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:11:03,894 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:11:03,895 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:11:04,589 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:11:04,589 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:11:05,281 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:11:05,281 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:11:05,283 [INFO] Running Report Menu
+2026-01-06 21:11:08,697 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:11:08,697 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:11:08,698 [INFO] Simple Analysis Report Generated
+2026-01-06 21:13:47,549 [INFO] Fetched query history for display
+2026-01-06 21:13:50,775 [INFO] Cached Location: Liverpool
+2026-01-06 21:13:50,775 [INFO] API Handler Initialized.
+2026-01-06 21:13:50,775 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:13:51,480 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:13:51,480 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:13:52,138 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:13:52,138 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:13:52,823 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:13:52,823 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:13:52,825 [INFO] Running Report Menu
+2026-01-06 21:13:53,927 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:13:53,927 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:13:53,928 [INFO] Simple Analysis Report Generated
+2026-01-06 21:23:30,670 [INFO] Fetched query history for display
+2026-01-06 21:23:40,111 [INFO] Cached Location: Liverpool
+2026-01-06 21:23:40,111 [INFO] API Handler Initialized.
+2026-01-06 21:23:40,111 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:23:40,819 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:23:40,819 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:23:41,521 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:23:41,522 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:23:42,213 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:23:42,213 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:23:42,214 [INFO] Running Report Menu
+2026-01-06 21:23:44,263 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:24:46,790 [INFO] Fetched query history for display
+2026-01-06 21:24:50,870 [INFO] Cached Location: Liverpool
+2026-01-06 21:24:50,870 [INFO] API Handler Initialized.
+2026-01-06 21:24:50,870 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:24:51,572 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:24:51,572 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:24:52,254 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:24:52,254 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:24:52,957 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:24:52,957 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:24:52,959 [INFO] Running Report Menu
+2026-01-06 21:24:53,487 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:24:53,488 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:24:53,489 [INFO] Simple Analysis Report Generated
+2026-01-06 21:24:58,027 [INFO] User selected option 4 in Report Menu
+2026-01-06 21:24:58,027 [INFO] Fetched query history for display
+2026-01-06 21:25:06,036 [INFO] API Handler Initialized.
+2026-01-06 21:25:06,036 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:25:06,714 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:25:06,714 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:25:07,390 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:25:07,390 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:25:08,097 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:25:08,097 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:25:08,099 [INFO] Running Report Menu
+2026-01-06 21:25:10,747 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:31:21,073 [INFO] Fetched query history for display
+2026-01-06 21:31:27,401 [INFO] Cached Location: Liverpool
+2026-01-06 21:31:27,401 [INFO] API Handler Initialized.
+2026-01-06 21:31:27,401 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:31:28,125 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:31:28,125 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:31:28,822 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:31:28,822 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:31:29,536 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:31:29,537 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:31:29,538 [INFO] Running Report Menu
+2026-01-06 21:31:31,817 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:33:19,110 [INFO] Fetched query history for display
+2026-01-06 21:33:24,275 [INFO] Cached Location: Liverpool
+2026-01-06 21:33:24,275 [INFO] API Handler Initialized.
+2026-01-06 21:33:24,275 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:33:24,976 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:33:24,976 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:33:25,654 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:33:25,654 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:33:26,351 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:33:26,351 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:33:26,352 [INFO] Running Report Menu
+2026-01-06 21:33:27,116 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:33:27,116 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:33:27,116 [INFO] Simple Analysis Report Generated
+2026-01-06 21:33:30,540 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:33:30,540 [INFO] Simple Analysis Report Generated
+2026-01-06 21:33:31,056 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:33:31,056 [INFO] Simple Analysis Report Generated
+2026-01-06 21:33:31,622 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:33:31,623 [INFO] Simple Analysis Report Generated
+2026-01-06 21:33:32,076 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:33:32,076 [INFO] Simple Analysis Report Generated
+2026-01-06 21:33:32,790 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 21:33:44,266 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:33:44,267 [INFO] Detailed Table Report Generated
+2026-01-06 21:35:05,721 [INFO] Detailed Table Report Generated
+2026-01-06 21:35:09,731 [INFO] Detailed Table Report Generated
+2026-01-06 21:35:10,091 [INFO] Detailed Table Report Generated
+2026-01-06 21:35:10,377 [INFO] Detailed Table Report Generated
+2026-01-06 21:42:46,387 [INFO] Fetched query history for display
+2026-01-06 21:42:55,131 [INFO] Cached Location: Liverpool
+2026-01-06 21:42:55,131 [INFO] API Handler Initialized.
+2026-01-06 21:42:55,131 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:42:55,849 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-20?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:42:55,849 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:42:56,525 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-20?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:42:56,525 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:42:57,315 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:42:57,315 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:42:57,317 [INFO] Running Report Menu
+2026-01-06 21:42:58,323 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:43:26,703 [INFO] Fetched query history for display
+2026-01-06 21:43:34,099 [INFO] Cached Location: Liverpool
+2026-01-06 21:43:34,099 [INFO] API Handler Initialized.
+2026-01-06 21:43:34,099 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:43:34,788 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-20?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:43:34,788 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:43:35,477 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-20?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:43:35,477 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:43:36,287 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:43:36,287 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:43:36,289 [INFO] Running Report Menu
+2026-01-06 21:43:37,564 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:43:37,566 [INFO] Detailed Table Report Generated
+2026-01-06 21:43:40,328 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 21:44:31,584 [INFO] Fetched query history for display
+2026-01-06 21:44:37,397 [INFO] Cached Location: Liverpool
+2026-01-06 21:44:37,397 [INFO] API Handler Initialized.
+2026-01-06 21:44:37,397 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:44:38,132 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:44:38,132 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:44:38,807 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:44:38,807 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:44:39,509 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:44:39,510 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:44:39,511 [INFO] Running Report Menu
+2026-01-06 21:44:41,983 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:45:51,156 [INFO] Fetched query history for display
+2026-01-06 21:45:54,214 [INFO] Cached Location: Liverpool
+2026-01-06 21:45:54,215 [INFO] API Handler Initialized.
+2026-01-06 21:45:54,215 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:45:54,903 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:45:54,903 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:45:55,568 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:45:55,568 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:45:56,256 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:45:56,256 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:45:56,257 [INFO] Running Report Menu
+2026-01-06 21:45:56,869 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:45:56,870 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:45:56,871 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:00,572 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:46:00,573 [INFO] Detailed Table Report Generated
+2026-01-06 21:46:21,471 [INFO] Fetched query history for display
+2026-01-06 21:46:25,701 [INFO] Cached Location: Liverpool
+2026-01-06 21:46:25,701 [INFO] API Handler Initialized.
+2026-01-06 21:46:25,701 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:26,387 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:46:26,388 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:27,047 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:46:27,047 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:27,733 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:46:27,733 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:46:27,734 [INFO] Running Report Menu
+2026-01-06 21:46:28,248 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:46:28,248 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:28,248 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:33,587 [INFO] Fetched query history for display
+2026-01-06 21:46:40,338 [INFO] Cached Location: Liverpool
+2026-01-06 21:46:40,339 [INFO] API Handler Initialized.
+2026-01-06 21:46:40,339 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:41,013 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:46:41,013 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:41,697 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:46:41,698 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:46:42,387 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:46:42,387 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:46:42,389 [INFO] Running Report Menu
+2026-01-06 21:46:43,455 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:46:43,456 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:43,456 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:48,361 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:48,362 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:48,970 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:48,971 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:49,293 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:49,293 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:49,593 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:46:49,593 [INFO] Simple Analysis Report Generated
+2026-01-06 21:46:50,897 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:46:50,898 [INFO] Detailed Table Report Generated
+2026-01-06 21:46:52,658 [INFO] Detailed Table Report Generated
+2026-01-06 21:46:53,559 [INFO] Detailed Table Report Generated
+2026-01-06 21:46:54,000 [INFO] Detailed Table Report Generated
+2026-01-06 21:46:54,418 [INFO] Detailed Table Report Generated
+2026-01-06 21:47:47,963 [INFO] Fetched query history for display
+2026-01-06 21:47:55,014 [INFO] Cached Location: Liverpool
+2026-01-06 21:47:55,014 [INFO] API Handler Initialized.
+2026-01-06 21:47:55,014 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:47:55,736 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:47:55,736 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:47:56,417 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Liverpool/2026-01-06/2026-01-10?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:47:56,418 [INFO] Connecting to API for location Liverpool...
+2026-01-06 21:47:57,106 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:47:57,107 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:47:57,108 [INFO] Running Report Menu
+2026-01-06 21:47:58,022 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:47:58,022 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:47:58,023 [INFO] Simple Analysis Report Generated
+2026-01-06 21:48:00,255 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:48:00,256 [INFO] Simple Analysis Report Generated
+2026-01-06 21:48:00,926 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:48:00,927 [INFO] Simple Analysis Report Generated
+2026-01-06 21:48:01,218 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:48:01,219 [INFO] Simple Analysis Report Generated
+2026-01-06 21:48:01,450 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:48:01,450 [INFO] Simple Analysis Report Generated
+2026-01-06 21:48:02,892 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:48:02,894 [INFO] Detailed Table Report Generated
+2026-01-06 21:48:03,748 [INFO] Detailed Table Report Generated
+2026-01-06 21:48:04,063 [INFO] Detailed Table Report Generated
+2026-01-06 21:48:04,246 [INFO] Detailed Table Report Generated
+2026-01-06 21:48:04,487 [INFO] Detailed Table Report Generated
+2026-01-06 21:50:48,710 [INFO] Fetched query history for display
+2026-01-06 21:51:08,082 [INFO] Cached Location: Wigan
+2026-01-06 21:51:08,082 [INFO] Cached Date: 2026-01-05
+2026-01-06 21:51:08,082 [INFO] API Handler Initialized.
+2026-01-06 21:51:08,082 [INFO] Connecting to API for location Wigan...
+2026-01-06 21:51:08,596 [WARNING] Attempt with key ..9M4B failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Wigan/2026-01-05/2026-01-06?key=247BUSAAULFLBGWM7NVZ49M4B&include=hours
+2026-01-06 21:51:08,596 [INFO] Connecting to API for location Wigan...
+2026-01-06 21:51:09,070 [WARNING] Attempt with key ..C8MM failed: 429 Client Error:  for url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Wigan/2026-01-05/2026-01-06?key=U4QN48S3UU3XJ2C3LAK6TC8MM&include=hours
+2026-01-06 21:51:09,071 [INFO] Connecting to API for location Wigan...
+2026-01-06 21:51:09,586 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 21:51:09,586 [INFO] Success with Key ending in ..SVGM
+2026-01-06 21:51:09,587 [INFO] Running Report Menu
+2026-01-06 21:51:10,360 [INFO] User selected option 1 in Report Menu
+2026-01-06 21:51:10,361 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:51:10,361 [INFO] Simple Analysis Report Generated
+2026-01-06 21:51:11,113 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 21:51:11,113 [INFO] Simple Analysis Report Generated
+2026-01-06 21:51:12,865 [INFO] User selected option 2 in Report Menu
+2026-01-06 21:51:12,865 [INFO] Detailed Table Report Generated
+2026-01-06 21:51:13,161 [INFO] Detailed Table Report Generated
+2026-01-06 21:51:14,041 [INFO] User selected option 3 in Report Menu
+2026-01-06 21:51:14,041 [INFO] Validated and saved to reporting.csv
+2026-01-06 21:51:14,041 [INFO] Validated and saved to reporting.json
+2026-01-06 21:51:14,041 [INFO] Validated and saved to reporting.txt
+2026-01-06 21:51:14,041 [INFO] Validated and saved to reporting.csv
+2026-01-06 21:51:14,042 [INFO] Validated and saved to reporting.json
+2026-01-06 21:51:14,042 [INFO] Validated and saved to reporting.txt
+2026-01-06 21:51:14,369 [WARNING] Invalid input in Report Menu, retrying...
+2026-01-06 21:51:17,152 [INFO] User selected option 4 in Report Menu
+2026-01-06 21:51:17,153 [INFO] Fetched query history for display
+2026-01-06 21:54:19,087 [INFO] Fetched query history for display
+2026-01-06 21:54:29,981 [INFO] Fetched query history for display
+2026-01-06 21:54:39,311 [INFO] Fetched query history for display
+2026-01-06 21:54:53,389 [INFO] Fetched query history for display
+2026-01-06 21:55:05,164 [INFO] Fetched query history for display
