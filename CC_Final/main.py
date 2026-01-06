@@ -279,87 +279,6 @@ def save_report(data: dict) -> None:
     except Exception as err:
         LOG.warning(f'Error with saving to files: {err}')
 
-# --- CSV COMPARISON ---
-
-def compare_csv():
-    print("\n=== CSV COMPARISON ===")
-    try:
-        with open("reporting.csv","r",newline="") as f:
-            reader = csv.DictReader(f)
-            print("All current CSV data:")
-            i = 1
-            rows = []
-            for row in reader:
-                print(f"{i}. {row['location']}, {row['date']}, {row['avg_temp']}°C, {row['conditions']}")
-                rows.append(row)
-                i += 1
-                
-            if len(rows) < 2:
-                print("Not enough values to compare, please try again\n")
-                return
-
-            #First data point input
-            while True:
-                try: 
-                    first_data_point = int(input(f"\nPlease select first data point (1-{i-1})"))
-                    if 1 <= first_data_point <= i-1:
-                        break
-                    else:
-                        print("Invalid input, please try again\n")
-                except ValueError:
-                    print("Invalid input, please try again\n")
-
-            #Second data point input
-            while True:
-                try: 
-                    second_data_point = int(input(f"\nPlease select second data point (1-{i-1})"))
-                    if 1 <= second_data_point <= i-1:
-                        break
-                    elif first_data_point == second_data_point:
-                        print("Cannot compare identical data points\n")
-                    else:
-                        print("Invalid input, please try again\n")
-                except ValueError:
-                    print("Invalid input, please try again\n")
-            
-        row_1 = rows[first_data_point - 1]
-        row_2 = rows[second_data_point - 1]
-
-        location_1 = row_1.get("location")
-        location_2 = row_2.get("location")
-
-        avg_temp_1 = float(row_1.get("avg_temp"))
-        avg_temp_2 = float(row_2.get("avg_temp"))
-        temp_diff = avg_temp_1 - avg_temp_2
-
-        humidity_1 = float(row_1.get("humidity"))
-        humidity_2 = float(row_2.get("humidity"))
-        humidity_diff = humidity_1 - humidity_2
-
-        conditions_1 = row_1.get("conditions")
-        conditions_2 = row_2.get("conditions")
-
-        #Data Comparison Table
-        print("\n=== WEATHER COMPARISON ===\n")
-        print("{:<20}  {:<20}  {:<20}  {}".format("Data", "Row 1", "Row 2", "Difference"))
-        print("~" * 76)
-        print("{:<20}  {:<20}  {:<20}  {}".format("Location", location_1, location_2, "N/A"))
-        print("{:<20}  {:<20}  {:<20}  {}".format("Average Temp", 
-                "{:.2f}°C".format(avg_temp_1), "{:.2f}°C".format(avg_temp_2), "{:.2f}°C".format(temp_diff)))
-        print("{:<20}  {:<20}  {:<20}  {}".format("Humidity", "{:.0f}%".format(humidity_1),
-                "{:.0f}%".format(humidity_2), "{:.0f}%".format(humidity_diff)))
-
-        if conditions_1 == conditions_2:
-            print(f"\nConditions in {location_1} and {location_2} are the same: {conditions_1}")
-        else:
-            print(f"\nThe conditions in {location_1} are {conditions_1}.\nWhile the conditions in {location_2} are {conditions_2}")
-
-        input("\nPress Enter to return to menu")
-
-    except FileNotFoundError:
-        print("\nCSV file Not found, Please try again")
-
-
 # --- REPORTING FUNCTIONS ---
 
 def run_reports(data: dict, location: str, date_string: str):
@@ -393,8 +312,6 @@ def run_reports(data: dict, location: str, date_string: str):
             save_report(data)
         elif user_choice == "4":
             break
-        elif user_choice == "5":
-            compare_csv()
         else:
             print("\nInvalid choice, please try again.\n")
 
@@ -535,17 +452,9 @@ def display_detailed_report(data: dict) -> None:
 #function for generating a comparison report
 
 def display_comparison_report():
-    print("\n=== CSV COMPARISON ===")
     try:
         with open("reporting.csv","r",newline="") as f:
-            reader = csv.DictReader(f)
-            print("All current CSV data:")
-            i = 1
-            rows = []
-            for row in reader:
-                print(f"{i}. {row['location']}, {row['date']}, {row['avg_temp']}°C, {row['conditions']}")
-                rows.append(row)
-                i += 1
+            
                 
             if len(rows) < 2:
                 print("Not enough values to compare, please try again\n")
@@ -554,31 +463,31 @@ def display_comparison_report():
             #First data point input
             while True:
                 try: 
-                    first_data_point = int(comparison_file_1_entry.get())
+                    first_data_point = int(variable2.get())
                     if 1 <= first_data_point <= i-1:
                         break
                     else:
-                        print("Invalid input, please try again\n")
+                        pass
                 except ValueError:
-                    print("Invalid input, please try again\n")
+                    pass
                     break
 
             #Second data point input
             while True:
                 try: 
-                    second_data_point = int(comparison_file_2_entry.get())
+                    second_data_point = int(variable.get())
                     if 1 <= second_data_point <= i-1:
                         break
                     elif first_data_point == second_data_point:
                         print("Cannot compare identical data points\n")
-                    else:
-                        print("Invalid input, please try again\n")
                 except ValueError:
-                    print("Invalid input, please try again\n")
                     break
-            
-        row_1 = rows[first_data_point - 1]
-        row_2 = rows[second_data_point - 1]
+        
+        selected_1 = variable2.get()
+        selected_2 = variable.get()
+
+        row_1 = next(row for row in rows if f"{row['location']}, {row['date']}" == selected_1)
+        row_2 = next(row for row in rows if f"{row['location']}, {row['date']}" == selected_2)
 
         location_1 = row_1.get("location")
         location_2 = row_2.get("location")
@@ -595,24 +504,15 @@ def display_comparison_report():
         conditions_2 = row_2.get("conditions")
 
         #Data Comparison Table
-        print("\n=== WEATHER COMPARISON ===\n")
-        print("{:<20}  {:<20}  {:<20}  {}".format("Data", "Row 1", "Row 2", "Difference"))
-        print("~" * 76)
-        print("{:<20}  {:<20}  {:<20}  {}".format("Location", location_1, location_2, "N/A"))
-        print("{:<20}  {:<20}  {:<20}  {}".format("Average Temp", 
-                "{:.2f}°C".format(avg_temp_1), "{:.2f}°C".format(avg_temp_2), "{:.2f}°C".format(temp_diff)))
-        print("{:<20}  {:<20}  {:<20}  {}".format("Humidity", "{:.0f}%".format(humidity_1),
-                "{:.0f}%".format(humidity_2), "{:.0f}%".format(humidity_diff)))
+        messagebox.showinfo(title="Comparison Report", message="\n=== WEATHER COMPARISON ===\n"+"{:<20}  {:<20}  {:<20}  {}".format("Data", "Row 1", "Row 2", "Difference\n")+"~" * 76+"\n{:<20}  {:<20}  {:<20}  {}".format("Location", location_1, location_2, "N/A\n")+"{:<20}  {:<20}  {:<20}  {}".format("Average Temp", "{:.2f}°C".format(avg_temp_1), "{:.2f}°C".format(avg_temp_2), "{:.2f}°C".format(temp_diff))+"\n{:<20}  {:<20}  {:<20}  {}".format("Humidity", "{:.0f}%".format(humidity_1),"{:.0f}%".format(humidity_2), "{:.0f}%".format(humidity_diff)))
 
         if conditions_1 == conditions_2:
-            print(f"\nConditions in {location_1} and {location_2} are the same: {conditions_1}")
+            messagebox.showinfo(title="Comparison Report", message=f"\nConditions in {location_1} and {location_2} are the same: {conditions_1}")
         else:
-            print(f"\nThe conditions in {location_1} are {conditions_1}.\nWhile the conditions in {location_2} are {conditions_2}")
-
-        input("\nPress Enter to return to menu")
+            messagebox.showinfo(title = "Comparison Report", message=f"\nThe conditions in {location_1} are {conditions_1}.\nWhile the conditions in {location_2} are {conditions_2}")
 
     except FileNotFoundError:
-        print("\nCSV file Not found, Please try again")
+        messagebox.showerror(title="ERROR", message="\nCSV file Not found, Please try again")
 
 #function to add+arrange widgets and appropriate button when the user wishes to make a comparison
 
@@ -669,17 +569,16 @@ variable2.set("Please Select an Option")
 
 with open("reporting.csv","r",newline="") as f:
         reader = csv.DictReader(f)
-        print("All current CSV data:")
         i = 1
         rows = []
         for row in reader:
-            print(f"{i}. {row['location']}, {row['date']}")
             rows.append(row)
             i += 1
 
+options = [f"{row['location']}, {row['date']}" for row in rows]
 
-comparison_file_1_entry = OptionMenu(root, variable2, *rows)
-comparison_file_2_entry = OptionMenu(root, variable, *rows)
+comparison_file_1_entry = OptionMenu(root, variable2, *options)
+comparison_file_2_entry = OptionMenu(root, variable, *options)
 
 #creates button to generate report
 
