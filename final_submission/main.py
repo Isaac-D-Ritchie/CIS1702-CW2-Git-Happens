@@ -76,7 +76,7 @@ LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s'
 
 def validate_location(location: str) -> bool:
     """Validate location string against city list CSV."""
-    with open("worldcities.csv","r",newline="") as f:
+    with open("final_submission/worldcities.csv","r",newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
             if row['city'].lower() == location.lower():
@@ -282,8 +282,8 @@ def save_report(data: dict) -> None:
     
     try:
         # CSV SAVE
-        csvpresent = os.path.isfile('reporting.csv')
-        with open('reporting.csv', 'a', newline='') as f:
+        csvpresent = os.path.isfile('final_submission/reporting.csv')
+        with open('final_submission/reporting.csv', 'a', newline='') as f:
             writer = csv.DictWriter(f, fieldnames=report_fields.keys())
             if not csvpresent:
                 writer.writeheader()
@@ -291,13 +291,13 @@ def save_report(data: dict) -> None:
         LOG.info('Validated and saved to reporting.csv')
 
         # JSON SAVE
-        with open('reporting.json', 'a') as f:
+        with open('final_submission/reporting.json', 'a') as f:
             f.write(json.dumps(report_fields) + '\n')
         LOG.info('Validated and saved to reporting.json')
 
         # TXT SAVE
-        txtpresent = os.path.isfile('reporting.txt')
-        with open('reporting.txt', 'a') as f:
+        txtpresent = os.path.isfile('final_submission/reporting.txt')
+        with open('final_submission/reporting.txt', 'a') as f:
             if not txtpresent:
                 f.write("--- GIT HAPPENS WEATHER LOG START ---\n")
             
@@ -324,7 +324,7 @@ def compare_csv():
     print(title_print('CSV COMPARISON'))
     try:
         LOG.info("Starting CSV Comparison Function")
-        with open("reporting.csv","r",newline="") as f:
+        with open("final_submission/reporting.csv","r",newline="") as f:
             reader = csv.DictReader(f)
             print("All current CSV data:")
             i = 1
