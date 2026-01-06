@@ -4,3 +4,54 @@
 2026-01-06 13:58:28,898 [INFO] Fetched query history for display
 2026-01-06 13:58:46,428 [INFO] Fetched query history for display
 2026-01-06 14:01:13,697 [INFO] Fetched query history for display
+2026-01-06 14:03:58,859 [INFO] Fetched query history for display
+2026-01-06 14:04:06,382 [INFO] Cached Location: Liverpool
+2026-01-06 14:04:06,382 [INFO] API Handler Initialized.
+2026-01-06 14:04:06,382 [INFO] Connecting to API for location Liverpool...
+2026-01-06 14:04:07,194 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 14:04:07,194 [INFO] Success with Key ending in ..9M4B
+2026-01-06 14:04:07,195 [INFO] Running Report Menu
+2026-01-06 14:04:08,105 [INFO] User selected option 1 in Report Menu
+2026-01-06 14:04:08,105 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:04:08,109 [INFO] Simple Analysis Report Generated
+2026-01-06 14:04:25,058 [INFO] User selected option 4 in Report Menu
+2026-01-06 14:04:25,058 [INFO] Fetched query history for display
+2026-01-06 14:04:27,567 [WARNING] Location not found in : St Helens
+2026-01-06 14:04:27,567 [INFO] Fetched query history for display
+2026-01-06 14:05:34,376 [INFO] Cached Date: 2026-01-06
+2026-01-06 14:05:34,377 [INFO] API Handler Initialized.
+2026-01-06 14:05:34,377 [INFO] Connecting to API for location Liverpool...
+2026-01-06 14:05:35,182 [INFO] | JSON Recieved | Data Present and Formatted Correctly |
+2026-01-06 14:05:35,182 [INFO] Success with Key ending in ..9M4B
+2026-01-06 14:05:35,185 [INFO] Running Report Menu
+2026-01-06 14:05:39,198 [INFO] User selected option 1 in Report Menu
+2026-01-06 14:05:39,198 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:39,199 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:42,426 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:42,427 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:43,741 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:43,741 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:46,558 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:46,559 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:46,993 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:46,993 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:48,001 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:48,001 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:48,403 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:48,403 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:48,849 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:48,849 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:49,562 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:49,563 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:49,968 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:49,969 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:50,547 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:50,547 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:51,194 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:51,195 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:51,713 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:51,713 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:52,072 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:52,073 [INFO] Simple Analysis Report Generated
+2026-01-06 14:05:52,415 [INFO] Hourly breakdown available for this date, using hourly data
+2026-01-06 14:05:52,415 [INFO] Simple Analysis Report Generated
