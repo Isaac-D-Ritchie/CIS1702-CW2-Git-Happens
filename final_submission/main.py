@@ -72,11 +72,11 @@ STATUS_CODES = {
 }
 
 #adds the logging to log file, 'AppErrors.log'
-LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s', filename='AppErrors.log', filemode='a')
+LOG.basicConfig(level=LOG.INFO, format='%(asctime)s [%(levelname)s] %(message)s', filename='final_submission/AppErrors.log', filemode='a')
 
 def validate_location(location: str) -> bool:
     """Validate location string against city list CSV."""
-    with open("worldcities.csv","r",newline="") as f:
+    with open("final_submission/worldcities.csv","r",newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
             if row['city'].lower() == location.lower():

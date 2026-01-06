@@ -151,3 +151,8 @@
 2026-01-06 12:47:54,650 [INFO] User selected option 1 in Report Menu
 2026-01-06 12:47:54,651 [INFO] Hourly breakdown available for this date, using hourly data
 2026-01-06 12:47:54,651 [INFO] Simple Analysis Report Generated
+2026-01-06 12:53:07,002 [INFO] Fetched query history for display
+2026-01-06 12:53:08,984 [WARNING] Location not found in : asdasdasd
+2026-01-06 12:53:08,984 [INFO] Fetched query history for display
+2026-01-06 12:53:47,543 [WARNING] Location not found in : aaaa
+2026-01-06 12:53:47,543 [INFO] Fetched query history for display
