@@ -348,6 +348,7 @@ def compare_csv():
                     print("Invalid input, please try again\n")
                     LOG.warning(f"{err} for second data point in CSV comparison")
             
+        #Data Comparison variables
         row_1 = rows[first_data_point - 1]
         row_2 = rows[second_data_point - 1]
 
